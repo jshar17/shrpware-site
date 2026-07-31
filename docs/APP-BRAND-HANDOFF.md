@@ -24,7 +24,7 @@ splash screen.
 ## Identity rules
 
 - Company name in prose: **ShrpWare**
-- Full display wordmark: **SHRPWARE**
+- Full display wordmark: **SHRPWARE** followed by an oversized Angular S
 - Symbol name: **Angular S**
 - Tagline: **Apps with an edge.**
 - Canonical website: `https://shrpware.com`

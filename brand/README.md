@@ -3,7 +3,8 @@
 ## Primary identity
 
 - Name: ShrpWare
-- Wordmark: `SHRPWARE`, with `WARE` in acid green on dark backgrounds
+- Wordmark: `SHRPWARE`, with `SHRP` in acid green, `WARE` in paper, and the
+  oversized Angular S on the right on dark backgrounds
 - Symbol: Angular S
 - Tagline: Apps with an edge.
 
@@ -32,3 +33,7 @@ be interpreted as a reference to C#.
 Maintain clear space around the symbol equal to roughly one quarter of its
 width. Do not add the number sign, recolor individual symbol pieces, stretch the
 assets, or place the acid mark on a low-contrast background.
+
+The primary wordmark lockup must keep the same order and visual hierarchy as
+the social card: `SHRPWARE` first and an oversized Angular S on the right. Do
+not move a small Angular S to the left of the company name.

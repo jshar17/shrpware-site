@@ -1,6 +1,6 @@
-<svg width="260" height="56" viewBox="0 0 260 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(-4 0) scale(0.11)">
+<svg width="360" height="96" viewBox="0 0 360 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="61" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="-2.7"><tspan fill="#C7FF2F">SHRP</tspan><tspan fill="#F3F2EB">WARE</tspan></text>
+  <g transform="translate(260 0) scale(0.22)">
     <path d="M201 80H431L345 161H214L183 195L438 312L309 432H89L175 351H278L314 317L74 200L201 80Z" fill="#C7FF2F"/>
   </g>
-  <text x="50" y="37" fill="#F3F2EB" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="-1.8">SHRP<tspan fill="#C7FF2F">WARE</tspan></text>
 </svg>
