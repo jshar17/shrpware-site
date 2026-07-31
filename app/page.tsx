@@ -32,12 +32,12 @@ export default function Home() {
           <div className="product-stack" aria-label="ShrpWare app collection">
             <a className="stack-card stack-wave" href="/apps/waveplume">
               <img src="/apps/waveplume/icon.png" alt="WavePlume app icon" />
-              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume</strong></div>
+              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <a className="stack-card stack-delta" href="/apps/deltatxt">
               <img src="/apps/deltatxt/icon.png" alt="DeltaTxt app icon" />
-              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt</strong></div>
+              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <div className="stack-meta">
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="product-copy">
               <div className="product-title-line">
                 <img className="product-icon" src="/apps/waveplume/icon.png" alt="WavePlume icon" />
-                <div><p className="product-index">APP / 01</p><h3>WavePlume</h3></div>
+                <div><p className="product-index">APP / 01</p><h3>WavePlume<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Every wave becomes a word.</p>
               <p className="product-description">
@@ -81,7 +81,7 @@ export default function Home() {
             <div className="product-copy">
               <div className="product-title-line">
                 <img className="product-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
-                <div><p className="product-index">APP / 02</p><h3>DeltaTxt</h3></div>
+                <div><p className="product-index">APP / 02</p><h3>DeltaTxt<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Change, clearly.</p>
               <p className="product-description">

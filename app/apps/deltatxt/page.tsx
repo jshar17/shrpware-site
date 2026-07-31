@@ -13,7 +13,7 @@ export default function DeltaTxtPage() {
       <section className="product-hero">
         <div className="product-hero-copy">
           <p className="product-overline">SHRPWARE / APP 02</p><img className="hero-app-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
-          <h1>DeltaTxt</h1><p className="product-page-tagline">Change, clearly.</p>
+          <h1>DeltaTxt<sup className="trademark">™</sup></h1><p className="product-page-tagline">Change, clearly.</p>
           <p className="product-page-lede">A lightweight native editor for source code, very large logs, file comparison, merge work, and practical Python troubleshooting.</p>
           <div className="platform-row"><span>Windows edition</span><span>macOS preview</span><span>Development preview</span></div>
           <a className="button product-button" href="#features">Explore the workbench <span>↓</span></a>

@@ -19,7 +19,7 @@ export default function WavePlumePage() {
         <div className="product-hero-copy">
           <p className="product-overline">SHRPWARE / APP 01</p>
           <img className="hero-app-icon" src="/apps/waveplume/icon.png" alt="WavePlume icon" />
-          <h1>WavePlume</h1>
+          <h1>WavePlume<sup className="trademark">™</sup></h1>
           <p className="product-page-tagline">Every wave becomes a word.</p>
           <p className="product-page-lede">A private meeting recorder and transcriber that runs on your computer. No bot joins your call. Nothing is uploaded.</p>
           <div className="platform-row"><span>macOS 15+</span><span>Windows 10/11</span><span>In development</span></div>
