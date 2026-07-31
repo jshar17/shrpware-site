@@ -30,14 +30,14 @@ export default function Home() {
           </div>
 
           <div className="product-stack" aria-label="ShrpWare app collection">
-            <a className="stack-card stack-wave" href="/apps/wavequill">
-              <img src="/apps/wavequill/icon.png" alt="WaveQuill app icon" />
-              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WaveQuill</strong></div>
+            <a className="stack-card stack-wave" href="/apps/waveplume">
+              <img src="/apps/waveplume/icon.png" alt="WavePlume app icon" />
+              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <a className="stack-card stack-delta" href="/apps/deltatxt">
               <img src="/apps/deltatxt/icon.png" alt="DeltaTxt app icon" />
-              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt</strong></div>
+              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <div className="stack-meta">
@@ -58,21 +58,21 @@ export default function Home() {
           <article className="product-row wave-row">
             <div className="product-copy">
               <div className="product-title-line">
-                <img className="product-icon" src="/apps/wavequill/icon.png" alt="WaveQuill icon" />
-                <div><p className="product-index">APP / 01</p><h3>WaveQuill</h3></div>
+                <img className="product-icon" src="/apps/waveplume/icon.png" alt="WavePlume icon" />
+                <div><p className="product-index">APP / 01</p><h3>WavePlume<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Every wave becomes a word.</p>
               <p className="product-description">
                 Record meetings and turn them into searchable transcripts on your own computer.
                 No bot joins. Your recordings and transcripts stay with you.
               </p>
-              <ul className="feature-chips" aria-label="WaveQuill highlights">
+              <ul className="feature-chips" aria-label="WavePlume highlights">
                 <li>Local transcription</li><li>Mac + Windows</li><li>No account</li>
               </ul>
-              <a className="text-link" href="/apps/wavequill">Explore WaveQuill <span>→</span></a>
+              <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
             </div>
-            <a className="product-media wave-media" href="/apps/wavequill" aria-label="View WaveQuill">
-              <img src="/apps/wavequill/transcript.jpg" alt="WaveQuill locally generated meeting transcript" />
+            <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
+              <img src="/apps/waveplume/transcript.png" alt="WavePlume locally generated meeting transcript" />
               <span className="media-label">PRIVATE MEETING RECORDER</span>
             </a>
           </article>
@@ -81,7 +81,7 @@ export default function Home() {
             <div className="product-copy">
               <div className="product-title-line">
                 <img className="product-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
-                <div><p className="product-index">APP / 02</p><h3>DeltaTxt</h3></div>
+                <div><p className="product-index">APP / 02</p><h3>DeltaTxt<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Change, clearly.</p>
               <p className="product-description">
@@ -136,7 +136,7 @@ export default function Home() {
         <div className="container footer-inner">
           <Brand href="#top" />
           <p>© 2026 ShrpWare</p>
-          <div className="footer-links"><a href="/apps/wavequill">WaveQuill</a><a href="/apps/deltatxt">DeltaTxt</a></div>
+          <div className="footer-links"><a href="/apps/waveplume">WavePlume</a><a href="/apps/deltatxt">DeltaTxt</a></div>
         </div>
       </footer>
     </main>
