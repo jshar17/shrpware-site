@@ -1,7 +1,6 @@
 <svg width="260" height="56" viewBox="0 0 260 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(0 5) scale(0.09)">
-    <path d="M112 120H400L341 200H189L168 226H323L264 306H112L171 225L112 120Z" fill="#C7FF2F"/>
-    <path d="M171 304H323L344 278H189L248 198H400L341 279L400 392H112L171 304Z" fill="#C7FF2F" fill-opacity="0.9"/>
+  <g transform="translate(-4 0) scale(0.11)">
+    <path d="M201 80H431L345 161H214L183 195L438 312L309 432H89L175 351H278L314 317L74 200L201 80Z" fill="#C7FF2F"/>
   </g>
   <text x="50" y="37" fill="#F3F2EB" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="-1.8">SHRP<tspan fill="#C7FF2F">WARE</tspan></text>
 </svg>

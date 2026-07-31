@@ -4,11 +4,13 @@
 
 - Name: ShrpWare
 - Wordmark: `SHRPWARE`, with `WARE` in acid green on dark backgrounds
-- Symbol: Cut S
+- Symbol: Angular S
 - Tagline: Apps with an edge.
 
-The Cut S is the compact studio mark. The full ShrpWare wordmark should be used
-whenever the audience may not already know the company name. The retired
+The Angular S is a single continuous, sharp-edged ribbon derived from the mark
+on the ShrpWare social card. It is the compact studio mark. The full ShrpWare
+wordmark should be used whenever the audience may not already know the company
+name. The retired
 `SHRP#` treatment should not be used because it repeats the “sharp” idea and may
 be interpreted as a reference to C#.
 
