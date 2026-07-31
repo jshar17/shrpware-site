@@ -25,8 +25,8 @@ be interpreted as a reference to C#.
 
 - `public/brand/shrpware-wordmark.svg`: primary wordmark for dark backgrounds
 - `public/brand/shrpware-wordmark-dark.svg`: wordmark for light backgrounds
-- `public/brand/shrpware-mark.svg`: Cut S on a graphite field
-- `public/brand/shrpware-mark-transparent.svg`: transparent Cut S
+- `public/brand/shrpware-mark.svg`: Angular S on a graphite field
+- `public/brand/shrpware-mark-transparent.svg`: transparent Angular S
 - `public/favicon.svg`: browser icon
 
 Maintain clear space around the symbol equal to roughly one quarter of its
