@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Brand } from "../../Brand";
 
 export const metadata: Metadata = {
   title: "DeltaTxt — Change, clearly | ShrpWare",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function DeltaTxtPage() {
   return (
     <main className="product-page delta-page">
-      <header className="product-header"><a className="brand" href="/"><span>SHRP</span><span className="brand-mark">#</span></a><nav><a href="/">Store</a><a href="#features">Features</a><a href="#details">Details</a><a href="/apps/deltatxt/privacy">Privacy</a></nav></header>
+      <header className="product-header"><Brand /><nav><a href="/">Store</a><a href="#features">Features</a><a href="#details">Details</a><a href="/apps/deltatxt/privacy">Privacy</a></nav></header>
       <section className="product-hero">
         <div className="product-hero-copy">
           <p className="product-overline">SHRPWARE / APP 02</p><img className="hero-app-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />

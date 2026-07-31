@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "ShrpWare — Apps with an edge",
   description:
     "ShrpWare builds focused desktop software, including WaveQuill and DeltaTxt, with local control and less noise.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "ShrpWare — Apps with an edge",
     description:

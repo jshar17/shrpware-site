@@ -1,11 +1,11 @@
+import { Brand } from "./Brand";
+
 export default function Home() {
   return (
     <main className="store-shell">
       <header className="site-header">
         <div className="container header-inner">
-          <a className="brand" href="#top" aria-label="ShrpWare home">
-            <span>SHRP</span><span className="brand-mark">#</span>
-          </a>
+          <Brand href="#top" />
           <nav aria-label="Main navigation">
             <a href="#apps">Apps</a>
             <a href="#standard">Standard</a>
@@ -134,7 +134,7 @@ export default function Home() {
 
       <footer>
         <div className="container footer-inner">
-          <a className="brand" href="#top"><span>SHRP</span><span className="brand-mark">#</span></a>
+          <Brand href="#top" />
           <p>© 2026 ShrpWare</p>
           <div className="footer-links"><a href="/apps/wavequill">WaveQuill</a><a href="/apps/deltatxt">DeltaTxt</a></div>
         </div>

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { Brand } from "../../../Brand";
 
 export const metadata: Metadata = { title: "WaveQuill Privacy Policy | ShrpWare", description: "Privacy policy for WaveQuill." };
 
 export default function WaveQuillPrivacy() {
   return (
     <main className="legal-page wave-legal">
-      <header className="legal-header"><a className="brand" href="/"><span>SHRP</span><span className="brand-mark">#</span></a><nav><a href="/apps/wavequill">WaveQuill</a><a href="/apps/wavequill/support">Support</a></nav></header>
+      <header className="legal-header"><Brand /><nav><a href="/apps/wavequill">WaveQuill</a><a href="/apps/wavequill/support">Support</a></nav></header>
       <article className="legal-content">
         <p className="product-overline">WAVEQUILL / PRIVACY</p><h1>Privacy policy</h1><p className="effective-date">Effective July 25, 2026</p>
         <p className="legal-lede">WaveQuill is designed to keep meeting content on your computer. We do not operate an account, analytics, advertising, or cloud-storage service for the app.</p>

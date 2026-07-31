@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { Brand } from "../../../Brand";
 
 export const metadata: Metadata = { title: "WaveQuill Support | ShrpWare", description: "Support information for WaveQuill." };
 
 export default function WaveQuillSupport() {
   return (
     <main className="legal-page wave-legal">
-      <header className="legal-header"><a className="brand" href="/"><span>SHRP</span><span className="brand-mark">#</span></a><nav><a href="/apps/wavequill">WaveQuill</a><a href="/apps/wavequill/privacy">Privacy</a></nav></header>
+      <header className="legal-header"><Brand /><nav><a href="/apps/wavequill">WaveQuill</a><a href="/apps/wavequill/privacy">Privacy</a></nav></header>
       <article className="legal-content">
         <p className="product-overline">WAVEQUILL / SUPPORT</p><h1>How can we help?</h1>
         <p className="legal-lede">WaveQuill records meetings and transcribes them locally. For a question, bug report, or request, email <a href="mailto:wavequillsupport@gmail.com">wavequillsupport@gmail.com</a>.</p>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Brand } from "../../Brand";
 
 export const metadata: Metadata = {
   title: "WaveQuill — Private meeting recorder | ShrpWare",
@@ -9,7 +10,7 @@ export default function WaveQuillPage() {
   return (
     <main className="product-page wave-page">
       <header className="product-header">
-        <a className="brand" href="/"><span>SHRP</span><span className="brand-mark">#</span></a>
+        <Brand />
         <nav><a href="/">Store</a><a href="/apps/wavequill/support">Support</a><a href="/apps/wavequill/privacy">Privacy</a></nav>
       </header>
 

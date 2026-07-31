@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { Brand } from "../../../Brand";
 
 export const metadata: Metadata = { title: "DeltaTxt Privacy Notice | ShrpWare", description: "Privacy notice for DeltaTxt." };
 
 export default function DeltaTxtPrivacy() {
   return (
     <main className="legal-page delta-legal">
-      <header className="legal-header"><a className="brand" href="/"><span>SHRP</span><span className="brand-mark">#</span></a><nav><a href="/apps/deltatxt">DeltaTxt</a><a href="/">Store</a></nav></header>
+      <header className="legal-header"><Brand /><nav><a href="/apps/deltatxt">DeltaTxt</a><a href="/">Store</a></nav></header>
       <article className="legal-content">
         <p className="product-overline">DELTATXT / PRIVACY</p><h1>Privacy notice</h1><p className="effective-date">Effective July 30, 2026</p>
         <p className="legal-lede">DeltaTxt is designed as a local desktop application. It requires no account and includes no telemetry, analytics, advertising, or automatic crash-report submission.</p>
