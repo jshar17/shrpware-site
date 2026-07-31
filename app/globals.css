@@ -95,7 +95,8 @@ footer { color:#f2f3ee; background:var(--ink); }
 .delta-page .product-hero { background:radial-gradient(circle at 85% 15%,rgba(20,200,240,.26),transparent 32%),linear-gradient(145deg,#070b18,#0b1126 65%,#151d3e); }
 .product-overline { margin-bottom:22px; color:rgba(255,255,255,.6); font-size:.62rem; }
 .hero-app-icon { width:108px; height:108px; margin-bottom:24px; border-radius:23%; box-shadow:0 22px 55px rgba(0,0,0,.3); }
-.product-hero h1 { margin-bottom:8px; font-size:clamp(4rem,7vw,7rem); line-height:.9; letter-spacing:-.07em; }
+.product-hero h1 { margin-bottom:8px; font-size:clamp(4rem,7vw,7rem); line-height:.9; letter-spacing:-.07em; white-space:nowrap; }
+.product-hero h1 .trademark { margin-left:.1em; font-size:.24em; vertical-align:super; }
 .product-page-tagline { margin-bottom:26px; color:#fff; font-size:1.42rem; font-weight:800; }
 .product-page-lede { max-width:560px; margin-bottom:28px; color:rgba(255,255,255,.72); font-size:1.04rem; line-height:1.65; }
 .platform-row { margin-bottom:34px; display:flex; flex-wrap:wrap; gap:8px; }.platform-row span{padding:8px 10px;border:1px solid rgba(255,255,255,.22);font-size:.55rem}
