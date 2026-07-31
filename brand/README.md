@@ -8,8 +8,9 @@
 - Symbol: Angular S
 - Tagline: Apps with an edge.
 
-The Angular S is a single continuous, sharp-edged ribbon derived from the mark
-on the ShrpWare social card. It is the compact studio mark. The full ShrpWare
+The Angular S is formed from two interlocking, sharp-edged chevrons with a
+narrow diagonal gap. Its geometry is traced from the mark on the ShrpWare
+social card. It is the compact studio mark. The full ShrpWare
 wordmark should be used whenever the audience may not already know the company
 name. The retired
 `SHRP#` treatment should not be used because it repeats the “sharp” idea and may
