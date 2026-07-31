@@ -25,8 +25,8 @@ export default function WavePlumePage() {
           <div className="platform-row"><span>macOS 15+</span><span>Windows 10/11</span><span>In development</span></div>
           <a className="button product-button" href="#features">See how it works <span>↓</span></a>
         </div>
-        <div className="product-hero-media">
-          <img src="/apps/waveplume/ready.png" alt="WavePlume recording setup screen" />
+        <div className="product-hero-media wave-hero-media">
+          <img src="/apps/waveplume/hero-card.png" alt="WavePlume banner with the plume-wave mark and audio-wave ribbons" />
         </div>
       </section>
 

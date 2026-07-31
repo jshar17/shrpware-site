@@ -21,6 +21,14 @@ Use the assets in `public/brand/`:
 `public/og.png` is the ShrpWare link-sharing card. It is not an app icon or
 splash screen.
 
+## WavePlume asset package
+
+Use `public/apps/waveplume/app-assets/` for the approved WavePlume product
+artwork. `waveplume-icon-master.png` is the high-resolution source; `png/`
+contains ready-to-use raster sizes; `macOS/WavePlume.icns` and
+`windows/WavePlume.ico` are platform packages. `waveplume-hero-card.png` is a
+wide product banner, not an app icon.
+
 ## Identity rules
 
 - Company name in prose: **ShrpWare**
@@ -70,7 +78,8 @@ owner provides them.
 
 ## Completion checklist
 
-- The product icon remains unchanged.
+- WavePlume uses the approved plume-wave product icon, never the old waveform
+  or a literal quill.
 - The correct light/dark ShrpWare asset is used.
 - The wordmark is legible at the final rendered size.
 - Accessible text identifies ShrpWare where the logo is interactive.
