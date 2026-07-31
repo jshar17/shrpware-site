@@ -1,7 +1,7 @@
 # ShrpWare website
 
 Source for [shrpware.com](https://shrpware.com), the ShrpWare software studio
-site and product home for WaveQuill and DeltaTxt.
+site and product home for WavePlume and DeltaTxt.
 
 ## Current brand
 
@@ -17,7 +17,7 @@ ShrpWare company mark.
 
 ## Products
 
-- **WaveQuill** — private local meeting recording and transcription for macOS
+- **WavePlume** — private local meeting recording and transcription for macOS
   and Windows
 - **DeltaTxt** — a native editor for code, large logs, comparison, merge, and
   practical script troubleshooting

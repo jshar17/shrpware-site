@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://shrpware.com"),
   title: "ShrpWare — Apps with an edge",
   description:
-    "ShrpWare builds focused desktop software, including WaveQuill and DeltaTxt, with local control and less noise.",
+    "ShrpWare builds focused desktop software, including WavePlume and DeltaTxt, with local control and less noise.",
   icons: {
     icon: "/favicon.svg",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ShrpWare, WaveQuill, and DeltaTxt",
+        alt: "ShrpWare, WavePlume, and DeltaTxt",
       },
     ],
     type: "website",
