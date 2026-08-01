@@ -1,0 +1,22 @@
+# Builds the site on every PR and on pushes to main, so a broken change is caught
+# before anyone publishes. This ONLY builds — it never deploys. Publishing the live
+# site is a separate, owner-approved OpenAI Sites step (see the private runbook in
+# jshar17/shrpware-operations, docs/SHRPWARE_SITE_EDITING.md).
+name: build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
