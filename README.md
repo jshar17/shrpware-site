@@ -38,8 +38,15 @@ npm run build
 The project uses Vinext and is hosted by OpenAI Sites. Preserve
 `.openai/hosting.json`; GitHub Pages is not the production host.
 
-## Claude handoff
+## Assistant editing workflow
 
-Read [`CLAUDE.md`](CLAUDE.md) and
-[`docs/APP-BRAND-HANDOFF.md`](docs/APP-BRAND-HANDOFF.md) before applying the
-ShrpWare identity to either app.
+Claude, Codex, and local developers can edit this repository through the normal
+Git workflow; no ChatGPT-only shell or OpenAI Sites editor is required for source
+changes. Read [`CLAUDE.md`](CLAUDE.md) or [`AGENTS.md`](AGENTS.md) before editing,
+and read [`docs/APP-BRAND-HANDOFF.md`](docs/APP-BRAND-HANDOFF.md) before applying
+the ShrpWare identity to either app.
+
+When Node.js is available, validate with `npm ci` and `npm run build`. When it is
+not, open a draft pull request and wait for the repository's GitHub Actions build
+to pass. Publishing the validated source to the live site remains a separate,
+owner-approved OpenAI Sites step.

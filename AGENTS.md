@@ -16,6 +16,8 @@ Brand rules for this repo are in `CLAUDE.md` and `docs/APP-BRAND-HANDOFF.md`.
 
 - **This repo is public.** Never commit secrets, API tokens, `.env` files, or the private ops docs here.
 - Content is in `app/page.tsx` and `app/apps/<app>/page.tsx` (plus `/privacy`, `/support`); images in `public/apps/<app>/`; brand SVGs in `public/brand/` (reuse, don't redraw).
-- Run `npm run build` (Node 22.13+) before opening a PR. CI builds every PR (`.github/workflows/ci.yml`).
+- Source editing is normal Git work and can be done by Claude, Codex, or a local developer. It does not require a ChatGPT shell or the OpenAI Sites builder.
+- Run `npm run build` with Node 22.13+ when available. If the environment has no Node runtime, open a draft PR, disclose that the build was not run locally, and wait for the GitHub Actions build to pass before review or merge (`.github/workflows/ci.yml`).
 - **Publishing is a separate OpenAI Sites step and needs the owner's approval.** A GitHub merge does NOT update the live site.
+- An assistant without OpenAI Sites access should complete the validated Git/PR work and hand only the publishing step to an assistant with Sites access.
 - The support address is `support@shrpware.com`.
