@@ -42,7 +42,16 @@ export default function WavePlumePage() {
 
       <section className="screenshot-section">
         <div className="screenshot-copy"><p className="section-number">02 / TRANSCRIPT</p><h2>Click a timestamp.<br />Hear the moment.</h2><p>Search and correct a local transcript, then jump straight to the matching point in the recording.</p></div>
-        <img src="/apps/waveplume/transcript.jpg" alt="WavePlume transcript with linked timestamps" />
+        <div className="screenshot-gallery">
+          <figure>
+            <img src="/apps/waveplume/transcript.jpg" alt="WavePlume transcript in dark mode" />
+            <figcaption>Dark mode</figcaption>
+          </figure>
+          <figure>
+            <img src="/apps/waveplume/transcript-light.jpg" alt="WavePlume transcript in light mode" />
+            <figcaption>Light mode</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section className="product-cta">
