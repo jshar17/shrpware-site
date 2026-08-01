@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use this guide when adding ShrpWare publisher branding to WaveQuill or
+Use this guide when adding ShrpWare publisher branding to WavePlume or
 DeltaTxt. The goal is to make the apps visibly part of one studio while keeping
 each product recognizable on its own.
 
@@ -39,13 +39,13 @@ the mark from text characters.
 
 Good placements include:
 
-- About window: “WaveQuill by ShrpWare” or “DeltaTxt by ShrpWare”
+- About window: “WavePlume by ShrpWare” or “DeltaTxt by ShrpWare”
 - Publisher wordmark beneath the product name
 - Help or About link to `https://shrpware.com`
 - Installer/publisher artwork where platform guidelines allow it
 - Store listing publisher graphics and support links
 
-Do not replace the WaveQuill or DeltaTxt app icon with the Angular S. Do not
+Do not replace the WavePlume or DeltaTxt app icon with the Angular S. Do not
 make the studio mark larger than the product name in primary app screens.
 
 ## Platform notes
@@ -60,7 +60,7 @@ appearances and do not apply an additional mask to the transparent mark.
 
 ## Current public product positioning
 
-WaveQuill is presented as private local meeting recording and transcription
+WavePlume is presented as private local meeting recording and transcription
 for macOS and Windows. It is in development. DeltaTxt is presented as a native
 editor for code, large logs, comparison, merge, and script troubleshooting;
 its Windows edition is ahead of the active macOS preview.
