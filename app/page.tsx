@@ -72,7 +72,7 @@ export default function Home() {
               <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
             </div>
             <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
-              <img src="/apps/waveplume/transcript.png" alt="WavePlume locally generated meeting transcript" />
+              <img src="/apps/waveplume/transcript-dark.jpg" alt="WavePlume locally generated meeting transcript" />
               <span className="media-label">PRIVATE MEETING RECORDER</span>
             </a>
           </article>
