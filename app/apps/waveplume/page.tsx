@@ -55,8 +55,22 @@ export default function WavePlumePage() {
         </div>
       </section>
 
+      <section className="screenshot-section mac-screenshot-section">
+        <div className="screenshot-copy"><p className="section-number">03 / MACOS</p><h2>Capture the<br />conversation.</h2><p>The native Mac build brings the same local-first workflow to screen, app, window, and internal meeting audio capture — in both light and dark appearance.</p></div>
+        <div className="screenshot-gallery mac-screenshot-gallery">
+          <figure>
+            <img src="/apps/waveplume/app-assets/macOS/screenshots/win_ready_2880x1800.png" alt="WavePlume Mac record setup in light appearance" />
+            <figcaption>Record setup · Light appearance</figcaption>
+          </figure>
+          <figure>
+            <img src="/apps/waveplume/app-assets/macOS/screenshots/win_ready_dark_2880x1800.png" alt="WavePlume Mac record setup in dark appearance" />
+            <figcaption>Record setup · Dark appearance</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="product-cta">
-        <p className="section-number">03 / STATUS</p><h2>WavePlume is being prepared for release.</h2><p>Support and privacy documentation are already available while the app moves toward its first public version.</p>
+        <p className="section-number">04 / STATUS</p><h2>WavePlume is being prepared for release.</h2><p>Support and privacy documentation are already available while the app moves toward its first public version.</p>
         <div className="cta-links"><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
       </section>
       <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>
