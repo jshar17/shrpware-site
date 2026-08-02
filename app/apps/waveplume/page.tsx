@@ -42,15 +42,15 @@ export default function WavePlumePage() {
       </section>
 
       <section className="screenshot-section">
-        <div className="screenshot-copy"><p className="section-number">02 / TRANSCRIPT</p><h2>Click a timestamp.<br />Hear the moment.</h2><p>Search and correct a local transcript, then jump straight to the matching point in the recording.</p></div>
+        <div className="screenshot-copy"><p className="section-number">02 / TRANSCRIPT</p><h2>Click a timestamp.<br />Hear the moment.</h2><p>These are live WavePlume Windows captures using a dedicated demo transcript. Search, correct, and replay the exact moment without leaving the app.</p></div>
         <div className="screenshot-gallery">
           <figure>
-            <img src="/apps/waveplume/transcript-dark.jpg" alt="WavePlume transcript in dark mode" />
-            <figcaption>Dark mode</figcaption>
+            <img src="/apps/waveplume/transcript-windows-real.jpg" alt="Live WavePlume Windows transcript view with a demo transcript" />
+            <figcaption>Transcript view · Windows</figcaption>
           </figure>
           <figure>
-            <img src="/apps/waveplume/transcript-light.jpg" alt="WavePlume transcript in light mode" />
-            <figcaption>Light mode</figcaption>
+            <img src="/apps/waveplume/transcript-windows-editor-real.jpg" alt="Live WavePlume Windows transcript correction editor with a demo transcript" />
+            <figcaption>Correction editor · Windows</figcaption>
           </figure>
         </div>
       </section>
