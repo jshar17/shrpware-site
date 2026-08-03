@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "../../Brand";
 
+const APP_STORE_URL = "https://apps.apple.com/us/app/waveplume/id6797359772";
+
 export const metadata: Metadata = {
   title: "WavePlume™ — Private meeting recorder | ShrpWare",
   description: "Record meetings and create searchable transcripts locally on Mac and Windows. No bot, no account, no cloud upload.",
@@ -12,7 +14,7 @@ export default function WavePlumePage() {
     <main className="product-page wave-page">
       <header className="product-header">
         <Brand />
-        <nav><Link href="/">Store</Link><a href="/apps/waveplume/support">Support</a><a href="/apps/waveplume/privacy">Privacy</a></nav>
+        <nav><Link href="/">Store</Link><a href="/apps/waveplume/support">Support</a><a href="/apps/waveplume/privacy">Privacy</a><a href={APP_STORE_URL}>Mac App Store ↗</a></nav>
       </header>
 
       <section className="product-hero">
@@ -22,8 +24,8 @@ export default function WavePlumePage() {
           <h1>WavePlume<sup className="trademark">™</sup></h1>
           <p className="product-page-tagline">Every wave becomes a word.</p>
           <p className="product-page-lede">A private meeting recorder and transcriber that runs on your computer. No bot joins your call. Nothing is uploaded.</p>
-          <div className="platform-row"><span>macOS 15+</span><span>Windows 10/11</span><span>In development</span></div>
-          <a className="button product-button" href="#features">See how it works <span>↓</span></a>
+          <div className="platform-row"><span>macOS 15+</span><span>Windows 10/11</span><span>Submitted for App Review</span></div>
+          <div className="hero-actions"><a className="button product-button" href={APP_STORE_URL}>Mac App Store ↗</a><a className="button product-button" href="#features">See how it works <span>↓</span></a></div>
         </div>
         <div className="product-hero-media wave-hero-media">
           <img src="/apps/waveplume/hero-card.png" alt="WavePlume banner with the plume-wave mark and audio-wave ribbons" />
@@ -70,8 +72,8 @@ export default function WavePlumePage() {
       </section>
 
       <section className="product-cta">
-        <p className="section-number">04 / STATUS</p><h2>WavePlume is being prepared for release.</h2><p>Support and privacy documentation are already available while the app moves toward its first public version.</p>
-        <div className="cta-links"><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
+        <p className="section-number">04 / APP STORE</p><h2>WavePlume 1.2.2 is submitted for review.</h2><p>The Mac App Store listing is ready with the current screenshots, privacy details, and local-first product description. Availability begins after Apple completes review and the release is approved.</p>
+        <div className="cta-links"><a href={APP_STORE_URL}>View on the Mac App Store ↗</a><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
       </section>
       <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>
     </main>
