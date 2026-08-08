@@ -31,7 +31,7 @@ export default function Home() {
 
           <div className="product-stack" aria-label="ShrpWare app collection">
             <a className="stack-card stack-wave" href="/apps/waveplume">
-              <img src="/apps/waveplume/icon.png" alt="WavePlume app icon" />
+              <img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume app icon" width="128" height="128" />
               <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
@@ -58,7 +58,7 @@ export default function Home() {
           <article className="product-row wave-row">
             <div className="product-copy">
               <div className="product-title-line">
-                <img className="product-icon" src="/apps/waveplume/icon.png" alt="WavePlume icon" />
+                <img className="product-icon" src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume icon" width="128" height="128" loading="lazy" decoding="async" />
                 <div><p className="product-index">APP / 01</p><h3>WavePlume<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Every wave becomes a word.</p>
@@ -72,7 +72,7 @@ export default function Home() {
               <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
             </div>
             <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
-              <img src="/apps/waveplume/transcript-windows-real.jpg" alt="Live WavePlume Windows transcript view with a demo transcript" />
+              <img src="/apps/waveplume/transcript-windows-real.jpg" alt="Live WavePlume Windows transcript view with a demo transcript" loading="lazy" decoding="async" />
               <span className="media-label">PRIVATE MEETING RECORDER</span>
             </a>
           </article>
