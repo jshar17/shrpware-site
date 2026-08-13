@@ -35,8 +35,9 @@ npm run dev
 npm run build
 ```
 
-The project uses Vinext and is hosted by OpenAI Sites. Preserve
-`.openai/hosting.json`; GitHub Pages is not the production host.
+The project uses Vinext and runs as a Cloudflare Worker. **Merging to `main`
+deploys the live site** via `.github/workflows/deploy.yml` — there is no separate
+publish step. See [`AGENTS.md`](AGENTS.md) for the full workflow.
 
 ## Claude handoff
 
