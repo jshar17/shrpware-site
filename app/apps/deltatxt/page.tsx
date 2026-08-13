@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "../../Brand";
 
+const DOWNLOAD_URL = "https://github.com/jshar17/shrpware-site/releases/download/deltatxt-v0.3.0/DeltaTxt-0.3.0-setup.exe";
+
 const GALLERY = [
   {
     src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp",
@@ -120,7 +122,7 @@ export default function DeltaTxtPage() {
           </div>
           <div className="hero-actions">
             <a className="button product-button" href="#tour">See DeltaTxt <span>↓</span></a>
-            <a className="button product-button" href="#availability">Free download details <span>↓</span></a>
+            <a className="button product-button" href="#availability">Download free <span>↓</span></a>
           </div>
         </div>
         <div className="product-hero-media delta-hero-art">
@@ -196,10 +198,17 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="product-cta" id="availability">
+      <section className="trial-section" id="availability">
         <p className="section-number">06 / AVAILABILITY</p>
-        <h2>DeltaTxt will be free to download.</h2>
-        <p>The Windows freeware installer is being packaged and tested now. No trial clock, account, subscription, advertising, or telemetry. The download link will appear here as soon as the installer is ready.</p>
+        <h2>DeltaTxt is free to download.</h2>
+        <p className="trial-lede">Download DeltaTxt for Windows and start editing, comparing, and troubleshooting right away. No trial clock, account, subscription, advertising, or telemetry.</p>
+        <a className="trial-download" href={DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download DeltaTxt free</a>
+        <p className="trial-meta">Windows 10/11 · x64 · v0.3.0 · 70 MB · Freeware</p>
+        <ol className="trial-steps">
+          <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
+          <li><b>2</b><p><strong>If “Windows protected your PC” appears,</strong> DeltaTxt isn’t code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></li>
+          <li><b>3</b><p><strong>Open a file or compare two.</strong> Everything runs locally — no account, telemetry, or cloud upload.</p></li>
+        </ol>
         <div className="cta-links"><a href="/apps/deltatxt/privacy">Read the privacy notice →</a></div>
       </section>
 

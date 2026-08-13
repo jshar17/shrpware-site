@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             <a className="product-media delta-media" href="/apps/deltatxt" aria-label="View DeltaTxt">
               <img src="/apps/deltatxt/gallery/windows-compare-clearly.webp" alt="DeltaTxt file comparison with the headline See every change. Merge with confidence" width="1920" height="1080" loading="lazy" decoding="async" />
-              <span className="media-label">FREEWARE · DOWNLOAD COMING SOON</span>
+              <span className="media-label">FREEWARE · FREE DOWNLOAD</span>
             </a>
           </article>
         </div>
