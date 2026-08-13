@@ -60,6 +60,12 @@ const SOFTWARE_APPLICATION_SCHEMA = {
   image: "https://shrpware.com/apps/waveplume/gallery/windows-record-private.webp",
   downloadUrl: MICROSOFT_STORE_URL,
   softwareRequirements: "Windows 10 build 19041 or later, or macOS 15 or later",
+  offers: {
+    "@type": "Offer",
+    price: "14.99",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+  },
   featureList: [
     "System audio, microphone, screen, window, and audio-only recording",
     "On-device Whisper transcription",
@@ -116,7 +122,7 @@ export default function WavePlumePage() {
       {TRIAL_DOWNLOAD_URL && <section className="trial-section" id="download">
         <p className="section-number">03 / TRY IT FREE</p>
         <h2>Try WavePlume free on Windows for 14 days.</h2>
-        <p className="trial-lede">Download the trial for Windows and record and transcribe meetings locally on your PC — no account, no meeting bot, no cloud upload. After 14 days, keep WavePlume by getting the full version. On Mac, WavePlume is a one-time purchase on the Mac App Store.</p>
+        <p className="trial-lede">Download the trial for Windows and record and transcribe meetings locally on your PC — no account, no meeting bot, no cloud upload. After 14 days, keep WavePlume with a $14.99 one-time purchase from the Microsoft Store. On Mac, WavePlume is a $14.99 one-time purchase on the Mac App Store.</p>
         <a className="trial-download" href={TRIAL_DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download free trial</a>
         <p className="trial-meta">Windows 10/11 · x64 · v1.2.4 · 92 MB · Free 14-day trial</p>
         <ol className="trial-steps">
@@ -128,8 +134,8 @@ export default function WavePlumePage() {
       </section>}
 
       <section className="product-cta">
-        <p className="section-number">04 / GET WAVEPLUME</p><h2>Get WavePlume for Mac or Windows.</h2><p>On Mac, WavePlume is $14.99 on the Mac App Store — a one-time purchase, not a subscription. On Windows, install from the Microsoft Store. Both record meetings and create searchable transcripts locally, with no meeting bot, account, or cloud upload.</p>
-        <p className="trial-meta">Mac App Store price is US pricing; local prices vary. WavePlume for Mac is not currently sold in EU territories.</p>
+        <p className="section-number">04 / GET WAVEPLUME</p><h2>Get WavePlume for Mac or Windows.</h2><p>WavePlume is $14.99 on both platforms — a one-time purchase, not a subscription. Buy it on the Mac App Store or the Microsoft Store, or try it free on Windows for 14 days first. Both record meetings and create searchable transcripts locally, with no meeting bot, account, or cloud upload.</p>
+        <p className="trial-meta">$14.99 is US pricing; local prices vary. WavePlume for Mac is not currently sold in EU territories.</p>
         <div className="cta-links"><a href={MAC_APP_STORE_URL} target="_blank" rel="noreferrer">Get it on the Mac App Store ↗</a><a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Get it from Microsoft ↗</a><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
       </section>
       <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>

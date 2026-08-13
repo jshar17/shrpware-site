@@ -54,7 +54,20 @@ test("renders the current WavePlume release and valid purchase path", async () =
   assert.match(html, /apps\.apple\.com\/us\/app\/waveplume\/id6797359772/i);
   assert.match(html, /windows-record-private\.webp/);
   assert.match(html, /application\/ld\+json/);
+  assert.match(html, /\$14\.99/);
   assert.doesNotMatch(html, /submitted for review|Release in preparation|Windows 10\/11 · Preview|OWNER\/REPO/i);
+  // WavePlume is $14.99 on both stores. Only the 14-day Windows trial is free,
+  // and it is a direct download, not the Store listing.
+  assert.doesNotMatch(html, /free for Windows|free from the Microsoft Store|available free/i);
+});
+
+test("states the same price on the support page as the product page", async () => {
+  const response = await render("/apps/waveplume/support");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /\$14\.99/);
+  assert.doesNotMatch(html, /free for Windows|free from the Microsoft Store|available free/i);
 });
 
 test("redirects the legacy privacy.html URL that App Store Connect has on file", async () => {
