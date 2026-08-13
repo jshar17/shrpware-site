@@ -22,7 +22,7 @@ export default function WavePlumeSupport() {
         <h3>Where are my recordings?</h3><p>The recording setup shows the active library. Choose another folder from Settings or the File menu; external drives are supported.</p>
         <h3>Transcript looks wrong?</h3><p>Transcripts come from a Whisper speech model running locally. Try a higher transcription quality, correct the text in WavePlume, and check the recording before relying on a transcript.</p>
         <h3>Transcription will not start?</h3><p>The first use of a quality level downloads its Whisper model. Connect once or download the model ahead of time in Settings; transcription works offline after the model is present.</p>
-        <h2>Install the Windows app</h2><p>WavePlume is available free from the <a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Microsoft Store</a>. Store installation keeps updates and Windows app identity in one place.</p>
+        <h2>Install the Windows app</h2><p>WavePlume is $14.99 from the <a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Microsoft Store</a>, a one-time purchase. Store installation keeps updates and Windows app identity in one place. A free 14-day trial is also available from the <a href="/apps/waveplume">product page</a>.</p>
         <h2>Recording responsibility</h2><p>Recording laws vary. Tell participants when recording is active and obtain any consent required by law, workplace policy, contract, or the meeting service.</p>
         <h2>Your data</h2><p>Recordings, transcripts, and meeting names stay on your computer. There is no WavePlume account or cloud storage service. Read the <a href="/apps/waveplume/privacy">privacy policy</a> for details.</p>
       </article>
