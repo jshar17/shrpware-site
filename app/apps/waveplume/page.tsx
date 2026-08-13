@@ -5,9 +5,7 @@ import { WavePlumeGallery } from "./WavePlumeGallery";
 
 const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US";
 
-// Set this only after the Windows trial installer has a real public URL.
-// The prepared trial section remains hidden until that release asset exists.
-const TRIAL_DOWNLOAD_URL: string | null = null;
+const TRIAL_DOWNLOAD_URL = "https://github.com/jshar17/shrpware-site/releases/download/waveplume-trial-v1.2.4/WavePlume-Trial-1.2.4-Setup.exe";
 
 export const metadata: Metadata = {
   title: "WavePlume™ — Private Meeting Recorder & Offline Transcription",
@@ -117,7 +115,7 @@ export default function WavePlumePage() {
         <h2>Try WavePlume free for 14 days.</h2>
         <p className="trial-lede">Download the trial for Windows and record and transcribe meetings locally on your PC — no account, no meeting bot, no cloud upload. After 14 days, keep WavePlume by getting the full version.</p>
         <a className="trial-download" href={TRIAL_DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download free trial</a>
-        <p className="trial-meta">Windows 10/11 · 64-bit · Free 14-day trial</p>
+        <p className="trial-meta">Windows 10/11 · x64 · v1.2.4 · 92 MB · Free 14-day trial</p>
         <ol className="trial-steps">
           <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
           <li><b>2</b><p><strong>If “Windows protected your PC” appears,</strong> the trial isn’t code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></li>

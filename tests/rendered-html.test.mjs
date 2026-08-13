@@ -45,10 +45,12 @@ test("renders the current WavePlume release and valid purchase path", async () =
 
   const html = await response.text();
   assert.match(html, /Download WavePlume free for Windows/);
+  assert.match(html, /Download free trial/);
+  assert.match(html, /releases\/download\/waveplume-trial-v1\.2\.4\/WavePlume-Trial-1\.2\.4-Setup\.exe/i);
   assert.match(html, /apps\.microsoft\.com\/detail\/9p6h8n3vjxbx/i);
   assert.match(html, /windows-record-private\.webp/);
   assert.match(html, /application\/ld\+json/);
-  assert.doesNotMatch(html, /apps\.apple\.com|submitted for review|Windows 10\/11 · Preview|OWNER\/REPO|Download free trial/i);
+  assert.doesNotMatch(html, /apps\.apple\.com|submitted for review|Windows 10\/11 · Preview|OWNER\/REPO/i);
 });
 
 test("ships the SEO discovery routes and product artwork", async () => {
