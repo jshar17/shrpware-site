@@ -5,7 +5,7 @@ import { WavePlumeGallery } from "./WavePlumeGallery";
 
 const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US";
 
-const TRIAL_DOWNLOAD_URL = "https://github.com/jshar17/shrpware-site/releases/download/waveplume-trial-v1.2.4/WavePlume-Trial-1.2.4-Setup.exe";
+const TRIAL_DOWNLOAD_URL = "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/waveplume/WavePlume-Trial-1.2.4-Setup.exe";
 
 const MAC_APP_STORE_URL = "https://apps.apple.com/us/app/waveplume/id6797359772";
 
