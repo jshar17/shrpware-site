@@ -6,12 +6,15 @@ export const metadata: Metadata = {
   applicationName: "ShrpWare",
   title: "ShrpWare — Private, local-first desktop apps",
   description:
-    "ShrpWare builds focused desktop software, including WavePlume for private meeting recording and local transcription.",
+    "ShrpWare builds focused local-first desktop software, including WavePlume for private meeting transcription and DeltaTxt, a free native text editor and diff tool.",
   keywords: [
     "ShrpWare",
     "WavePlume",
     "private meeting recorder",
     "offline transcription",
+    "DeltaTxt",
+    "free Windows text editor",
+    "file comparison tool",
     "Windows desktop apps",
     "local-first software",
   ],

@@ -37,7 +37,7 @@ export default function Home() {
             </a>
             <a className="stack-card stack-delta" href="/apps/deltatxt">
               <img src="/apps/deltatxt/icon.png" alt="DeltaTxt app icon" />
-              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
+              <div><span>02 / WINDOWS · FREEWARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <div className="stack-meta">
@@ -88,24 +88,17 @@ export default function Home() {
               </div>
               <p className="product-tagline">Change, clearly.</p>
               <p className="product-description">
-                A lightweight native editor for source code, very large logs, file comparison,
-                merge work, and practical Python troubleshooting.
+                A free native editor for source code, large logs, file comparison,
+                merge work, workspace search, and practical Python troubleshooting.
               </p>
               <ul className="feature-chips" aria-label="DeltaTxt highlights">
-                <li>Large-file tools</li><li>Compare + merge</li><li>Python debug</li>
+                <li>Freeware</li><li>Large-file tools</li><li>Compare + merge</li>
               </ul>
               <a className="text-link" href="/apps/deltatxt">Explore DeltaTxt <span>→</span></a>
             </div>
             <a className="product-media delta-media" href="/apps/deltatxt" aria-label="View DeltaTxt">
-              <div className="code-window" aria-hidden="true">
-                <div className="code-top"><span /><span /><span /><b>release-notes.md — DeltaTxt</b></div>
-                <div className="code-body">
-                  <ol><li><i>const</i> change = <em>compare</em>(left, right);</li><li></li><li><i>if</i> (change.isClear) &#123;</li><li className="added">+ shipWithConfidence();</li><li className="removed">- guessWhatChanged();</li><li>&#125;</li></ol>
-                  <div className="code-map"><span /><span /><span /><span /><span /><span /></div>
-                </div>
-                <div className="code-status"><span>UTF-8</span><span>LF</span><span>Python 3.12</span></div>
-              </div>
-              <span className="media-label">EDITOR + DIFF WORKBENCH</span>
+              <img src="/apps/deltatxt/gallery/windows-compare-clearly.webp" alt="DeltaTxt file comparison with the headline See every change. Merge with confidence" width="1920" height="1080" loading="lazy" decoding="async" />
+              <span className="media-label">FREEWARE · DOWNLOAD COMING SOON</span>
             </a>
           </article>
         </div>

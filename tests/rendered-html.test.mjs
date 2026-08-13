@@ -36,6 +36,8 @@ test("renders the ShrpWare product homepage", async () => {
   assert.match(html, /WavePlume/);
   assert.match(html, /Get for Windows/);
   assert.match(html, /windows-searchable-transcripts\.webp/);
+  assert.match(html, /windows-compare-clearly\.webp/);
+  assert.match(html, /FREEWARE/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
@@ -53,6 +55,18 @@ test("renders the current WavePlume release and valid purchase path", async () =
   assert.doesNotMatch(html, /apps\.apple\.com|submitted for review|Windows 10\/11 · Preview|OWNER\/REPO/i);
 });
 
+test("renders DeltaTxt as freeware without a dead download", async () => {
+  const response = await render("/apps/deltatxt");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Freeware/i);
+  assert.match(html, /free to download/i);
+  assert.match(html, /windows-compare-clearly\.webp/);
+  assert.match(html, /application\/ld\+json/);
+  assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);
+});
+
 test("ships the SEO discovery routes and product artwork", async () => {
   await Promise.all([
     access(new URL("app/robots.ts", projectRoot)),
@@ -62,5 +76,9 @@ test("ships the SEO discovery routes and product artwork", async () => {
     access(new URL("public/apps/waveplume/gallery/windows-record-private.webp", projectRoot)),
     access(new URL("public/apps/waveplume/gallery/windows-searchable-transcripts.webp", projectRoot)),
     access(new URL("public/apps/waveplume/gallery/windows-your-folders.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/hero-workbench.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-code-without-overhead.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-compare-clearly.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-search-workspace.webp", projectRoot)),
   ]);
 });
