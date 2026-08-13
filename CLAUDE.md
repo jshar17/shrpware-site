@@ -13,9 +13,9 @@ Before changing the website or carrying assets into WavePlume or DeltaTxt:
 5. Do not restore `SHRP#`, add Hurst/Texas copy, or invent pricing, downloads,
    release dates, platform support, or product capabilities.
 
-For website work, preserve the current Vinext architecture and
-`.openai/hosting.json`. Run `npm run build` before handing changes back. The
-production site is hosted by OpenAI Sites, not GitHub Pages.
+For website work, preserve the current Vinext architecture. Run `npm test` before
+handing changes back. The production site runs as a Cloudflare Worker and deploys
+automatically when `main` is merged — see `AGENTS.md`.
 
 When updating an app repository, copy only the needed brand assets and record
 their source and date in that repository. Prefer a small About-screen or
