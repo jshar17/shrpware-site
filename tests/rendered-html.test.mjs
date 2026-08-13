@@ -49,7 +49,7 @@ test("renders the current WavePlume release and valid purchase path", async () =
   const html = await response.text();
   assert.match(html, /Get WavePlume for Mac or Windows/);
   assert.match(html, /Download free trial/);
-  assert.match(html, /releases\/download\/waveplume-trial-v1\.2\.4\/WavePlume-Trial-1\.2\.4-Setup\.exe/i);
+  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/waveplume\/WavePlume-Trial-1\.2\.4-Setup\.exe/i);
   assert.match(html, /apps\.microsoft\.com\/detail\/9p6h8n3vjxbx/i);
   assert.match(html, /apps\.apple\.com\/us\/app\/waveplume\/id6797359772/i);
   assert.match(html, /windows-record-private\.webp/);
@@ -83,6 +83,7 @@ test("renders DeltaTxt as freeware without a dead download", async () => {
   const html = await response.text();
   assert.match(html, /Freeware/i);
   assert.match(html, /free to download/i);
+  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/deltatxt\/DeltaTxt-0\.3\.0-setup\.exe/i);
   assert.match(html, /windows-compare-clearly\.webp/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);

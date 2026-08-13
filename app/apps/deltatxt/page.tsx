@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "../../Brand";
 
-const DOWNLOAD_URL = "https://github.com/jshar17/shrpware-site/releases/download/deltatxt-v0.3.0/DeltaTxt-0.3.0-setup.exe";
+const DOWNLOAD_URL = "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.0-setup.exe";
 
 const GALLERY = [
   {
