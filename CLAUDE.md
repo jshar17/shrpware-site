@@ -1,21 +1,7 @@
 # Claude project instructions
 
-This repository is the **public** source of truth for the ShrpWare company identity and
-public product descriptions (the shrpware.com website, on OpenAI Sites).
-
-## Read the private runbook first
-
-Before changing site content, styling, metadata, routes, images, or deploy configuration,
-read the **private** operations repo `jshar17/shrpware-operations`:
-
-- `docs/SHRPWARE_SITE_EDITING.md` — how to edit and publish the site. Start here.
-- `docs/SHRPWARE_DOMAIN_RUNBOOK.md` — Cloudflare DNS and Apple iCloud+ email; don't touch for content work.
-
-This repo is public: **never commit secrets, tokens, `.env` files, or the private ops docs here.**
-**Publishing is a separate OpenAI Sites step that needs the owner's approval** — a GitHub merge
-does not update the live site. Run `npm run build` (Node 22.13+) before a PR; CI builds every PR.
-
-## Brand and content rules
+This repository is the source of truth for the ShrpWare company identity and
+public product descriptions.
 
 Before changing the website or carrying assets into WavePlume or DeltaTxt:
 

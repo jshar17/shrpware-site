@@ -31,13 +31,13 @@ export default function Home() {
 
           <div className="product-stack" aria-label="ShrpWare app collection">
             <a className="stack-card stack-wave" href="/apps/waveplume">
-              <img src="/apps/waveplume/icon.png" alt="WavePlume app icon" />
-              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume</strong></div>
+              <img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume app icon" width="128" height="128" />
+              <div><span>01 / MAC + WINDOWS · AVAILABLE NOW</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <a className="stack-card stack-delta" href="/apps/deltatxt">
               <img src="/apps/deltatxt/icon.png" alt="DeltaTxt app icon" />
-              <div><span>02 / EDIT + COMPARE</span><strong>DeltaTxt</strong></div>
+              <div><span>02 / WINDOWS · FREEWARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <div className="stack-meta">
@@ -58,22 +58,26 @@ export default function Home() {
           <article className="product-row wave-row">
             <div className="product-copy">
               <div className="product-title-line">
-                <img className="product-icon" src="/apps/waveplume/icon.png" alt="WavePlume icon" />
-                <div><p className="product-index">APP / 01</p><h3>WavePlume</h3></div>
+                <img className="product-icon" src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume icon" width="128" height="128" loading="lazy" decoding="async" />
+                <div><p className="product-index">APP / 01</p><h3>WavePlume<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Every wave becomes a word.</p>
               <p className="product-description">
-                Record meetings and turn them into searchable transcripts on your own computer.
-                No bot joins. Your recordings and transcripts stay with you.
+                Capture system audio, microphone, and screen, then create searchable
+                transcripts locally with Whisper. No bot joins and nothing uploads.
               </p>
               <ul className="feature-chips" aria-label="WavePlume highlights">
-                <li>Local transcription</li><li>Mac + Windows</li><li>No account</li>
+                <li>Mac + Windows</li><li>Local Whisper</li><li>No cloud upload</li>
               </ul>
-              <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
+              <div className="product-links">
+                <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
+                <a className="text-link product-store-link" href="https://apps.apple.com/us/app/waveplume/id6797359772" target="_blank" rel="noreferrer">Get for Mac <span>↗</span></a>
+                <a className="text-link product-store-link" href="https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&amp;gl=US" target="_blank" rel="noreferrer">Get for Windows <span>↗</span></a>
+              </div>
             </div>
             <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
-              <img src="/apps/waveplume/transcript.jpg" alt="WavePlume locally generated meeting transcript" />
-              <span className="media-label">PRIVATE MEETING RECORDER</span>
+              <img src="/apps/waveplume/gallery/windows-searchable-transcripts.webp" alt="WavePlume Windows transcript with the headline Every word becomes searchable" width="1920" height="1080" loading="lazy" decoding="async" />
+              <span className="media-label">ON THE MAC APP STORE + MICROSOFT STORE</span>
             </a>
           </article>
 
@@ -81,28 +85,21 @@ export default function Home() {
             <div className="product-copy">
               <div className="product-title-line">
                 <img className="product-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
-                <div><p className="product-index">APP / 02</p><h3>DeltaTxt</h3></div>
+                <div><p className="product-index">APP / 02</p><h3>DeltaTxt<sup className="trademark">™</sup></h3></div>
               </div>
               <p className="product-tagline">Change, clearly.</p>
               <p className="product-description">
-                A lightweight native editor for source code, very large logs, file comparison,
-                merge work, and practical Python troubleshooting.
+                A free native editor for source code, large logs, file comparison,
+                merge work, workspace search, and practical Python troubleshooting.
               </p>
               <ul className="feature-chips" aria-label="DeltaTxt highlights">
-                <li>Large-file tools</li><li>Compare + merge</li><li>Python debug</li>
+                <li>Freeware</li><li>Large-file tools</li><li>Compare + merge</li>
               </ul>
               <a className="text-link" href="/apps/deltatxt">Explore DeltaTxt <span>→</span></a>
             </div>
             <a className="product-media delta-media" href="/apps/deltatxt" aria-label="View DeltaTxt">
-              <div className="code-window" aria-hidden="true">
-                <div className="code-top"><span /><span /><span /><b>release-notes.md — DeltaTxt</b></div>
-                <div className="code-body">
-                  <ol><li><i>const</i> change = <em>compare</em>(left, right);</li><li></li><li><i>if</i> (change.isClear) &#123;</li><li className="added">+ shipWithConfidence();</li><li className="removed">- guessWhatChanged();</li><li>&#125;</li></ol>
-                  <div className="code-map"><span /><span /><span /><span /><span /><span /></div>
-                </div>
-                <div className="code-status"><span>UTF-8</span><span>LF</span><span>Python 3.12</span></div>
-              </div>
-              <span className="media-label">EDITOR + DIFF WORKBENCH</span>
+              <img src="/apps/deltatxt/gallery/windows-compare-clearly.webp" alt="DeltaTxt file comparison with the headline See every change. Merge with confidence" width="1920" height="1080" loading="lazy" decoding="async" />
+              <span className="media-label">FREEWARE · FREE DOWNLOAD</span>
             </a>
           </article>
         </div>
@@ -127,7 +124,7 @@ export default function Home() {
           <div><p className="section-number">03 / SHRPWARE</p><h2>Small studio.<br />Serious tools.</h2></div>
           <div className="studio-copy">
             <p>ShrpWare makes independent software for desktop workflows that deserve a sharper answer.</p>
-            <p className="studio-note">Two apps in development. More useful edges to come.</p>
+            <p className="studio-note">Two focused apps. More useful edges to come.</p>
           </div>
         </div>
       </section>

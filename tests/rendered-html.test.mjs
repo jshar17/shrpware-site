@@ -1,19 +1,16 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { access } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
+const projectRoot = new URL("../", import.meta.url);
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -28,64 +25,68 @@ async function render() {
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
+test("renders the ShrpWare product homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  assert.match(html, /ShrpWare/);
+  assert.match(html, /Apps with/);
+  assert.match(html, /WavePlume/);
+  assert.match(html, /Get for Mac/);
+  assert.match(html, /Get for Windows/);
+  assert.match(html, /windows-searchable-transcripts\.webp/);
+  assert.match(html, /windows-compare-clearly\.webp/);
+  assert.match(html, /FREEWARE/);
+  assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
+test("renders the current WavePlume release and valid purchase path", async () => {
+  const response = await render("/apps/waveplume");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Get WavePlume for Mac or Windows/);
+  assert.match(html, /Download free trial/);
+  assert.match(html, /releases\/download\/waveplume-trial-v1\.2\.4\/WavePlume-Trial-1\.2\.4-Setup\.exe/i);
+  assert.match(html, /apps\.microsoft\.com\/detail\/9p6h8n3vjxbx/i);
+  assert.match(html, /apps\.apple\.com\/us\/app\/waveplume\/id6797359772/i);
+  assert.match(html, /windows-record-private\.webp/);
+  assert.match(html, /application\/ld\+json/);
+  assert.doesNotMatch(html, /submitted for review|Release in preparation|Windows 10\/11 · Preview|OWNER\/REPO/i);
+});
+
+test("redirects the legacy privacy.html URL that App Store Connect has on file", async () => {
+  const response = await render("/privacy.html");
+  assert.equal(response.status, 301);
+  assert.match(response.headers.get("location") ?? "", /\/apps\/waveplume\/privacy$/);
+});
+
+test("renders DeltaTxt as freeware without a dead download", async () => {
+  const response = await render("/apps/deltatxt");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Freeware/i);
+  assert.match(html, /free to download/i);
+  assert.match(html, /windows-compare-clearly\.webp/);
+  assert.match(html, /application\/ld\+json/);
+  assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);
+});
+
+test("ships the SEO discovery routes and product artwork", async () => {
+  await Promise.all([
+    access(new URL("app/robots.ts", projectRoot)),
+    access(new URL("app/sitemap.ts", projectRoot)),
+    access(new URL("public/og.png", projectRoot)),
+    access(new URL("public/apps/waveplume/hero-wave.webp", projectRoot)),
+    access(new URL("public/apps/waveplume/gallery/windows-record-private.webp", projectRoot)),
+    access(new URL("public/apps/waveplume/gallery/windows-searchable-transcripts.webp", projectRoot)),
+    access(new URL("public/apps/waveplume/gallery/windows-your-folders.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/hero-workbench.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-code-without-overhead.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-compare-clearly.webp", projectRoot)),
+    access(new URL("public/apps/deltatxt/gallery/windows-search-workspace.webp", projectRoot)),
   ]);
-
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
-
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
-
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
-
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
 });
