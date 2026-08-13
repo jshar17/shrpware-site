@@ -19,4 +19,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      # `npm test` runs the build and then the rendered-HTML assertions. It used
+      # to be build-only, which is how a copy change shipped that broke the
+      # tests without anyone noticing.
+      - run: npm test
