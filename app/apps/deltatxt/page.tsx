@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Brand } from "../../Brand";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function DeltaTxtPage() {
   return (
     <main className="product-page delta-page">
-      <header className="product-header"><Brand /><nav><a href="/">Store</a><a href="#features">Features</a><a href="#details">Details</a><a href="/apps/deltatxt/privacy">Privacy</a></nav></header>
+      <header className="product-header"><Brand /><nav><Link href="/">Store</Link><a href="#features">Features</a><a href="#details">Details</a><a href="/apps/deltatxt/privacy">Privacy</a></nav></header>
       <section className="product-hero">
         <div className="product-hero-copy">
           <p className="product-overline">SHRPWARE / APP 02</p><img className="hero-app-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
@@ -21,7 +22,7 @@ export default function DeltaTxtPage() {
         <div className="product-hero-media delta-hero-media">
           <div className="code-window large-code" aria-label="Illustration of DeltaTxt editing and comparison">
             <div className="code-top"><span /><span /><span /><b>parser.py ↔ parser-revised.py</b></div>
-            <div className="code-body"><ol><li><i>def</i> parse_document(path):</li><li>    encoding = detect(path)</li><li className="removed">-   return read_all(path)</li><li className="added">+   return stream(path, encoding)</li><li></li><li><i>if</i> __name__ == <em>"__main__"</em>:</li><li>    inspect_changes()</li></ol><div className="code-map"><span /><span /><span /><span /><span /><span /><span /></div></div>
+            <div className="code-body"><ol><li><i>def</i> parse_document(path):</li><li>    encoding = detect(path)</li><li className="removed">-   return read_all(path)</li><li className="added">+   return stream(path, encoding)</li><li></li><li><i>if</i> __name__ == <em>&quot;__main__&quot;</em>:</li><li>    inspect_changes()</li></ol><div className="code-map"><span /><span /><span /><span /><span /><span /><span /></div></div>
             <div className="code-status"><span>COMPARE: 2 CHANGES</span><span>UTF-8</span><span>LN 42, COL 16</span></div>
           </div>
         </div>
@@ -97,7 +98,7 @@ export default function DeltaTxtPage() {
       </section>
 
       <section className="product-cta"><p className="section-number">05 / STATUS</p><h2>DeltaTxt is an early development preview.</h2><p>The Windows build is prepared for Microsoft Store packaging. Signed Windows and notarized macOS releases are still being readied for public distribution.</p><div className="cta-links"><a href="/apps/deltatxt/privacy">Read the privacy notice →</a></div></section>
-      <footer className="product-footer"><a href="/">← ShrpWare store</a><span>© 2026 ShrpWare</span></footer>
+      <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>
     </main>
   );
 }

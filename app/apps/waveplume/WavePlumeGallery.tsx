@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type Platform = "macOS" | "Windows";
 type PlatformFilter = "All" | Platform;
@@ -18,6 +18,42 @@ type GalleryShot = {
 };
 
 const SHOTS: GalleryShot[] = [
+  {
+    id: "windows-record-private",
+    platform: "Windows",
+    src: "/apps/waveplume/gallery/windows-record-private.webp",
+    thumbnail: "/apps/waveplume/gallery/windows-record-private-thumb.webp",
+    width: 1920,
+    height: 1080,
+    title: "Record meetings without the cloud",
+    description:
+      "Capture system audio, microphone, screen, or a single window—with a live preview and one-click quality presets.",
+    alt: "WavePlume Windows recording setup with the headline Record meetings without the cloud",
+  },
+  {
+    id: "windows-searchable-transcripts",
+    platform: "Windows",
+    src: "/apps/waveplume/gallery/windows-searchable-transcripts.webp",
+    thumbnail: "/apps/waveplume/gallery/windows-searchable-transcripts-thumb.webp",
+    width: 1920,
+    height: 1080,
+    title: "Every word becomes searchable",
+    description:
+      "Transcribe locally with Whisper, search and edit the transcript, then select any timestamp to replay that exact moment.",
+    alt: "WavePlume Windows transcript with the headline Every word becomes searchable",
+  },
+  {
+    id: "windows-your-folders",
+    platform: "Windows",
+    src: "/apps/waveplume/gallery/windows-your-folders.webp",
+    thumbnail: "/apps/waveplume/gallery/windows-your-folders-thumb.webp",
+    width: 1920,
+    height: 1080,
+    title: "Your meetings. Your folders.",
+    description:
+      "Browse sessions, import media, trim clips, play recordings, and export audio—all in folders you choose.",
+    alt: "WavePlume Windows session library with the headline Your meetings, your folders",
+  },
   {
     id: "mac-record-setup",
     platform: "macOS",
@@ -66,30 +102,6 @@ const SHOTS: GalleryShot[] = [
       "Choose the recording library, quality, audio behavior, and meeting defaults that fit your work.",
     alt: "WavePlume recording settings on macOS",
   },
-  {
-    id: "windows-transcript",
-    platform: "Windows",
-    src: "/apps/waveplume/gallery/transcript-windows.webp",
-    thumbnail: "/apps/waveplume/gallery/transcript-windows-thumb.webp",
-    width: 1120,
-    height: 500,
-    title: "Replay the exact moment",
-    description:
-      "Search a local transcript and select a timestamp to jump directly to the matching audio.",
-    alt: "WavePlume transcript view on Windows with a demo transcript",
-  },
-  {
-    id: "windows-correction",
-    platform: "Windows",
-    src: "/apps/waveplume/gallery/correction-windows.webp",
-    thumbnail: "/apps/waveplume/gallery/correction-windows-thumb.webp",
-    width: 1120,
-    height: 500,
-    title: "Correct without losing context",
-    description:
-      "Edit transcript text while the recording remains close enough to verify every change.",
-    alt: "WavePlume transcript correction editor on Windows with a demo transcript",
-  },
 ];
 
 const FILTERS: PlatformFilter[] = ["All", "macOS", "Windows"];
@@ -119,11 +131,11 @@ export function WavePlumeGallery() {
     setActiveId(nextShots[0].id);
   }
 
-  function showRelative(offset: number) {
+  const showRelative = useCallback((offset: number) => {
     const nextIndex =
       (activeIndex + offset + visibleShots.length) % visibleShots.length;
     setActiveId(visibleShots[nextIndex].id);
-  }
+  }, [activeIndex, visibleShots]);
 
   function closeLightbox() {
     setIsOpen(false);
@@ -164,7 +176,7 @@ export function WavePlumeGallery() {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeIndex, isOpen, visibleShots]);
+  }, [isOpen, showRelative]);
 
   return (
     <section className="wave-gallery-section" id="gallery">
@@ -175,8 +187,8 @@ export function WavePlumeGallery() {
         </div>
         <div className="wave-gallery-intro">
           <p>
-            Move from capture setup to local transcripts and organized session
-            files. Choose a platform, then open any view full size.
+            See how WavePlume moves from private capture to searchable local
+            transcripts and organized session files. Choose a platform, then open any view full size.
           </p>
           <div className="gallery-filters" aria-label="Filter screenshots by platform">
             {FILTERS.map((item) => (

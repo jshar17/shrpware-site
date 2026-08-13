@@ -3,34 +3,47 @@ import Link from "next/link";
 import { Brand } from "../../Brand";
 import { WavePlumeGallery } from "./WavePlumeGallery";
 
-const APP_STORE_URL = "https://apps.apple.com/us/app/waveplume/id6797359772";
+const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US";
+
+// Set this only after the Windows trial installer has a real public URL.
+// The prepared trial section remains hidden until that release asset exists.
+const TRIAL_DOWNLOAD_URL: string | null = null;
 
 export const metadata: Metadata = {
-  title: "WavePlume™ — Private meeting recorder | ShrpWare",
-  description: "Record meetings and create searchable transcripts locally on Mac and Windows. No bot, no account, no cloud upload.",
+  title: "WavePlume™ — Private Meeting Recorder & Offline Transcription",
+  description: "Record meetings on Windows and create searchable transcripts locally with Whisper. Capture system audio, microphone, screen, or a window—without a bot or cloud upload.",
+  keywords: [
+    "private meeting recorder",
+    "meeting transcription",
+    "local Whisper transcription",
+    "offline transcription",
+    "Windows meeting recorder",
+    "system audio recorder",
+    "searchable meeting transcripts",
+  ],
   alternates: {
     canonical: "/apps/waveplume",
   },
   openGraph: {
-    title: "WavePlume™ — Private meeting recorder",
-    description: "Record meetings and create searchable transcripts locally on Mac and Windows. No bot, no account, no cloud upload.",
+    title: "WavePlume™ — Private Meeting Recorder & Offline Transcription",
+    description: "Record meetings on Windows and create searchable transcripts locally with Whisper—without a meeting bot or cloud upload.",
     url: "/apps/waveplume",
     siteName: "ShrpWare",
     type: "website",
     images: [
       {
-        url: "/apps/waveplume/hero-card.webp",
-        width: 1600,
-        height: 600,
-        alt: "WavePlume meeting recording and transcription",
+        url: "/apps/waveplume/gallery/windows-record-private.webp",
+        width: 1920,
+        height: 1080,
+        alt: "WavePlume private meeting recording on Windows",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WavePlume™ — Private meeting recorder",
-    description: "Private local meeting recording and transcription for Mac and Windows.",
-    images: ["/apps/waveplume/hero-card.webp"],
+    title: "WavePlume™ — Private Meeting Recorder & Offline Transcription",
+    description: "Private meeting recording and local Whisper transcription for Windows.",
+    images: ["/apps/waveplume/gallery/windows-record-private.webp"],
   },
 };
 
@@ -39,11 +52,19 @@ const SOFTWARE_APPLICATION_SCHEMA = {
   "@type": "SoftwareApplication",
   name: "WavePlume",
   applicationCategory: "BusinessApplication",
-  operatingSystem: "macOS 15+, Windows 10/11",
+  operatingSystem: "Windows 10, Windows 11, macOS 15",
   description:
-    "A private meeting recorder and transcriber that runs on your computer without a meeting bot or cloud upload.",
+    "A private meeting recorder and transcriber for Windows and Mac that captures system audio, microphone, and screen, then creates searchable transcripts locally with Whisper.",
   url: "https://shrpware.com/apps/waveplume",
-  image: "https://shrpware.com/apps/waveplume/hero-card.webp",
+  image: "https://shrpware.com/apps/waveplume/gallery/windows-record-private.webp",
+  downloadUrl: MICROSOFT_STORE_URL,
+  softwareRequirements: "Windows 10 build 19041 or later, or macOS 15 or later",
+  featureList: [
+    "System audio, microphone, screen, window, and audio-only recording",
+    "On-device Whisper transcription",
+    "Searchable transcripts with clickable timestamps",
+    "Local session folders with media, transcripts, and subtitles",
+  ],
   author: {
     "@type": "Organization",
     name: "ShrpWare",
@@ -60,7 +81,7 @@ export default function WavePlumePage() {
       />
       <header className="product-header">
         <Brand />
-        <nav><Link href="/">Store</Link><a href="/apps/waveplume/support">Support</a><a href="/apps/waveplume/privacy">Privacy</a><a href={APP_STORE_URL}>Mac App Store ↗</a></nav>
+        <nav><Link href="/">Store</Link><a href="#features">Features</a><a href="/apps/waveplume/support">Support</a><a href="/apps/waveplume/privacy">Privacy</a><a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Microsoft Store ↗</a></nav>
       </header>
 
       <section className="product-hero">
@@ -69,12 +90,12 @@ export default function WavePlumePage() {
           <img className="hero-app-icon" src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume icon" width="128" height="128" fetchPriority="high" />
           <h1>WavePlume<sup className="trademark">™</sup></h1>
           <p className="product-page-tagline">Every wave becomes a word.</p>
-          <p className="product-page-lede">A private meeting recorder and transcriber that runs on your computer. No bot joins your call. Nothing is uploaded.</p>
-          <div className="platform-row"><span>macOS 15+</span><span>Windows 10/11 · Preview</span><span>macOS · Submitted for review</span></div>
-          <div className="hero-actions"><a className="button product-button" href={APP_STORE_URL}>Mac App Store ↗</a><a className="button product-button" href="#gallery">See the app <span>↓</span></a></div>
+          <p className="product-page-lede">Capture system audio, microphone, screen, or a single window, then create searchable transcripts locally with Whisper. No meeting bot. No cloud upload.</p>
+          <div className="platform-row"><span>Windows 10/11 · Available now</span><span>macOS 15+ · Release in preparation</span><span>No account · No subscription</span></div>
+          <div className="hero-actions">{TRIAL_DOWNLOAD_URL && <a className="button product-button" href="#download">Download free trial ↓</a>}<a className="button product-button" href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Get it from Microsoft ↗</a><a className="button product-button" href="#gallery">See the app <span>↓</span></a></div>
         </div>
         <div className="product-hero-media wave-hero-media">
-          <img src="/apps/waveplume/hero-card.webp" alt="WavePlume banner with the plume-wave mark and audio-wave ribbons" width="1600" height="600" fetchPriority="high" decoding="async" />
+          <img src="/apps/waveplume/hero-wave.webp" alt="WavePlume plume-wave mark over cyan and violet audio waves" width="1600" height="900" fetchPriority="high" decoding="async" />
         </div>
       </section>
 
@@ -91,9 +112,23 @@ export default function WavePlumePage() {
         </div>
       </section>
 
+      {TRIAL_DOWNLOAD_URL && <section className="trial-section" id="download">
+        <p className="section-number">03 / TRY IT FREE</p>
+        <h2>Try WavePlume free for 14 days.</h2>
+        <p className="trial-lede">Download the trial for Windows and record and transcribe meetings locally on your PC — no account, no meeting bot, no cloud upload. After 14 days, keep WavePlume by getting the full version.</p>
+        <a className="trial-download" href={TRIAL_DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download free trial</a>
+        <p className="trial-meta">Windows 10/11 · 64-bit · Free 14-day trial</p>
+        <ol className="trial-steps">
+          <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
+          <li><b>2</b><p><strong>If “Windows protected your PC” appears,</strong> the trial isn’t code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></li>
+          <li><b>3</b><p><strong>Record your first meeting.</strong> Choose a screen, window, or audio source; WavePlume transcribes locally with Whisper when you stop.</p></li>
+        </ol>
+        <p className="trial-meta">Want automatic updates? <a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer" style={{ color: "var(--cyan)" }}>Get WavePlume on the Microsoft Store ↗</a></p>
+      </section>}
+
       <section className="product-cta">
-        <p className="section-number">03 / APP STORE</p><h2>WavePlume 1.2.2 is submitted for review.</h2><p>The Mac App Store listing is ready with the current screenshots, privacy details, and local-first product description. Availability begins after Apple completes review and the release is approved.</p>
-        <div className="cta-links"><a href={APP_STORE_URL}>View on the Mac App Store ↗</a><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
+        <p className="section-number">03 / GET WAVEPLUME</p><h2>Download WavePlume free for Windows.</h2><p>Install from Microsoft Store to record meetings and create searchable transcripts locally on your PC. No meeting bot, account, cloud upload, or subscription.</p>
+        <div className="cta-links"><a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Get it from Microsoft ↗</a><a href="/apps/waveplume/support">Read support notes →</a><a href="/apps/waveplume/privacy">Privacy policy →</a></div>
       </section>
       <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>
     </main>

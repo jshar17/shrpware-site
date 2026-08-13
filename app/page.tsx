@@ -32,7 +32,7 @@ export default function Home() {
           <div className="product-stack" aria-label="ShrpWare app collection">
             <a className="stack-card stack-wave" href="/apps/waveplume">
               <img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume app icon" width="128" height="128" />
-              <div><span>01 / RECORD + TRANSCRIBE</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
+              <div><span>01 / WINDOWS · AVAILABLE NOW</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
               <b>↗</b>
             </a>
             <a className="stack-card stack-delta" href="/apps/deltatxt">
@@ -63,17 +63,20 @@ export default function Home() {
               </div>
               <p className="product-tagline">Every wave becomes a word.</p>
               <p className="product-description">
-                Record meetings and turn them into searchable transcripts on your own computer.
-                No bot joins. Your recordings and transcripts stay with you.
+                Capture system audio, microphone, and screen, then create searchable
+                transcripts locally with Whisper. No bot joins and nothing uploads.
               </p>
               <ul className="feature-chips" aria-label="WavePlume highlights">
-                <li>Local transcription</li><li>Mac + Windows</li><li>No account</li>
+                <li>Windows available</li><li>Local Whisper</li><li>No cloud upload</li>
               </ul>
-              <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
+              <div className="product-links">
+                <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
+                <a className="text-link product-store-link" href="https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&amp;gl=US" target="_blank" rel="noreferrer">Get for Windows <span>↗</span></a>
+              </div>
             </div>
             <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
-              <img src="/apps/waveplume/transcript-windows-real.jpg" alt="Live WavePlume Windows transcript view with a demo transcript" loading="lazy" decoding="async" />
-              <span className="media-label">PRIVATE MEETING RECORDER</span>
+              <img src="/apps/waveplume/gallery/windows-searchable-transcripts.webp" alt="WavePlume Windows transcript with the headline Every word becomes searchable" width="1920" height="1080" loading="lazy" decoding="async" />
+              <span className="media-label">NOW ON MICROSOFT STORE</span>
             </a>
           </article>
 
@@ -127,7 +130,7 @@ export default function Home() {
           <div><p className="section-number">03 / SHRPWARE</p><h2>Small studio.<br />Serious tools.</h2></div>
           <div className="studio-copy">
             <p>ShrpWare makes independent software for desktop workflows that deserve a sharper answer.</p>
-            <p className="studio-note">Two apps in development. More useful edges to come.</p>
+            <p className="studio-note">Two focused apps. More useful edges to come.</p>
           </div>
         </div>
       </section>
