@@ -49,7 +49,7 @@ test("renders the current WavePlume release and valid purchase path", async () =
   const html = await response.text();
   assert.match(html, /Get WavePlume for Mac or Windows/);
   assert.match(html, /Download free trial/);
-  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/waveplume\/WavePlume-Trial-1\.2\.4-Setup\.exe/i);
+  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/waveplume\/WavePlume-Trial-1\.2\.5-Setup\.exe/i);
   assert.match(html, /apps\.microsoft\.com\/detail\/9p6h8n3vjxbx/i);
   assert.match(html, /apps\.apple\.com\/us\/app\/waveplume\/id6797359772/i);
   assert.match(html, /windows-record-private\.webp/);
