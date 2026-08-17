@@ -83,7 +83,12 @@ test("renders DeltaTxt as freeware without a dead download", async () => {
   const html = await response.text();
   assert.match(html, /Freeware/i);
   assert.match(html, /free to download/i);
-  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/deltatxt\/DeltaTxt-0\.3\.1-setup\.exe/i);
+  // Same-origin on purpose — see the note on DOWNLOAD_URL. A regression to a
+  // bare r2.dev link is invisible on an unfiltered network and fatal on a
+  // filtered one, so assert the bucket host is gone rather than only that the
+  // path is present.
+  assert.match(html, /href="\/downloads\/DeltaTxt-0\.3\.1-setup\.exe"/i);
+  assert.doesNotMatch(html, /r2\.dev/i);
   assert.match(html, /windows-compare-clearly\.webp/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);

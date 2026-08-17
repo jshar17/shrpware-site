@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "../../Brand";
 
-const DOWNLOAD_URL = "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.1-setup.exe";
+// Served from this domain rather than straight from the R2 bucket: corporate,
+// school and hotel filters block r2.dev as a file-sharing domain, and a visitor
+// behind one simply cannot download DeltaTxt — with no indication why.
+const DOWNLOAD_URL = "/downloads/DeltaTxt-0.3.1-setup.exe";
 
 const GALLERY = [
   {
@@ -202,7 +205,7 @@ export default function DeltaTxtPage() {
         <p className="section-number">06 / AVAILABILITY</p>
         <h2>DeltaTxt is free to download.</h2>
         <p className="trial-lede">Download DeltaTxt for Windows and start editing, comparing, and troubleshooting right away. No trial clock, account, subscription, advertising, or telemetry.</p>
-        <a className="trial-download" href={DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download DeltaTxt free</a>
+        <a className="trial-download" href={DOWNLOAD_URL}>↓ Download DeltaTxt free</a>
         <p className="trial-meta">Windows 10/11 · x64 · v0.3.1 · 70 MB · Freeware</p>
         <ol className="trial-steps">
           <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
