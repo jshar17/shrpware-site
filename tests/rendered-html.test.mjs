@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const projectRoot = new URL("../", import.meta.url);
@@ -87,6 +87,23 @@ test("renders DeltaTxt as freeware without a dead download", async () => {
   assert.match(html, /windows-compare-clearly\.webp/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);
+});
+
+test("serves installers from shrpware.com and refuses everything else", async () => {
+  // This route exists because corporate filters block r2.dev as a file-sharing
+  // domain, which puts the corporate build out of reach of the very networks it
+  // is built for. Its allowlist is the security boundary — without it the route
+  // proxies arbitrary keys out of the bucket — so unknown paths must 404.
+  const unknown = await render("/downloads/not-a-release.exe");
+  assert.equal(unknown.status, 404);
+
+  const traversal = await render("/downloads/..%2F..%2Fsomething-else");
+  assert.equal(traversal.status, 404);
+
+  // Pinned so a version bump cannot update the page and orphan the download.
+  const route = await readFile(new URL("app/downloads/[file]/route.ts", projectRoot), "utf8");
+  assert.match(route, /DeltaTxt-0\.3\.1-setup-corporate\.exe/);
+  assert.match(route, /DeltaTxt-0\.3\.1-setup\.exe/);
 });
 
 test("ships the SEO discovery routes and product artwork", async () => {
