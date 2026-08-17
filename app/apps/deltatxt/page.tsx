@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "../../Brand";
 
-const DOWNLOAD_URL = "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.0-setup.exe";
+const DOWNLOAD_URL = "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.1-setup.exe";
 
 const GALLERY = [
   {
@@ -75,7 +75,7 @@ const SOFTWARE_APPLICATION_SCHEMA = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    availability: "https://schema.org/PreOrder",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Syntax-aware native text editing",
@@ -203,7 +203,7 @@ export default function DeltaTxtPage() {
         <h2>DeltaTxt is free to download.</h2>
         <p className="trial-lede">Download DeltaTxt for Windows and start editing, comparing, and troubleshooting right away. No trial clock, account, subscription, advertising, or telemetry.</p>
         <a className="trial-download" href={DOWNLOAD_URL} target="_blank" rel="noreferrer">↓ Download DeltaTxt free</a>
-        <p className="trial-meta">Windows 10/11 · x64 · v0.3.0 · 70 MB · Freeware</p>
+        <p className="trial-meta">Windows 10/11 · x64 · v0.3.1 · 70 MB · Freeware</p>
         <ol className="trial-steps">
           <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
           <li><b>2</b><p><strong>If “Windows protected your PC” appears,</strong> DeltaTxt isn’t code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></li>

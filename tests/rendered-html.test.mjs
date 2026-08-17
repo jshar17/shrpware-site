@@ -83,7 +83,7 @@ test("renders DeltaTxt as freeware without a dead download", async () => {
   const html = await response.text();
   assert.match(html, /Freeware/i);
   assert.match(html, /free to download/i);
-  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/deltatxt\/DeltaTxt-0\.3\.0-setup\.exe/i);
+  assert.match(html, /pub-6e5446faa8bf4deb83894211caf0c1a2\.r2\.dev\/deltatxt\/DeltaTxt-0\.3\.1-setup\.exe/i);
   assert.match(html, /windows-compare-clearly\.webp/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /early development preview|href="[^"]*OWNER\/REPO/i);
