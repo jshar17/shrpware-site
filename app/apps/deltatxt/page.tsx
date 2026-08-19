@@ -209,7 +209,7 @@ export default function DeltaTxtPage() {
         <p className="trial-meta">Windows 10/11 · x64 · v0.3.1 · 70 MB · Freeware</p>
         <ol className="trial-steps">
           <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
-          <li><b>2</b><p><strong>If “Windows protected your PC” appears,</strong> DeltaTxt isn’t code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></li>
+          <li><b>2</b><p><strong>Check the publisher</strong> if Windows asks. The installer is code-signed, so it should read <strong>Joseph Sharpe</strong> — the developer behind ShrpWare.</p></li>
           <li><b>3</b><p><strong>Open a file or compare two.</strong> Everything runs locally — no account, telemetry, or cloud upload.</p></li>
         </ol>
         <div className="cta-links"><a href="/apps/deltatxt/privacy">Read the privacy notice →</a></div>
