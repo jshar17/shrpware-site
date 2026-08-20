@@ -38,6 +38,7 @@ Before handing off or publishing any change:
 ```powershell
 npm test
 npm run lint
+npm run typecheck
 ```
 
 `npm test` builds the Worker and exercises every public route, the metadata endpoints, the first-party download/store redirects, and required assets. The generated deploy configuration is `dist/server/wrangler.json`.
@@ -133,7 +134,7 @@ Treat `app/lib/site.ts` as authoritative for the current versions and destinatio
 ### Add or replace gallery screenshots
 
 1. Put the display image and its optimized thumbnail in the appropriate `public/apps/<product>/gallery/` directory. Existing shots are 1920x1080 with a 640x360 `-thumb.webp` beside them.
-2. Update the `ScreenshotGallery` item list on the product page. Each item needs `src`, `alt`, `caption`, and the image's intrinsic `width` and `height`; add `thumbnail` so the grid can serve the small file. `width`/`height` are required by the `Screenshot` type and are what keep the page from shifting as images load. Note that nothing in the repo runs `tsc` — `vinext build` strips types without checking them and the ESLint config is not type-aware — so a missing prop will not fail `npm test` or `npm run lint`. Your editor is the only thing that will catch it. With `thumbnail` set, the grid renders a `srcset` that takes the thumbnail at 1x and the full image at 2x.
+2. Update the `ScreenshotGallery` item list on the product page. Each item needs `src`, `alt`, `caption`, and the image's intrinsic `width` and `height`; add `thumbnail` so the grid can serve the small file. `width`/`height` are required by the `Screenshot` type and are what keep the page from shifting as images load. Omitting them fails `npm run typecheck`, which CI runs — note that `npm test` and `npm run lint` will not catch it, because `vinext build` strips types without checking them and the ESLint config is not type-aware. With `thumbnail` set, the grid renders a `srcset` that takes the thumbnail at 1x and the full image at 2x.
 3. Keep source screenshots free of personal data, account details, API keys, private meeting content, and machine-specific paths.
 4. Check image sharpness at full lightbox size. The grid uses a 16:9 box with `object-fit: contain`, so a 16:9 source fills it exactly and anything else letterboxes rather than being cropped — if a shot letterboxes, re-crop the source instead of changing the CSS.
 5. Test click, backdrop close, close button, Escape, both arrow keys, and that Tab stays inside the lightbox.
@@ -157,6 +158,7 @@ Run the automated checks:
 ```powershell
 npm test
 npm run lint
+npm run typecheck
 ```
 
 Then use `npm run dev` for a visual pass:
@@ -210,6 +212,7 @@ Build and validate:
 ```powershell
 npm test
 npm run lint
+npm run typecheck
 ```
 
 Dry-run or deploy the generated Worker configuration:

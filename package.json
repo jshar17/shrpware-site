@@ -11,6 +11,7 @@
     "start": "vinext start",
     "test": "npm run build && node --test tests/site-contract.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "typecheck": "tsc",
     "deploy": "npm run build && wrangler deploy --config dist/server/wrangler.json --name shrpware-site",
     "deploy:dry-run": "npm run build && wrangler deploy --config dist/server/wrangler.json --name shrpware-site --dry-run"
   },
