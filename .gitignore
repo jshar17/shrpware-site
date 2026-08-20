@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/.npm-cache/
+/.verify-installers/
 /.pnp
 .pnp.*
 .yarn/*
@@ -34,12 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-next-env.d.ts
 /dist/
 /.wrangler/
 /outputs/
 /work/
-
-# Wrangler local state
-.wrangler/

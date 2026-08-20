@@ -1,32 +1,25 @@
 import type { Metadata } from "next";
-import { Brand } from "../../../Brand";
+import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
 
-const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US";
-
-export const metadata: Metadata = {
-  title: "WavePlume™ Support for Windows and Mac | ShrpWare",
-  description: "Help with WavePlume recording, local transcription, permissions, files, and installation.",
-  alternates: { canonical: "/apps/waveplume/support" },
-};
+export const metadata: Metadata = { title: "WavePlume support", description: "Setup and troubleshooting help for WavePlume on macOS and Windows.", alternates: { canonical: "/apps/waveplume/support" } };
 
 export default function WavePlumeSupport() {
-  return (
-    <main className="legal-page wave-legal">
-      <header className="legal-header"><Brand /><nav><a href="/apps/waveplume">WavePlume</a><a href="/apps/waveplume/privacy">Privacy</a><a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Microsoft Store ↗</a></nav></header>
-      <article className="legal-content">
-        <p className="product-overline">WAVEPLUME<sup className="trademark">™</sup> / SUPPORT</p><h1>How can we help?</h1>
-        <p className="legal-lede">WavePlume records meetings and transcribes them locally on Windows and Mac. For a question, bug report, or request, email <a href="mailto:support@shrpware.com">support@shrpware.com</a>.</p>
-        <h2>Before you write in</h2>
-        <h3>No screens or windows listed?</h3><p>On Windows, choose Refresh in Record Setup and confirm the app is not minimized. On macOS, grant Screen &amp; System Audio Recording permission in System Settings › Privacy &amp; Security, then quit and reopen WavePlume.</p>
-        <h3>Recording is silent?</h3><p>Internal meeting audio captures what your computer plays. Check the selected source and output device in the live monitor before recording.</p>
-        <h3>Where are my recordings?</h3><p>The recording setup shows the active library. Choose another folder from Settings or the File menu; external drives are supported.</p>
-        <h3>Transcript looks wrong?</h3><p>Transcripts come from a Whisper speech model running locally. Try a higher transcription quality, correct the text in WavePlume, and check the recording before relying on a transcript.</p>
-        <h3>Transcription will not start?</h3><p>The first use of a quality level downloads its Whisper model. Connect once or download the model ahead of time in Settings; transcription works offline after the model is present.</p>
-        <h2>Install the Windows app</h2><p>WavePlume is $14.99 from the <a href={MICROSOFT_STORE_URL} target="_blank" rel="noreferrer">Microsoft Store</a>, a one-time purchase. Store installation keeps updates and Windows app identity in one place. A free 14-day trial is also available from the <a href="/apps/waveplume">product page</a>.</p>
-        <h2>Recording responsibility</h2><p>Recording laws vary. Tell participants when recording is active and obtain any consent required by law, workplace policy, contract, or the meeting service.</p>
-        <h2>Your data</h2><p>Recordings, transcripts, and meeting names stay on your computer. There is no WavePlume account or cloud storage service. Read the <a href="/apps/waveplume/privacy">privacy policy</a> for details.</p>
-      </article>
-      <footer className="product-footer"><a href="/apps/waveplume">← WavePlume</a><span>© 2026 ShrpWare</span></footer>
-    </main>
-  );
+  return <PageShell>
+    <ArticleHero eyebrow="WavePlume / Support" title="WavePlume support." intro="Help with audio, transcripts, model downloads, storage, and licensing." />
+    <article className="article-body wrap">
+      <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
+      <h2>Fast checks</h2>
+      <div className="faq-list">
+        <details open><summary>No screens or windows appear</summary><p>WavePlume records audio, not video. It does not capture your screen or meeting windows.</p></details>
+        <details><summary>The recording is silent</summary><p>Open the recording setup and confirm the intended system-audio and microphone sources. Check the level meters before starting, then verify that WavePlume has the required audio permissions.</p></details>
+        <details><summary>I cannot find an earlier recording</summary><p>Open the session library and search by title, date, or transcript text. Check the storage folder selected in Settings if files were moved outside the app.</p></details>
+        <details><summary>The transcript is inaccurate</summary><p>Clearer source audio helps most. Try a larger Whisper model if your computer has enough resources, and confirm the spoken language before transcribing again.</p></details>
+        <details><summary>A model will not download</summary><p>Confirm the computer is online and that a firewall is not blocking the Hugging Face-hosted Argmax model repository. Meeting audio is not uploaded during the download.</p></details>
+        <details><summary>How does the license work?</summary><p>WavePlume is $14.99 as a one-time purchase from the Mac App Store or Microsoft Store. The standalone Windows installer includes a 14-day trial.</p></details>
+        <details><summary>Who is responsible for recording consent?</summary><p>You are. Recording laws and workplace policies vary. Make sure everyone receives any notice or consent required in your situation.</p></details>
+      </div>
+      <h2>Still stuck?</h2>
+      <p>Email <a href="mailto:support@shrpware.com">support@shrpware.com</a> with your operating system, WavePlume version, and what happened. Do not attach private recordings unless requested and safe to share.</p>
+    </article>
+  </PageShell>;
 }
