@@ -90,7 +90,11 @@ The Worker-level `/privacy.html` redirect is a separate compatibility route. App
 
 ### Screenshot enlargement is intentionally limited
 
-Only the screenshot sections on the two product pages use `ScreenshotGallery`. The gallery provides a restrained hover treatment, a click-to-open lightbox, previous/next controls, arrow-key navigation, Escape-to-close behavior, a Tab focus trap while the lightbox is open, and focus restoration to the trigger on close. Do not make every decorative or hero image enlargeable.
+Only the screenshot sections on the two product pages use `ScreenshotGallery`. Do not make every decorative or hero image enlargeable.
+
+The gallery provides a restrained hover treatment, a click-to-open lightbox, previous/next controls, arrow-key navigation, touch swipe, and focus restoration to the trigger on close. While the lightbox is open it traps Tab and marks `main.site-shell` inert — which is why the dialog is rendered through a portal into `<body>` rather than in place.
+
+Selecting the image toggles between fit-to-screen and 1:1. Fit mode renders a 1920px screenshot at roughly 56% on a 1280px viewport, which is not enough to read a transcript; 1:1 is what makes the text legible. The zoom centres on the point that was selected and pans by mouse drag or native touch scrolling, and Escape steps out of the zoom before it closes the dialog.
 
 ### Release gates protect unfinished destinations
 
@@ -137,7 +141,7 @@ Treat `app/lib/site.ts` as authoritative for the current versions and destinatio
 2. Update the `ScreenshotGallery` item list on the product page. Each item needs `src`, `alt`, `caption`, and the image's intrinsic `width` and `height`; add `thumbnail` so the grid can serve the small file. `width`/`height` are required by the `Screenshot` type and are what keep the page from shifting as images load. Omitting them fails `npm run typecheck`, which CI runs — note that `npm test` and `npm run lint` will not catch it, because `vinext build` strips types without checking them and the ESLint config is not type-aware. With `thumbnail` set, the grid renders a `srcset` that takes the thumbnail at 1x and the full image at 2x.
 3. Keep source screenshots free of personal data, account details, API keys, private meeting content, and machine-specific paths.
 4. Check image sharpness at full lightbox size. The grid uses a 16:9 box with `object-fit: contain`, so a 16:9 source fills it exactly and anything else letterboxes rather than being cropped — if a shot letterboxes, re-crop the source instead of changing the CSS.
-5. Test click, backdrop close, close button, Escape, both arrow keys, and that Tab stays inside the lightbox.
+5. Test click, backdrop close, close button, Escape, both arrow keys, zoom in and out, and that Tab stays inside the lightbox.
 
 ### Change the social preview
 
@@ -166,7 +170,7 @@ Then use `npm run dev` for a visual pass:
 - Homepage and both product pages render at desktop and mobile widths.
 - Header, footer, product buttons, and inline links navigate on a normal click.
 - WavePlume and DeltaTxt screenshot galleries open only from the product screenshot sections.
-- Gallery controls, backdrop, Escape, and arrow keys work, and Tab does not escape the open lightbox.
+- Gallery controls, backdrop, Escape, and arrow keys work; Tab does not escape the open lightbox; selecting the image zooms to 1:1 and pans.
 - Store and download buttons reach the expected first-party `/go/...` routes.
 - `/privacy.html` redirects to `/apps/waveplume/privacy`.
 - Copy is readable and not clipped or overflowing.
