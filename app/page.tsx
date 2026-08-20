@@ -78,7 +78,7 @@ export default function Home() {
             <Link className="text-link" href="/compare/waveplume-vs-cloud-meeting-bots">Compare with cloud bots →</Link>
           </div>
         </div>
-        <img className="feature-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume meeting recording and transcription interface" />
+        <img className="feature-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume meeting recording and transcription interface" width={1600} height={900} loading="lazy" decoding="async" />
       </section>
 
       <section className="feature-section feature-section-reverse wrap">
@@ -91,7 +91,7 @@ export default function Home() {
             <Link className="text-link" href="/use-cases/large-log-file-editor">Explore large log editing →</Link>
           </div>
         </div>
-        <img className="feature-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt text editing workbench" />
+        <img className="feature-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt text editing workbench" width={1600} height={900} loading="lazy" decoding="async" />
       </section>
 
       <section className="use-case-section wrap">

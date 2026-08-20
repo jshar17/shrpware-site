@@ -10,7 +10,7 @@ export function SiteHeader() {
         <Link href="/#apps">Apps</Link>
         <Link href="/#standard">Principles</Link>
         <Link href="/press">Press kit</Link>
-        <Link href="mailto:support@shrpware.com">Support</Link>
+        <Link href="/support">Support</Link>
       </nav>
     </header>
   );

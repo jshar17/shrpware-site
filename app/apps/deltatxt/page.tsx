@@ -34,9 +34,9 @@ const features = [
 ];
 
 const screenshots = [
-  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Code and text editing in DeltaTxt", caption: "Edit code and text" },
-  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two files compared in DeltaTxt", caption: "Compare two files" },
-  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results in DeltaTxt", caption: "Search a workspace" },
+  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Code and text editing in DeltaTxt", caption: "Edit code and text", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two files compared in DeltaTxt", caption: "Compare two files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results in DeltaTxt", caption: "Search a workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
 ];
 
 export default function DeltaTxtPage() {
@@ -52,7 +52,7 @@ export default function DeltaTxtPage() {
           <div className="hero-actions"><Link className="button button-primary" href={links.deltatxt.download}>Download free <span>↓</span></Link>{releaseStatus.deltaStoreReady ? <Link className="button button-secondary" href={links.deltatxt.store}>Microsoft Store</Link> : <span className="button button-disabled">Microsoft Store pending</span>}</div>
           <p className="fine-print">Windows 10/11 · Version 0.3.1 · 70 MB · x64 · Digitally signed · No account required</p>
         </div>
-        <img className="product-hero-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt workbench editing a technical text file" />
+        <img className="product-hero-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt workbench editing a technical text file" width={1600} height={900} decoding="async" />
       </section>
 
       <section className="trust-band"><div className="wrap"><span>Freeware</span><span>No telemetry</span><span>No account</span><span>Local files</span></div></section>

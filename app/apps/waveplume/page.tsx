@@ -34,9 +34,9 @@ const features = [
 ];
 
 const screenshots = [
-  { src: "/apps/waveplume/gallery/windows-record-private.webp", alt: "WavePlume Windows recording controls", caption: "Record a meeting" },
-  { src: "/apps/waveplume/gallery/windows-searchable-transcripts.webp", alt: "Searchable transcript in WavePlume for Windows", caption: "Search transcripts" },
-  { src: "/apps/waveplume/gallery/windows-your-folders.webp", alt: "WavePlume session folders on Windows", caption: "Choose a folder" },
+  { src: "/apps/waveplume/gallery/windows-record-private.webp", alt: "WavePlume Windows recording controls", caption: "Record a meeting", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-record-private-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-searchable-transcripts.webp", alt: "Searchable transcript in WavePlume for Windows", caption: "Search transcripts", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-searchable-transcripts-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-your-folders.webp", alt: "WavePlume session folders on Windows", caption: "Choose a folder", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-your-folders-thumb.webp" },
 ];
 
 export default function WavePlumePage() {
@@ -59,7 +59,7 @@ export default function WavePlumePage() {
           </div>
           <p className="fine-print">Windows 10/11 · macOS · Digitally signed Windows installer · One-time purchase · No account required</p>
         </div>
-        <img className="product-hero-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume showing a meeting recording with a local transcript" />
+        <img className="product-hero-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume showing a meeting recording with a local transcript" width={1600} height={900} decoding="async" />
       </section>
 
       <section className="trust-band"><div className="wrap"><span>Audio stays local</span><span>No meeting bot</span><span>No subscription</span><span>No account</span></div></section>
