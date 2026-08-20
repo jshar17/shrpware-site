@@ -24,6 +24,7 @@ This public repository is the source of truth for [shrpware.com](https://shrpwar
 npm ci
 npm test
 npm run lint
+npm run typecheck
 ```
 
 For local work, use `npm run dev` and open `http://localhost:3000`. Do not push directly to `main`. Publishing, manual recovery, and rollback instructions are in [`SITE-HANDOFF.md`](SITE-HANDOFF.md).
