@@ -1,221 +1,93 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Brand } from "../../Brand";
-
-// Served from this domain rather than straight from the R2 bucket: corporate,
-// school and hotel filters block r2.dev as a file-sharing domain, and a visitor
-// behind one simply cannot download DeltaTxt — with no indication why.
-const DOWNLOAD_URL = "/downloads/DeltaTxt-0.3.1-setup.exe";
-
-const GALLERY = [
-  {
-    src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp",
-    alt: "DeltaTxt editing Python with the headline Code without the heavyweight IDE",
-    title: "Fast, focused editing",
-  },
-  {
-    src: "/apps/deltatxt/gallery/windows-compare-clearly.webp",
-    alt: "DeltaTxt side-by-side file comparison with the headline See every change. Merge with confidence",
-    title: "Clear comparison and merge",
-  },
-  {
-    src: "/apps/deltatxt/gallery/windows-search-workspace.webp",
-    alt: "DeltaTxt workspace search with the headline Search an entire workspace in seconds",
-    title: "Workspace-wide search",
-  },
-];
+import { SafeLink as Link } from "@/app/components/SafeLink";
+import { PageShell } from "@/app/components/PageShell";
+import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
+import { links, releaseStatus } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "DeltaTxt™ — Free Native Text Editor, Diff & Large-File Tools",
-  description:
-    "A free native Windows editor for code, large logs, file comparison, merge work, workspace search, and practical Python debugging—without an account or subscription.",
-  keywords: [
-    "free Windows text editor",
-    "freeware code editor",
-    "large log file editor",
-    "file comparison tool",
-    "diff and merge tool",
-    "workspace search",
-    "Python debugger",
-    "native Windows editor",
-  ],
+  title: "DeltaTxt — Large log editor, diff, merge, and scripts",
+  description: "A free native Windows editor for large logs, file comparison, workspace search, merge workflows, and Python-powered text tools.",
   alternates: { canonical: "/apps/deltatxt" },
-  openGraph: {
-    title: "DeltaTxt™ — Free Native Text Editor, Diff & Large-File Tools",
-    description:
-      "Edit code and large logs, compare and merge files, and search whole workspaces in a focused native freeware app.",
-    url: "/apps/deltatxt",
-    siteName: "ShrpWare",
-    type: "website",
-    images: [
-      {
-        url: "/apps/deltatxt/gallery/windows-compare-clearly.webp",
-        width: 1920,
-        height: 1080,
-        alt: "DeltaTxt side-by-side file comparison on Windows",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "DeltaTxt™ — Free Native Text Editor & Diff Tool",
-    description: "Focused freeware for code, logs, comparison, merge, search, and Python troubleshooting.",
-    images: ["/apps/deltatxt/gallery/windows-compare-clearly.webp"],
-  },
+  openGraph: { images: ["/apps/deltatxt/hero-workbench.webp"] },
+  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/hero-workbench.webp"] },
 };
 
-const SOFTWARE_APPLICATION_SCHEMA = {
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "DeltaTxt",
   applicationCategory: "DeveloperApplication",
-  operatingSystem: "Windows 10, Windows 11; macOS preview",
-  description:
-    "A free native text editor for code, very large logs, file comparison, merge work, workspace search, and practical Python debugging.",
+  operatingSystem: "Windows 10, Windows 11",
+  description: "Free native editor for large logs, file comparison, workspace search, and script-driven text workflows.",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/deltatxt",
-  image: "https://shrpware.com/apps/deltatxt/gallery/windows-compare-clearly.webp",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
-  featureList: [
-    "Syntax-aware native text editing",
-    "Bounded-memory search and replace for large files",
-    "Side-by-side comparison and three-way merge",
-    "Workspace and folder search",
-    "Script execution and Python debugging",
-    "No account, telemetry, advertising, or subscription",
-  ],
-  author: { "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com" },
+  image: "https://shrpware.com/apps/deltatxt/hero-workbench.webp",
 };
+
+const features = [
+  ["Open large text files", "Open and edit large logs and other text files without loading a full IDE."],
+  ["Compare and merge", "View two versions side by side and choose which changes to keep."],
+  ["Search a workspace", "Search for a value across related logs, configuration files, and source files."],
+  ["Automate with Python", "Run your own scripts and interpreters for repeatable cleanup, parsing, and transformation."],
+  ["Local recovery", "Keep preferences and recovery snapshots on your computer with no account or automatic upload."],
+  ["Free to use", "DeltaTxt is freeware: no subscription, account, analytics, or advertising."],
+];
+
+const screenshots = [
+  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Code and text editing in DeltaTxt", caption: "Edit code and text", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two files compared in DeltaTxt", caption: "Compare two files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results in DeltaTxt", caption: "Search a workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
+];
 
 export default function DeltaTxtPage() {
   return (
-    <main className="product-page delta-page">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SOFTWARE_APPLICATION_SCHEMA) }}
-      />
-
-      <header className="product-header">
-        <Brand />
-        <nav>
-          <Link href="/">Store</Link>
-          <a href="#features">Features</a>
-          <a href="#tour">Product tour</a>
-          <a href="/apps/deltatxt/privacy">Privacy</a>
-        </nav>
-      </header>
-
-      <section className="product-hero">
+    <PageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="product-hero wrap">
         <div className="product-hero-copy">
-          <p className="product-overline">SHRPWARE / APP 02</p>
-          <img className="hero-app-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" width="128" height="128" fetchPriority="high" />
-          <h1>DeltaTxt<sup className="trademark">™</sup></h1>
-          <p className="product-page-tagline">Change, clearly.</p>
-          <p className="product-page-lede">
-            Edit code and large logs, compare and merge files, search entire workspaces, and troubleshoot Python in one focused native app. Freeware, without an account or subscription.
-          </p>
-          <div className="platform-row">
-            <span>Windows 10/11 · Freeware</span>
-            <span>macOS · Native preview</span>
-            <span>No account · No subscription</span>
-          </div>
-          <div className="hero-actions">
-            <a className="button product-button" href="#tour">See DeltaTxt <span>↓</span></a>
-            <a className="button product-button" href="#availability">Download free <span>↓</span></a>
-          </div>
+          <p className="eyebrow"><span />Text editor · Freeware</p>
+          <div className="app-title-lockup"><img src="/apps/deltatxt/icon.png" alt="" /><h1>DeltaTxt</h1></div>
+          <h2>Edit large files, compare versions, and automate text work.</h2>
+          <p>Edit large logs, compare and merge files, search whole workspaces, and run Python-powered text workflows in one native Windows app.</p>
+          <div className="hero-actions"><Link className="button button-primary" href={links.deltatxt.download}>Download free <span>↓</span></Link>{releaseStatus.deltaStoreReady ? <Link className="button button-secondary" href={links.deltatxt.store}>Microsoft Store</Link> : <span className="button button-disabled">Microsoft Store pending</span>}</div>
+          <p className="fine-print">Windows 10/11 · Version 0.3.1 · 70 MB · x64 · Digitally signed · No account required</p>
         </div>
-        <div className="product-hero-media delta-hero-art">
-          <img src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt icon surrounded by abstract code, diff, and search lines" width="1600" height="900" fetchPriority="high" decoding="async" />
-        </div>
+        <img className="product-hero-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt workbench editing a technical text file" width={1600} height={900} decoding="async" />
       </section>
 
-      <section className="privacy-strip delta-strip">
-        <span>FREEWARE</span><span>NO ACCOUNT</span><span>NO TELEMETRY</span><span>YOUR FILES</span>
+      <section className="trust-band"><div className="wrap"><span>Freeware</span><span>No telemetry</span><span>No account</span><span>Local files</span></div></section>
+
+      <section className="content-section wrap">
+        <div className="section-heading"><p className="section-number">01 / FEATURES</p><h2>What DeltaTxt does.</h2></div>
+        <div className="feature-card-grid">{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
-      <section className="wave-gallery-section delta-gallery-section" id="tour">
-        <div className="wave-gallery-heading">
-          <div><p className="section-number">01 / PRODUCT TOUR</p><h2>Built for the files<br />that demand more.</h2></div>
-          <div className="wave-gallery-intro">
-            <p>DeltaTxt stays quick for everyday editing, then brings serious tools forward when a source file, giant log, diff, merge, or workspace search needs more care.</p>
-          </div>
-        </div>
-        <div className="delta-gallery-grid">
-          {GALLERY.map((item, index) => (
-            <figure key={item.src} className={index === 0 ? "delta-gallery-card delta-gallery-card-featured" : "delta-gallery-card"}>
-              <img src={item.src} alt={item.alt} width="1920" height="1080" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-              <figcaption><span>WINDOWS / 0{index + 1}</span>{item.title}</figcaption>
-            </figure>
-          ))}
-        </div>
+      <section className="gallery-section wrap">
+        <div className="section-heading"><p className="section-number">02 / WINDOWS</p><h2>DeltaTxt for Windows.</h2></div>
+        <ScreenshotGallery items={screenshots} label="DeltaTxt for Windows" />
       </section>
 
-      <section className="product-content" id="features">
-        <div className="product-intro">
-          <p className="section-number">02 / BUILT FOR TEXT</p>
-          <h2>Fast for a note.<br />Ready for the hard file.</h2>
-          <p>Native controls keep ordinary editing responsive. Purpose-built compare, merge, search, recovery, and script tools handle the work that basic editors avoid.</p>
-        </div>
-        <div className="feature-grid four-grid">
-          <article><span>01</span><h3>Edit without overhead</h3><p>Tabbed editing, syntax styling, folding, themes, workspace navigation, document maps, and configurable details.</p></article>
-          <article><span>02</span><h3>Handle large files safely</h3><p>Streaming search and replacement use bounded buffers, staged output, and optional backups.</p></article>
-          <article><span>03</span><h3>Compare and merge</h3><p>Aligned side-by-side review, change navigation, three-way merge drafts, and folder comparison.</p></article>
-          <article><span>04</span><h3>Run and debug Python</h3><p>Environment discovery, breakpoints, stepping, locals, and bounded output—without adopting a full IDE.</p></article>
-        </div>
-      </section>
-
-      <section className="delta-specs" id="details">
-        <div className="delta-specs-heading">
-          <p className="section-number light-number">03 / UNDER THE HOOD</p>
-          <h2>Careful with every<br />byte and change.</h2>
-          <p>DeltaTxt combines a native editing surface with deliberate file handling and bounded-memory operations for technical text work.</p>
-        </div>
-        <div className="delta-spec-list">
-          <article><span>FILES</span><h3>Preserve what matters</h3><p>Detect UTF-8, UTF-16, and UTF-32; preserve byte-order marks and line endings; save atomically; and warn when files change outside the app.</p></article>
-          <article><span>LARGE DATA</span><h3>Search without opening</h3><p>Run streaming search and literal replacement directly on disk with bounded buffers, staged output, and optional backups.</p></article>
-          <article><span>REVIEW</span><h3>Compare at the useful level</h3><p>Use synchronized scrolling, change navigation, token-level emphasis, context filtering, and unified-diff copying.</p></article>
-          <article><span>MERGE</span><h3>Resolve without risking inputs</h3><p>Create an editable three-way merge draft, resolve left or right blocks, and preview folder synchronization before replacing files.</p></article>
-          <article><span>RECOVERY</span><h3>Protect unfinished work</h3><p>Restore unsaved tabs after a crash and use per-tab read-only mode when production logs should never be changed.</p></article>
-          <article><span>RUN + DEBUG</span><h3>Stay lightweight</h3><p>Run Python, PowerShell, JavaScript, batch, and Bash when installed. Python adds breakpoints, stepping, locals, and pdb commands.</p></article>
-        </div>
-      </section>
-
-      <section className="delta-limits">
-        <div><p className="section-number">04 / LARGE-FILE MODEL</p><h2>Clear limits.<br />Safer choices.</h2></div>
-        <div className="limit-notes">
-          <article><strong>64 MB</strong><p>Files above this size require a deliberate choice before opening in an editable tab; streaming search remains available.</p></article>
-          <article><strong>32 MB</strong><p>Visual comparisons above this size ask for confirmation because the aligned diff model is held in memory.</p></article>
-          <article><strong>Any size</strong><p>Folder comparison stays byte-accurate and bounded in memory, without loading every file into an editor.</p></article>
-        </div>
-      </section>
-
-      <section className="delta-detail">
-        <div><p className="section-number light-number">05 / FREEWARE</p><h2>Useful by default.<br /><span>Free by design.</span></h2></div>
-        <div className="platform-cards">
-          <article><span>WINDOWS 10/11</span><h3>Complete freeware edition</h3><p>Native Windows editing, workspace tools, large-file operations, compare and merge, multi-language execution, and Python debugging—with no subscription.</p></article>
-          <article><span>MACOS</span><h3>Active native preview</h3><p>A from-scratch Swift/AppKit edition with native document behavior, editing, search, side-by-side compare, and Python debugging. More parity work is underway.</p></article>
-        </div>
-      </section>
-
-      <section className="trial-section" id="availability">
-        <p className="section-number">06 / AVAILABILITY</p>
-        <h2>DeltaTxt is free to download.</h2>
-        <p className="trial-lede">Download DeltaTxt for Windows and start editing, comparing, and troubleshooting right away. No trial clock, account, subscription, advertising, or telemetry.</p>
-        <a className="trial-download" href={DOWNLOAD_URL}>↓ Download DeltaTxt free</a>
-        <p className="trial-meta">Windows 10/11 · x64 · v0.3.1 · 70 MB · Freeware</p>
-        <ol className="trial-steps">
-          <li><b>1</b><p><strong>Run the installer</strong> from your Downloads. It installs just for you — no administrator password needed.</p></li>
-          <li><b>2</b><p><strong>Check the publisher</strong> if Windows asks. The installer is code-signed, so it should read <strong>Joseph Sharpe</strong> — the developer behind ShrpWare.</p></li>
-          <li><b>3</b><p><strong>Open a file or compare two.</strong> Everything runs locally — no account, telemetry, or cloud upload.</p></li>
+      <section className="workflow-section wrap">
+        <div className="section-heading"><p className="section-number">03 / USE CASES</p><h2>When DeltaTxt is useful.</h2></div>
+        <ol className="workflow-list">
+          <li><span>01</span><div><h3>When a log is large</h3><p>Open the file, search for an error or identifier, and review the surrounding lines.</p></div></li>
+          <li><span>02</span><div><h3>When you need to compare two files</h3><p>View them side by side and merge the changes you want to keep.</p></div></li>
+          <li><span>03</span><div><h3>When you repeat the same cleanup</h3><p>Use a Python or script workflow instead of editing the same pattern by hand.</p></div></li>
         </ol>
-        <div className="cta-links"><a href="/apps/deltatxt/privacy">Read the privacy notice →</a></div>
+        <div className="inline-actions"><Link className="text-link" href="/use-cases/large-log-file-editor">Large log editing →</Link><Link className="text-link" href="/use-cases/file-comparison-merge">File comparison and merge →</Link></div>
       </section>
 
-      <footer className="product-footer"><Link href="/">← ShrpWare store</Link><span>© 2026 ShrpWare</span></footer>
-    </main>
+      <section className="faq-section wrap">
+        <div className="section-heading"><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="faq-list">
+          <details><summary>Is DeltaTxt really free?</summary><p>Yes. DeltaTxt is freeware with no subscription, account, advertising, or paid tier required.</p></details>
+          <details><summary>Does it collect usage data?</summary><p>No. DeltaTxt does not include telemetry, analytics, advertising, or automatic crash submission.</p></details>
+          <details><summary>What happens when I run a script?</summary><p>User-selected scripts and interpreters run with your operating-system permissions. Review scripts and their dependencies before running them.</p></details>
+          <details><summary>Where can I get help?</summary><p>Visit <Link href="/apps/deltatxt/support">DeltaTxt support</Link> or email <a href="mailto:support@shrpware.com">support@shrpware.com</a>.</p></details>
+        </div>
+      </section>
+
+      <section className="closing-cta wrap"><p className="section-number">FREEWARE · WINDOWS</p><h2>Download DeltaTxt free for Windows.</h2><div className="hero-actions"><Link className="button button-primary" href={links.deltatxt.download}>Download DeltaTxt</Link>{releaseStatus.deltaStoreReady ? <Link className="button button-secondary" href={links.deltatxt.store}>Get it from Microsoft</Link> : <span className="button button-disabled">Microsoft Store pending</span>}</div></section>
+    </PageShell>
   );
 }

@@ -1,141 +1,121 @@
-import { Brand } from "./Brand";
+import type { Metadata } from "next";
+import { SafeLink as Link } from "./components/SafeLink";
+import { SiteFooter } from "./components/SiteFooter";
+import { SiteHeader } from "./components/SiteHeader";
+
+export const metadata: Metadata = {
+  title: "Apps with an edge",
+  description: "WavePlume records and transcribes meetings locally. DeltaTxt edits large logs, compares files, and supports script-driven text work.",
+  alternates: { canonical: "/" },
+};
+
+const products = [
+  { index: "01", name: "WavePlume", href: "/apps/waveplume", icon: "/apps/waveplume/app-assets/png/waveplume-128.png", platform: "MAC + WINDOWS · $14.99", summary: "Record and transcribe meetings locally. No bot, cloud, or subscription.", className: "product-card product-card-wave" },
+  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon.png", platform: "WINDOWS · FREEWARE", summary: "Edit large logs, compare files, and troubleshoot scripts. Free.", className: "product-card product-card-delta" },
+];
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ShrpWare",
+  url: "https://shrpware.com",
+  email: "support@shrpware.com",
+  logo: "https://shrpware.com/brand/shrpware-wordmark.svg",
+};
 
 export default function Home() {
   return (
-    <main className="store-shell">
-      <header className="site-header">
-        <div className="container header-inner">
-          <Brand href="#top" />
-          <nav aria-label="Main navigation">
-            <a href="#apps">Apps</a>
-            <a href="#standard">Standard</a>
-            <a href="#studio">Studio</a>
-          </nav>
+    <main id="top" className="site-shell">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+      <SiteHeader />
+
+      <section className="hero wrap" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <h1 id="hero-title">Apps with<strong>an edge.</strong></h1>
+          <p className="hero-summary">Desktop apps for recording and transcribing meetings locally, and for editing large or complex text files. No account required.</p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="#apps">Explore the apps <span aria-hidden="true">↘</span></Link>
+            <Link className="button button-secondary" href="#standard">Why ShrpWare</Link>
+          </div>
         </div>
-      </header>
 
-      <section className="hero" id="top">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow"><span className="status-dot" />Independent software studio</p>
-            <h1>Apps with<br /><span>an edge.</span></h1>
-            <p className="hero-text">
-              Focused desktop software for people who want capable tools,
-              local control, and less noise.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#apps">Explore the apps <span>↘</span></a>
-              <a className="button button-secondary" href="#standard">How we build</a>
-            </div>
-          </div>
-
-          <div className="product-stack" aria-label="ShrpWare app collection">
-            <a className="stack-card stack-wave" href="/apps/waveplume">
-              <img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume app icon" width="128" height="128" />
-              <div><span>01 / MAC + WINDOWS · AVAILABLE NOW</span><strong>WavePlume<sup className="trademark">™</sup></strong></div>
-              <b>↗</b>
-            </a>
-            <a className="stack-card stack-delta" href="/apps/deltatxt">
-              <img src="/apps/deltatxt/icon.png" alt="DeltaTxt app icon" />
-              <div><span>02 / WINDOWS · FREEWARE</span><strong>DeltaTxt<sup className="trademark">™</sup></strong></div>
-              <b>↗</b>
-            </a>
-            <div className="stack-meta">
-              <span>CATALOG / 2026</span><span>2 FOCUSED APPS</span>
-            </div>
-          </div>
+        <div id="apps" className="product-stack" aria-label="ShrpWare app collection">
+          <div className="stack-frame" aria-hidden="true" />
+          {products.map((product) => (
+            <Link href={product.href} className={product.className} key={product.name}>
+              <img src={product.icon} alt="" />
+              <span className="product-copy">
+                <span className="product-meta">{product.index} / {product.platform}</span>
+                <strong>{product.name}<sup>™</sup></strong>
+                <span className="product-summary">{product.summary}</span>
+              </span>
+              <span className="product-arrow" aria-hidden="true">↗</span>
+            </Link>
+          ))}
+          <div className="catalog-meta"><span>Catalog / 2026</span><span>2 desktop apps</span></div>
         </div>
       </section>
 
-      <section className="catalog section" id="apps">
-        <div className="container">
-          <div className="section-heading">
-            <p className="section-number">01 / THE APPS</p>
-            <h2>Purpose-built.<br />Nothing extra.</h2>
-            <p>Two serious desktop tools, each designed around a job worth doing well.</p>
-          </div>
-
-          <article className="product-row wave-row">
-            <div className="product-copy">
-              <div className="product-title-line">
-                <img className="product-icon" src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="WavePlume icon" width="128" height="128" loading="lazy" decoding="async" />
-                <div><p className="product-index">APP / 01</p><h3>WavePlume<sup className="trademark">™</sup></h3></div>
-              </div>
-              <p className="product-tagline">Every wave becomes a word.</p>
-              <p className="product-description">
-                Capture system audio, microphone, and screen, then create searchable
-                transcripts locally with Whisper. No bot joins and nothing uploads.
-              </p>
-              <ul className="feature-chips" aria-label="WavePlume highlights">
-                <li>Mac + Windows</li><li>Local Whisper</li><li>No cloud upload</li>
-              </ul>
-              <div className="product-links">
-                <a className="text-link" href="/apps/waveplume">Explore WavePlume <span>→</span></a>
-                <a className="text-link product-store-link" href="https://apps.apple.com/us/app/waveplume/id6797359772" target="_blank" rel="noreferrer">Get for Mac <span>↗</span></a>
-                <a className="text-link product-store-link" href="https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&amp;gl=US" target="_blank" rel="noreferrer">Get for Windows <span>↗</span></a>
-              </div>
-            </div>
-            <a className="product-media wave-media" href="/apps/waveplume" aria-label="View WavePlume">
-              <img src="/apps/waveplume/gallery/windows-searchable-transcripts.webp" alt="WavePlume Windows transcript with the headline Every word becomes searchable" width="1920" height="1080" loading="lazy" decoding="async" />
-              <span className="media-label">ON THE MAC APP STORE + MICROSOFT STORE</span>
-            </a>
-          </article>
-
-          <article className="product-row delta-row">
-            <div className="product-copy">
-              <div className="product-title-line">
-                <img className="product-icon" src="/apps/deltatxt/icon.png" alt="DeltaTxt icon" />
-                <div><p className="product-index">APP / 02</p><h3>DeltaTxt<sup className="trademark">™</sup></h3></div>
-              </div>
-              <p className="product-tagline">Change, clearly.</p>
-              <p className="product-description">
-                A free native editor for source code, large logs, file comparison,
-                merge work, workspace search, and practical Python troubleshooting.
-              </p>
-              <ul className="feature-chips" aria-label="DeltaTxt highlights">
-                <li>Freeware</li><li>Large-file tools</li><li>Compare + merge</li>
-              </ul>
-              <a className="text-link" href="/apps/deltatxt">Explore DeltaTxt <span>→</span></a>
-            </div>
-            <a className="product-media delta-media" href="/apps/deltatxt" aria-label="View DeltaTxt">
-              <img src="/apps/deltatxt/gallery/windows-compare-clearly.webp" alt="DeltaTxt file comparison with the headline See every change. Merge with confidence" width="1920" height="1080" loading="lazy" decoding="async" />
-              <span className="media-label">FREEWARE · FREE DOWNLOAD</span>
-            </a>
-          </article>
+      <section id="standard" className="principles-section wrap">
+        <div className="section-heading">
+          <p className="section-number">01 / WHY SHRPWARE</p>
+          <h2>Straightforward desktop software.</h2>
+        </div>
+        <div className="principle-grid">
+          <article><span>01</span><h3>No account required</h3><p>Download the app and start using it without creating an account or profile.</p></article>
+          <article><span>02</span><h3>Simple pricing</h3><p>WavePlume is a one-time purchase, and DeltaTxt is free. Neither app requires an account.</p></article>
+          <article><span>03</span><h3>Built for specific tasks</h3><p>Each app focuses on a clear set of meeting or text-file workflows.</p></article>
         </div>
       </section>
 
-      <section className="standard section" id="standard">
-        <div className="container">
-          <p className="section-number light-number">02 / THE STANDARD</p>
-          <div className="standard-grid">
-            <h2>Software should<br /><span>earn its place.</span></h2>
-            <div className="principles">
-              <article><span>01</span><div><h3>Keep data close</h3><p>Local-first where it matters, with clear boundaries around every connection.</p></div></article>
-              <article><span>02</span><div><h3>Respect the platform</h3><p>Native controls, familiar behavior, and careful handling of the files you trust to us.</p></div></article>
-              <article><span>03</span><div><h3>Build the useful part</h3><p>Deep capability for the real job, without accounts, feeds, or decorative complexity.</p></div></article>
-            </div>
+      <section className="feature-section wrap">
+        <div className="feature-copy">
+          <p className="section-number">02 / WAVEPLUME</p>
+          <h2>Record and transcribe meetings locally.</h2>
+          <p>Record system audio and your microphone, then transcribe locally with Whisper. No meeting bot joins the call, and no audio is uploaded for processing.</p>
+          <div className="inline-actions">
+            <Link className="button button-primary" href="/apps/waveplume">See WavePlume</Link>
+            <Link className="text-link" href="/compare/waveplume-vs-cloud-meeting-bots">Compare with cloud bots →</Link>
           </div>
+        </div>
+        <img className="feature-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume meeting recording and transcription interface" width={1600} height={900} loading="lazy" decoding="async" />
+      </section>
+
+      <section className="feature-section feature-section-reverse wrap">
+        <div className="feature-copy">
+          <p className="section-number">03 / DELTATXT</p>
+          <h2>For text files that fight back.</h2>
+          <p>Open large logs, search a workspace, compare versions, merge changes, and run Python-powered text workflows without opening a full IDE.</p>
+          <div className="inline-actions">
+            <Link className="button button-primary" href="/apps/deltatxt">See DeltaTxt</Link>
+            <Link className="text-link" href="/use-cases/large-log-file-editor">Explore large log editing →</Link>
+          </div>
+        </div>
+        <img className="feature-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt text editing workbench" width={1600} height={900} loading="lazy" decoding="async" />
+      </section>
+
+      <section className="use-case-section wrap">
+        <div className="section-heading compact-heading">
+          <p className="section-number">04 / USE CASES</p>
+          <h2>Common ways to use the apps.</h2>
+        </div>
+        <div className="link-card-grid">
+          <Link href="/use-cases/offline-meeting-transcription"><span>Meetings</span><strong>Offline meeting transcription</strong><b>→</b></Link>
+          <Link href="/use-cases/large-log-file-editor"><span>Logs</span><strong>Large log file editing</strong><b>→</b></Link>
+          <Link href="/use-cases/file-comparison-merge"><span>Diff + merge</span><strong>Compare and merge text files</strong><b>→</b></Link>
         </div>
       </section>
 
-      <section className="studio section" id="studio">
-        <div className="container studio-grid">
-          <div><p className="section-number">03 / SHRPWARE</p><h2>Small studio.<br />Serious tools.</h2></div>
-          <div className="studio-copy">
-            <p>ShrpWare makes independent software for desktop workflows that deserve a sharper answer.</p>
-            <p className="studio-note">Two focused apps. More useful edges to come.</p>
-          </div>
+      <section className="closing-cta wrap">
+        <p className="section-number">NO ACCOUNT. NO SUBSCRIPTION.</p>
+        <h2>Choose the app that fits your work.</h2>
+        <div className="hero-actions">
+          <Link className="button button-primary" href="/apps/waveplume">Try WavePlume</Link>
+          <Link className="button button-secondary" href="/apps/deltatxt">Get DeltaTxt free</Link>
         </div>
       </section>
 
-      <footer>
-        <div className="container footer-inner">
-          <Brand href="#top" />
-          <p>© 2026 ShrpWare</p>
-          <div className="footer-links"><a href="/apps/waveplume">WavePlume</a><a href="/apps/deltatxt">DeltaTxt</a></div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

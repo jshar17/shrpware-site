@@ -4,7 +4,6 @@ import handler from "vinext/server/app-router-entry";
 
 interface Env {
   ASSETS: Fetcher;
-  DB: D1Database;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -29,6 +28,8 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    // App Store Connect has this legacy URL on file for the live WavePlume app.
+    // Keep it working even though the canonical policy moved into the app router.
     if (url.pathname === "/privacy.html") {
       return Response.redirect(new URL("/apps/waveplume/privacy", request.url), 301);
     }
