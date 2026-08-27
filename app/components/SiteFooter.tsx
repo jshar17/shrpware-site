@@ -17,6 +17,7 @@ export function SiteFooter() {
           <Link href="/press">Press kit</Link>
           <Link href="/apps/waveplume/support">WavePlume support</Link>
           <Link href="/apps/deltatxt/support">DeltaTxt support</Link>
+          <Link href="/apps/deltatxt/changelog">DeltaTxt release notes</Link>
         </div>
         <div className="footer-links">
           <strong>Privacy</strong>
