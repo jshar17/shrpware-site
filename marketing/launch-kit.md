@@ -43,19 +43,20 @@ Best audiences:
 
 ### DeltaTxt
 
-Primary promise: A sharper workbench for text files that fight back.
+Primary promise: A focused Python IDE with powerful find, replace, and text comparison tools.
 
 Proof points:
 
-- Large logs, side-by-side compare and merge, and workspace search.
-- Python and external-script workflows.
+- Python editing, interpreter discovery, breakpoint debugging, stepping, Locals, and Stack.
+- Find and replace in a document, across a workspace, or through large-file tools.
+- Side-by-side comparison, hunk controls, unified diff export, and three-way merge.
 - Native Windows app and freeware.
 - No account, telemetry, analytics, advertising, or subscription.
 
 Best audiences:
 
-- IT and support engineers investigating logs.
-- Developers who need a focused diff/search tool beside their IDE.
+- Python users working on scripts, data cleanup, diagnostics, and automation.
+- Developers who need a focused debugger and serious text tools beside a larger project IDE.
 - System administrators comparing configurations and diagnostic exports.
 - Technical users automating repetitive text cleanup.
 
@@ -82,16 +83,16 @@ Always follow the recording-consent laws and policies that apply to your meeting
 
 ### DeltaTxt short description
 
-Edit large logs, compare and merge files, search workspaces, and automate text workflows. Free for Windows.
+Write and debug Python, find and replace across files, and compare or merge text. Free for Windows.
 
 ### DeltaTxt long description
 
-DeltaTxt is a focused native Windows workbench for difficult text jobs. Open large logs, search related files, compare two versions, merge changes, and run your own Python or script-powered transformations without loading a full IDE around the task.
+DeltaTxt is a focused native Windows IDE for Python scripts and the technical text around them. Write and run Python, debug with breakpoints and stepping, find and replace across related files, compare two versions, and merge the changes you want without loading a heavyweight project IDE around the task.
 
-- Large log and text-file editing
-- Side-by-side compare and merge
-- Workspace-wide search
-- Python and external-script workflows
+- Python Run and breakpoint debugging with stepping, Locals, and Stack
+- Document, workspace, and large-file find and replace
+- Side-by-side comparison, hunk controls, and three-way merge
+- Workspace navigation and search across code, configs, and logs
 - Local preferences and recovery
 - No account, telemetry, analytics, or advertising
 - Freeware
@@ -120,15 +121,15 @@ The tradeoff is deliberate: WavePlume focuses on private local sessions rather t
 
 **Tagline**
 
-A free Windows workbench for text files that fight back
+A focused Python IDE with powerful text tools
 
 **First comment**
 
-DeltaTxt brings large-log editing, side-by-side compare and merge, workspace search, and Python-powered text workflows into one focused Windows app.
+DeltaTxt brings Python editing and debugging, powerful find and replace, workspace search, and side-by-side comparison into one focused Windows app.
 
-It is freeware with no account, telemetry, advertising, subscription, or paid tier. The goal is not to replace a full IDE; it is to solve the awkward text job that should not require opening one.
+It is freeware with no account, telemetry, advertising, subscription, or paid tier. It is focused on Python scripts and text-heavy technical work rather than the full project surface of a heavyweight IDE.
 
-Feedback on large-file behavior, comparison workflows, and workspace search is especially useful.
+Feedback on Python debugging, find and replace, and comparison workflows is especially useful.
 
 ### Show HN — WavePlume
 
@@ -150,17 +151,17 @@ Interested in feedback on model selection, system-audio setup across platforms, 
 
 **Title**
 
-Show HN: DeltaTxt – free Windows editor for large logs, diff/merge, and scripts
+Show HN: DeltaTxt – free focused Python IDE with find/replace and diff/merge
 
 **Body**
 
-DeltaTxt is a focused native Windows editor for technical text work: large logs, file comparison and merge, workspace search, and user-selected Python/script workflows.
+DeltaTxt is a focused native Windows workbench for Python scripts and technical text: edit and run Python, debug with breakpoints and stepping, find and replace across files, and compare or merge versions.
 
-It is intentionally smaller in scope than an IDE and free to use. There is no account, telemetry, analytics, advertising, or automatic crash submission.
+It is intentionally narrower than a full project IDE and free to use. There is no account, telemetry, analytics, advertising, or automatic crash submission.
 
 Product page and screenshots: https://shrpware.com/apps/deltatxt
 
-Feedback on real-world log sizes, compare/merge ergonomics, and script integration is welcome.
+Feedback on Python debugging, find/replace ergonomics, and text comparison is welcome.
 
 ### Community post — WavePlume
 
@@ -180,11 +181,11 @@ This is a product post, so please remove it if it is outside the community rules
 
 **Title**
 
-Free Windows workbench for large logs, file comparison, and script workflows
+Free focused Python IDE with find, replace, and text comparison
 
 **Body**
 
-DeltaTxt is freeware for technical text jobs that sit between a basic editor and a full IDE. It handles large logs, side-by-side compare/merge, workspace search, and user-selected Python or external scripts.
+DeltaTxt is freeware for Python scripts and technical text jobs that sit between a basic editor and a heavyweight project IDE. It includes breakpoint debugging, workspace find and replace, and side-by-side comparison and merge.
 
 It has no account, telemetry, analytics, advertising, or subscription. Screenshots and the direct download are here: https://shrpware.com/apps/deltatxt
 
@@ -287,13 +288,14 @@ Ad concept B:
 - large log file editor Windows
 - compare merge text files Windows
 - log viewer with workspace search
-- Python text workflow editor
+- focused Python IDE Windows
+- Python debugger with find and replace
 
 Ad concept A:
 
-- Headline: Large Logs Without a Full IDE
+- Headline: Debug Python. Compare Anything.
 - Headline: DeltaTxt Is Free
-- Description: Search workspaces, compare files, merge changes, and run scripts in one Windows workbench.
+- Description: Run and debug Python, find and replace across files, and compare text in one Windows workbench.
 
 Run one product at a time with a capped test budget. Stop a keyword after meaningful click volume if it produces no installer or store clicks. Never optimize against page views alone.
 

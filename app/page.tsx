@@ -5,13 +5,13 @@ import { SiteHeader } from "./components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Apps with an edge",
-  description: "WavePlume records and transcribes meetings locally. DeltaTxt edits large logs, compares files, and supports script-driven text work.",
+  description: "WavePlume records and transcribes meetings locally. DeltaTxt is a focused Python IDE for debugging, find and replace, and text comparison.",
   alternates: { canonical: "/" },
 };
 
 const products = [
   { index: "01", name: "WavePlume", href: "/apps/waveplume", icon: "/apps/waveplume/app-assets/png/waveplume-128.png", platform: "MAC + WINDOWS · $14.99", summary: "Record and transcribe meetings locally. No bot, cloud, or subscription.", className: "product-card product-card-wave" },
-  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon.png", platform: "WINDOWS · FREEWARE", summary: "Edit large logs, compare files, and troubleshoot scripts. Free.", className: "product-card product-card-delta" },
+  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon-160.webp", platform: "WINDOWS · FREEWARE", summary: "Write and debug Python, find and replace across files, and compare text. Free.", className: "product-card product-card-delta" },
 ];
 
 const organizationJsonLd = {
@@ -32,7 +32,7 @@ export default function Home() {
       <section className="hero wrap" aria-labelledby="hero-title">
         <div className="hero-copy">
           <h1 id="hero-title">Apps with<strong>an edge.</strong></h1>
-          <p className="hero-summary">Desktop apps for recording and transcribing meetings locally, and for editing large or complex text files. No account required.</p>
+          <p className="hero-summary">Desktop apps for private meeting transcription and for focused Python debugging, find and replace, and text comparison. No account required.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="#apps">Explore the apps <span aria-hidden="true">↘</span></Link>
             <Link className="button button-secondary" href="#standard">Why ShrpWare</Link>
@@ -84,24 +84,25 @@ export default function Home() {
       <section className="feature-section feature-section-reverse wrap">
         <div className="feature-copy">
           <p className="section-number">03 / DELTATXT</p>
-          <h2>For text files that fight back.</h2>
-          <p>Open large logs, search a workspace, compare versions, merge changes, and run Python-powered text workflows without opening a full IDE.</p>
+          <h2>A focused Python IDE with serious text tools.</h2>
+          <p>Write, run, and debug Python with breakpoints and stepping. Then find and replace across files, compare versions, and merge changes without leaving the workbench.</p>
           <div className="inline-actions">
             <Link className="button button-primary" href="/apps/deltatxt">See DeltaTxt</Link>
-            <Link className="text-link" href="/use-cases/large-log-file-editor">Explore large log editing →</Link>
+            <Link className="text-link" href="/use-cases/python-ide-debugger">Explore Python editing and debugging →</Link>
           </div>
         </div>
-        <img className="feature-image" src="/apps/deltatxt/hero-workbench.webp" alt="DeltaTxt text editing workbench" width={1600} height={900} loading="lazy" decoding="async" />
+        <img className="feature-image" src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="Python source file open in DeltaTxt with Run and Debug controls" width={1920} height={1080} loading="lazy" decoding="async" />
       </section>
 
       <section className="use-case-section wrap">
         <div className="section-heading compact-heading">
           <p className="section-number">04 / USE CASES</p>
-          <h2>Common ways to use the apps.</h2>
+          <h2>Focused workflows, without the overhead.</h2>
         </div>
-        <div className="link-card-grid">
+        <div className="link-card-grid link-card-grid-four">
           <Link href="/use-cases/offline-meeting-transcription"><span>Meetings</span><strong>Offline meeting transcription</strong><b>→</b></Link>
-          <Link href="/use-cases/large-log-file-editor"><span>Logs</span><strong>Large log file editing</strong><b>→</b></Link>
+          <Link href="/use-cases/python-ide-debugger"><span>Python</span><strong>Focused editing and debugging</strong><b>→</b></Link>
+          <Link href="/use-cases/find-replace-text-files"><span>Find + replace</span><strong>Change text across files safely</strong><b>→</b></Link>
           <Link href="/use-cases/file-comparison-merge"><span>Diff + merge</span><strong>Compare and merge text files</strong><b>→</b></Link>
         </div>
       </section>

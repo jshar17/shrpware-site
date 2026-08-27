@@ -27,6 +27,8 @@ test("renders every public content route", async () => {
     "/apps/deltatxt/privacy",
     "/apps/deltatxt/changelog",
     "/use-cases/offline-meeting-transcription",
+    "/use-cases/python-ide-debugger",
+    "/use-cases/find-replace-text-files",
     "/use-cases/large-log-file-editor",
     "/use-cases/file-comparison-merge",
     "/compare/waveplume-vs-cloud-meeting-bots",
@@ -54,12 +56,52 @@ test("publishes search metadata routes", async () => {
   assert.match(xml, /apps\/waveplume/);
   assert.match(xml, /apps\/deltatxt/);
   assert.match(xml, /offline-meeting-transcription/);
+  assert.match(xml, /python-ide-debugger/);
+  assert.match(xml, /find-replace-text-files/);
+});
+
+test("positions DeltaTxt around Python debugging, find and replace, and comparison", async () => {
+  const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  const productHtml = await product.text();
+  assert.match(productHtml, /Python IDE/);
+  assert.match(productHtml, /Run and debug Python/);
+  assert.match(productHtml, /Find and replace precisely/);
+  assert.match(productHtml, /Compare text clearly/);
+  assert.match(productHtml, /use-cases\/python-ide-debugger/);
+  assert.match(productHtml, /use-cases\/find-replace-text-files/);
+
+  const home = await fetchPath("/", { headers: { accept: "text/html" } });
+  const homeHtml = await home.text();
+  assert.match(homeHtml, /focused Python IDE/i);
+  assert.match(homeHtml, /find and replace/i);
 });
 
 test("preserves the legacy WavePlume privacy URL used by App Store Connect", async () => {
   const response = await fetchPath("/privacy.html");
   assert.equal(response.status, 301);
   assert.match(response.headers.get("location") ?? "", /\/apps\/waveplume\/privacy$/);
+});
+
+test("canonicalizes the DeltaTxt shortcut, HTTP, and www hosts", async () => {
+  const shortcut = await fetchPath("/deltatxt");
+  assert.equal(shortcut.status, 308);
+  assert.equal(shortcut.headers.get("location"), "https://shrpware.com/apps/deltatxt");
+
+  const http = await worker.fetch(new Request("http://shrpware.com/apps/deltatxt"), env, ctx);
+  assert.equal(http.status, 308);
+  assert.equal(http.headers.get("location"), "https://shrpware.com/apps/deltatxt");
+
+  const www = await worker.fetch(new Request("https://www.shrpware.com/apps/deltatxt"), env, ctx);
+  assert.equal(www.status, 308);
+  assert.equal(www.headers.get("location"), "https://shrpware.com/apps/deltatxt");
+});
+
+test("adds baseline security headers to site responses", async () => {
+  const response = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
 });
 
 test("uses first-party, no-referrer outbound redirects", async () => {
@@ -78,6 +120,50 @@ test("uses first-party, no-referrer outbound redirects", async () => {
     assert.equal(response.headers.get("referrer-policy"), "no-referrer", path);
     assert.equal(response.headers.get("cache-control"), "no-store", path);
   }
+
+  const deltaTxt = await fetchPath("/go/deltatxt-download");
+  assert.equal(
+    deltaTxt.headers.get("location"),
+    "https://shrpware.com/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+  );
+});
+
+test("serves the DeltaTxt installer as a first-party attachment", async () => {
+  const originalFetch = globalThis.fetch;
+  let upstreamRequest;
+
+  globalThis.fetch = async (input, init) => {
+    upstreamRequest = new Request(input, init);
+    return new Response("installer bytes", {
+      status: 206,
+      headers: {
+        "Accept-Ranges": "bytes",
+        "Content-Range": "bytes 0-14/73175504",
+        ETag: '"deltatxt-installer"',
+      },
+    });
+  };
+
+  try {
+    const response = await fetchPath(
+      "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+      { headers: { Range: "bytes=0-14" } },
+    );
+
+    assert.equal(response.status, 206);
+    assert.equal(
+      response.headers.get("content-disposition"),
+      'attachment; filename="DeltaTxt-0.3.1-setup.exe"',
+    );
+    assert.equal(response.headers.get("content-type"), "application/vnd.microsoft.portable-executable");
+    assert.equal(response.headers.get("content-range"), "bytes 0-14/73175504");
+    assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+    assert.equal(upstreamRequest.method, "GET");
+    assert.equal(upstreamRequest.headers.get("range"), "bytes=0-14");
+    assert.match(upstreamRequest.url, /^https:\/\/pub-[^.]+\.r2\.dev\/deltatxt\//);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("keeps required brand and product assets in the deployable tree", async () => {
@@ -86,6 +172,7 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/og-v5.png",
     "../public/apps/waveplume/hero-wave.webp",
     "../public/apps/deltatxt/hero-workbench.webp",
+    "../public/apps/deltatxt/icon-160.webp",
   ]) {
     await access(new URL(path, import.meta.url));
   }
