@@ -120,6 +120,50 @@ test("uses first-party, no-referrer outbound redirects", async () => {
     assert.equal(response.headers.get("referrer-policy"), "no-referrer", path);
     assert.equal(response.headers.get("cache-control"), "no-store", path);
   }
+
+  const deltaTxt = await fetchPath("/go/deltatxt-download");
+  assert.equal(
+    deltaTxt.headers.get("location"),
+    "https://shrpware.com/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+  );
+});
+
+test("serves the DeltaTxt installer as a first-party attachment", async () => {
+  const originalFetch = globalThis.fetch;
+  let upstreamRequest;
+
+  globalThis.fetch = async (input, init) => {
+    upstreamRequest = new Request(input, init);
+    return new Response("installer bytes", {
+      status: 206,
+      headers: {
+        "Accept-Ranges": "bytes",
+        "Content-Range": "bytes 0-14/73175504",
+        ETag: '"deltatxt-installer"',
+      },
+    });
+  };
+
+  try {
+    const response = await fetchPath(
+      "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+      { headers: { Range: "bytes=0-14" } },
+    );
+
+    assert.equal(response.status, 206);
+    assert.equal(
+      response.headers.get("content-disposition"),
+      'attachment; filename="DeltaTxt-0.3.1-setup.exe"',
+    );
+    assert.equal(response.headers.get("content-type"), "application/vnd.microsoft.portable-executable");
+    assert.equal(response.headers.get("content-range"), "bytes 0-14/73175504");
+    assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+    assert.equal(upstreamRequest.method, "GET");
+    assert.equal(upstreamRequest.headers.get("range"), "bytes=0-14");
+    assert.match(upstreamRequest.url, /^https:\/\/pub-[^.]+\.r2\.dev\/deltatxt\//);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("keeps required brand and product assets in the deployable tree", async () => {

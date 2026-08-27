@@ -4,6 +4,16 @@ export const site = {
   email: "support@shrpware.com",
 };
 
+export const downloads = {
+  deltatxt: {
+    path: "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+    source:
+      "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.1-setup.exe",
+    filename: "DeltaTxt-0.3.1-setup.exe",
+    contentType: "application/vnd.microsoft.portable-executable",
+  },
+};
+
 export const links = {
   waveplume: {
     mac: "/go/waveplume-mac",
@@ -30,7 +40,6 @@ export const outboundDestinations: Record<string, string> = {
   "waveplume-windows":
     "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US",
   "waveplume-trial": links.waveplume.trialDestination,
-  "deltatxt-download":
-    "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.1-setup.exe",
+  "deltatxt-download": downloads.deltatxt.path,
   "deltatxt-store": "https://apps.microsoft.com/detail/9P8VKC9NHPBV",
 };
