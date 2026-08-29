@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "DeltaTxt — Native Mac and Windows text editor, diff, merge, and search",
   description: "A free native text and code editor for Mac and Windows, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
   alternates: { canonical: "/apps/deltatxt" },
-  openGraph: { images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
-  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
+  openGraph: { images: ["/apps/deltatxt/hero-windows-debug.webp"] },
+  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/hero-windows-debug.webp"] },
 };
 
 const jsonLd = {
@@ -24,8 +24,9 @@ const jsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/deltatxt",
   downloadUrl: "https://shrpware.com/go/deltatxt-download",
-  image: "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
+  image: "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
   screenshot: [
+    "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-search-every-file.webp",
@@ -84,24 +85,21 @@ export default function DeltaTxtPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
-          <p className="eyebrow"><span />Mac + Windows · Text tools · Freeware</p>
+          <p className="eyebrow"><span />Windows IDE · Native C# + .NET 8 · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
-          <h2>Edit, search, compare, and merge with precision.</h2>
-          <p>Native on both platforms: Swift + AppKit on Mac; C# + .NET 8 on Windows. No Electron or web wrapper.</p>
+          <h2>Python debugging without the heavyweight IDE.</h2>
+          <p>Set breakpoints, step through code, inspect locals, and follow the call stack in a fast native Windows app. No Electron or web wrapper. Also available natively for Mac.</p>
           <StoreLinks />
           <p className="fine-print">macOS 13+ · Windows 10/11 · Free · No account required</p>
         </div>
-        <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
+        <div className="product-hero-debugger" aria-label="DeltaTxt Python debugging on Windows">
           <figure>
-            <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
-          </figure>
-          <figure>
-            <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
+            <img src="/apps/deltatxt/hero-windows-debug.webp" alt="DeltaTxt Python debugger paused at a breakpoint on Windows with Locals, Call Stack, and Debug Console panes" width={1672} height={941} fetchPriority="high" />
           </figure>
         </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>Swift + AppKit</span><span>C# + .NET 8</span><span>No telemetry</span><span>Freeware</span></div></section>
+      <section className="trust-band"><div className="wrap"><span>C# + .NET 8</span><span>Python debugger</span><span>Swift + AppKit</span><span>Freeware</span></div></section>
 
       <section className="content-section wrap">
         <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
