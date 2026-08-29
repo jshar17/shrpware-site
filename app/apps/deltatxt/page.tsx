@@ -37,8 +37,8 @@ const jsonLd = {
 };
 
 const features = [
-  ["Built natively for Mac in Swift", "The Mac edition uses Swift and AppKit, so its windows, menus, shortcuts, and document workflows feel at home on macOS."],
-  ["Focused text and code editing", "Edit with syntax styling, folding, workspace navigation, Quick Open, a function list, and optional document tools."],
+  ["A Mac app, through and through", "The Mac edition is written from the ground up in Swift and AppKit—not a wrapped website—with genuine Mac windows, menus, shortcuts, and document behavior."],
+  ["Native C# and .NET on Windows", "The Windows edition is written in C# on .NET 8 with Windows Forms and Scintilla, following familiar Windows conventions across menus, dialogs, shortcuts, Explorer commands, and high-DPI displays."],
   ["Python tools on Windows", "The Windows edition adds interpreter discovery, Run, breakpoints, stepping, Locals, Stack, and streamed output."],
   ["Find and replace precisely", "Search by plain text or regular expression with case and whole-word controls, then review or replace the matches you intend."],
   ["Search and replace a workspace", "Find a value across related code, configs, and logs, with preview-first replacement and backups for broader changes."],
@@ -64,12 +64,12 @@ function StoreLinks({ compact = false }: { compact?: boolean }) {
       <div className="store-actions" aria-label="Get DeltaTxt">
         {releaseStatus.deltaMacStoreReady ? (
           <Link className="store-button store-button-primary" href={links.deltatxt.macStore}>
-            <span>Download on the</span><strong>Mac App Store</strong><i aria-hidden="true">↗</i>
+            <span>Native Swift app</span><strong>Mac App Store</strong><i aria-hidden="true">↗</i>
           </Link>
         ) : <span className="store-button store-button-disabled"><span>Mac edition</span><strong>App Store pending</strong></span>}
         {releaseStatus.deltaStoreReady ? (
           <Link className="store-button" href={links.deltatxt.store}>
-            <span>Get it from</span><strong>Microsoft Store</strong><i aria-hidden="true">↗</i>
+            <span>Native C# + .NET app</span><strong>Microsoft Store</strong><i aria-hidden="true">↗</i>
           </Link>
         ) : <span className="store-button store-button-disabled"><span>Windows edition</span><strong>Microsoft Store pending</strong></span>}
       </div>
@@ -87,17 +87,17 @@ export default function DeltaTxtPage() {
           <p className="eyebrow"><span />Mac + Windows · Text tools · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
           <h2>Edit, search, compare, and merge with precision.</h2>
-          <p>Built natively for Mac in Swift and available on Windows, DeltaTxt keeps focused text and code tools in one fast workbench. The Windows edition also runs and debugs Python.</p>
+          <p>Two native desktop editions, each built for its platform. On Mac, DeltaTxt is written in Swift and AppKit. On Windows, it is written in C# on .NET 8 with Windows Forms and Scintilla. No Electron. No wrapped website.</p>
           <StoreLinks />
           <p className="fine-print">macOS 13+ · Windows 10/11 · Version 0.3.1 · Free · No account required</p>
         </div>
         <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
           <figure>
-            <figcaption><strong>macOS</strong><span>Native Swift + AppKit</span></figcaption>
+            <figcaption><strong>macOS</strong><span>Swift + AppKit</span></figcaption>
             <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
           </figure>
           <figure>
-            <figcaption><strong>Windows</strong><span>Native desktop app</span></figcaption>
+            <figcaption><strong>Windows</strong><span>C# + .NET 8 + WinForms</span></figcaption>
             <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
           </figure>
         </div>
@@ -114,14 +114,14 @@ export default function DeltaTxtPage() {
         <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">DeltaTxt for Mac</h3><p>Native Swift and AppKit, with focused editing, search, compare, and folder tools.</p></div>
+            <div><p className="platform-kicker">macOS 13+ · Swift + AppKit</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Written from the ground up in Swift and AppKit, with genuine Mac windows, menus, keyboard shortcuts, document behavior, and system controls.</p></div>
             {releaseStatus.deltaMacStoreReady ? <Link className="text-link" href={links.deltatxt.macStore}>Mac App Store →</Link> : null}
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
         <div className="platform-gallery-group" aria-labelledby="deltatxt-windows-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">Windows 10 / 11</p><h3 id="deltatxt-windows-gallery">DeltaTxt for Windows</h3><p>The complete native workbench, including Python run and debugging tools.</p></div>
+            <div><p className="platform-kicker">Windows 10 / 11 · C# + .NET 8</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>Written in C# with .NET 8, Windows Forms, and Scintilla for a fast native workbench with familiar menus, dialogs, Explorer integration, and Python debugging.</p></div>
             {releaseStatus.deltaStoreReady ? <Link className="text-link" href={links.deltatxt.store}>Microsoft Store →</Link> : null}
           </div>
           <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" layout="featured" />
