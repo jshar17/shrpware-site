@@ -16,11 +16,14 @@ type Screenshot = {
 type ScreenshotGalleryProps = {
   items: Screenshot[];
   label: string;
+  layout?: "grid" | "featured";
 };
 
 // The grid renders each shot at roughly a third of the 1060px content column,
 // and full width once the layout collapses at 860px.
 const GRID_SIZES = "(max-width: 860px) 92vw, 340px";
+const FEATURED_SIZES = "(max-width: 860px) 92vw, 1060px";
+const FEATURED_HALF_SIZES = "(max-width: 860px) 92vw, 520px";
 // Horizontal travel needed to count as a swipe, and how much more horizontal
 // than vertical it must be before we treat it as one rather than a page scroll.
 const SWIPE_PX = 50;
@@ -28,7 +31,7 @@ const SWIPE_RATIO = 1.5;
 // Pointer travel past which a release is a pan, not a click.
 const DRAG_SLOP_PX = 5;
 
-export function ScreenshotGallery({ items, label }: ScreenshotGalleryProps) {
+export function ScreenshotGallery({ items, label, layout = "grid" }: ScreenshotGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(false);
   const [panning, setPanning] = useState(false);
@@ -241,7 +244,7 @@ export function ScreenshotGallery({ items, label }: ScreenshotGalleryProps) {
 
   return (
     <>
-      <div className="gallery-grid gallery-grid-three screenshot-gallery" aria-label={`${label} screenshots`}>
+      <div className={`gallery-grid screenshot-gallery ${layout === "featured" ? `gallery-grid-featured gallery-grid-count-${items.length}` : "gallery-grid-three"}`} aria-label={`${label} screenshots`}>
         {items.map((item, index) => (
           <figure key={item.src}>
             <button
@@ -254,7 +257,7 @@ export function ScreenshotGallery({ items, label }: ScreenshotGalleryProps) {
               <img
                 src={item.thumbnail ?? item.src}
                 srcSet={item.thumbnail ? `${item.thumbnail} 640w, ${item.src} ${item.width}w` : undefined}
-                sizes={item.thumbnail ? GRID_SIZES : undefined}
+                sizes={item.thumbnail ? (layout === "featured" && index === 0 ? FEATURED_SIZES : layout === "featured" && items.length === 3 ? FEATURED_HALF_SIZES : GRID_SIZES) : undefined}
                 alt={item.alt}
                 width={item.width}
                 height={item.height}

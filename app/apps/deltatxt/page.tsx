@@ -6,7 +6,7 @@ import { links, releaseStatus } from "@/app/lib/site";
 
 export const metadata: Metadata = {
   title: "DeltaTxt — Native Mac and Windows text editor, diff, merge, and search",
-  description: "A free text and code editor built natively for Mac in Swift, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
+  description: "A free native text and code editor for Mac and Windows, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
   alternates: { canonical: "/apps/deltatxt" },
   openGraph: { images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
   twitter: { card: "summary_large_image", images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
@@ -30,51 +30,98 @@ const jsonLd = {
     "https://shrpware.com/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-search-every-file.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-compare-folders.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/windows-code-without-overhead.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/windows-compare-clearly.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/windows-search-workspace.webp",
   ],
 };
 
 const features = [
-  ["Built natively for Mac in Swift", "The Mac edition uses Swift and AppKit, so its windows, menus, shortcuts, and document workflows feel at home on macOS."],
-  ["Focused text and code editing", "Edit with syntax styling, folding, workspace navigation, Quick Open, a function list, and optional document tools."],
+  ["A Mac app, through and through", "The Mac edition is written from the ground up in Swift and AppKit—not a wrapped website—with genuine Mac windows, menus, shortcuts, and document behavior."],
+  ["Native C# and .NET on Windows", "The Windows edition is written in C# on .NET 8 with Windows Forms and Scintilla, following familiar Windows conventions across menus, dialogs, shortcuts, Explorer commands, and high-DPI displays."],
   ["Python tools on Windows", "The Windows edition adds interpreter discovery, Run, breakpoints, stepping, Locals, Stack, and streamed output."],
   ["Find and replace precisely", "Search by plain text or regular expression with case and whole-word controls, then review or replace the matches you intend."],
   ["Search and replace a workspace", "Find a value across related code, configs, and logs, with preview-first replacement and backups for broader changes."],
   ["Compare and merge with control", "Review versions side by side, apply individual changes, export a unified diff, or build a three-way merge draft without overwriting the inputs."],
 ];
 
-const screenshots = [
+const macScreenshots = [
   { src: "/apps/deltatxt/gallery/mac-edit-with-focus.webp", alt: "Python source file open in the native DeltaTxt editor for Mac with the workspace visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-compare-with-confidence.webp", alt: "Two Python files compared side by side in DeltaTxt for Mac with added and removed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-search-every-file.webp", alt: "Workspace search results grouped by file in DeltaTxt for Mac", caption: "Search every file", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-search-every-file-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-compare-folders.webp", alt: "Two folders compared in DeltaTxt for Mac before previewing or syncing differences", caption: "Compare folders", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-folders-thumb.webp" },
 ];
 
+const windowsScreenshots = [
+  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Python source file open in the native DeltaTxt editor for Windows", caption: "Edit without overhead", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two Python files compared side by side in DeltaTxt for Windows with changes highlighted", caption: "Compare clearly", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results shown in DeltaTxt for Windows", caption: "Search the workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
+];
+
+function StoreLinks({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`store-link-group${compact ? " store-link-group-compact" : ""}`}>
+      <div className="store-actions" aria-label="Get DeltaTxt">
+        {releaseStatus.deltaMacStoreReady ? (
+          <Link className="store-button store-button-primary" href={links.deltatxt.macStore}>
+            <strong>Mac App Store</strong><i aria-hidden="true">↗</i>
+          </Link>
+        ) : <span className="store-button store-button-disabled"><span>Mac edition</span><strong>App Store pending</strong></span>}
+        {releaseStatus.deltaStoreReady ? (
+          <Link className="store-button" href={links.deltatxt.store}>
+            <strong>Microsoft Store</strong><i aria-hidden="true">↗</i>
+          </Link>
+        ) : <span className="store-button store-button-disabled"><span>Windows edition</span><strong>Microsoft Store pending</strong></span>}
+      </div>
+      <p className="direct-download"><Link href={links.deltatxt.download}>Windows installer <span aria-hidden="true">↓</span></Link></p>
+    </div>
+  );
+}
+
 export default function DeltaTxtPage() {
   return (
     <PageShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="product-hero wrap">
+      <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
           <p className="eyebrow"><span />Mac + Windows · Text tools · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
           <h2>Edit, search, compare, and merge with precision.</h2>
-          <p>Built natively for Mac in Swift and available on Windows, DeltaTxt keeps focused text and code tools in one fast workbench. The Windows edition also runs and debugs Python.</p>
-          <div className="hero-actions">{releaseStatus.deltaMacStoreReady ? <Link className="button button-primary" href={links.deltatxt.macStore}>Mac App Store</Link> : <span className="button button-disabled">Mac App Store pending</span>}<Link className="button button-secondary" href={links.deltatxt.download}>Windows download <span>↓</span></Link>{releaseStatus.deltaStoreReady ? <Link className="button button-secondary" href={links.deltatxt.store}>Microsoft Store</Link> : null}</div>
-          <p className="fine-print">macOS 13+ · Windows 10/11 · Version 0.3.1 · Free · No account required</p>
+          <p>Native on both platforms: Swift + AppKit on Mac; C# + .NET 8 on Windows. No Electron or web wrapper.</p>
+          <StoreLinks />
+          <p className="fine-print">macOS 13+ · Windows 10/11 · Free · No account required</p>
         </div>
-        <img className="product-hero-image" src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="Python source file open in the native DeltaTxt editor for Mac" width={1920} height={1080} decoding="async" />
+        <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
+          <figure>
+            <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
+          </figure>
+          <figure>
+            <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
+          </figure>
+        </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>Native Swift on Mac</span><span>Find + replace</span><span>Compare + merge</span><span>No telemetry</span></div></section>
+      <section className="trust-band"><div className="wrap"><span>Swift + AppKit</span><span>C# + .NET 8</span><span>No telemetry</span><span>Freeware</span></div></section>
 
       <section className="content-section wrap">
         <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
         <div className="feature-card-grid">{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
-      <section className="gallery-section wrap">
-        <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See the tools in context.</h2></div>
-        <ScreenshotGallery items={screenshots} label="DeltaTxt for Mac" />
+      <section className="gallery-section platform-gallery-section wrap">
+        <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
+        <div className="platform-gallery-group" aria-labelledby="deltatxt-mac-gallery">
+          <div className="platform-gallery-heading">
+            <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
+          </div>
+          <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
+        </div>
+        <div className="platform-gallery-group" aria-labelledby="deltatxt-windows-gallery">
+          <div className="platform-gallery-heading">
+            <div><p className="platform-kicker">Windows 10 / 11</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>C# + .NET 8. Windows Forms, Scintilla, Explorer integration, and Python debugging.</p></div>
+          </div>
+          <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" layout="featured" />
+        </div>
       </section>
 
       <section className="workflow-section wrap">
@@ -100,7 +147,7 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="closing-cta wrap"><p className="section-number">TEXT + CODE · FREEWARE · MAC + WINDOWS</p><h2>Get the focused text and code workbench.</h2><div className="hero-actions">{releaseStatus.deltaMacStoreReady ? <Link className="button button-primary" href={links.deltatxt.macStore}>Mac App Store</Link> : null}<Link className="button button-secondary" href={links.deltatxt.download}>Windows download</Link>{releaseStatus.deltaStoreReady ? <Link className="button button-secondary" href={links.deltatxt.store}>Microsoft Store</Link> : null}</div><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
+      <section className="closing-cta wrap"><p className="section-number">TEXT + CODE · FREEWARE · MAC + WINDOWS</p><h2>Get the focused text and code workbench.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
     </PageShell>
   );
 }

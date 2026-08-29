@@ -63,12 +63,21 @@ test("publishes search metadata routes", async () => {
 test("positions DeltaTxt as a native Mac and Windows text workbench", async () => {
   const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
   const productHtml = await product.text();
-  assert.match(productHtml, /Built natively for Mac in Swift/);
-  assert.match(productHtml, /Native Swift on Mac/);
+  assert.match(productHtml, /A Mac app, through and through/);
+  assert.match(productHtml, /Swift and AppKit/);
+  assert.match(productHtml, /Native C# and \.NET on Windows/);
+  assert.match(productHtml, /C# on \.NET 8 with Windows Forms and Scintilla/);
+  assert.match(productHtml, /No Electron/);
+  assert.match(productHtml, /Swift \+ AppKit/);
   assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
   assert.match(productHtml, /deltatxt-mac-store/);
+  assert.match(productHtml, /deltatxt-store/);
+  assert.match(productHtml, /Made like a Mac app/);
+  assert.match(productHtml, /Built for Windows/);
+  assert.match(productHtml, /windows-code-without-overhead\.webp/);
+  assert.match(productHtml, /windows-search-workspace\.webp/);
   assert.match(productHtml, /use-cases\/python-ide-debugger/);
   assert.match(productHtml, /use-cases\/find-replace-text-files/);
 
@@ -184,6 +193,12 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/apps/deltatxt/gallery/mac-search-every-file-thumb.webp",
     "../public/apps/deltatxt/gallery/mac-compare-folders.webp",
     "../public/apps/deltatxt/gallery/mac-compare-folders-thumb.webp",
+    "../public/apps/deltatxt/gallery/windows-code-without-overhead.webp",
+    "../public/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp",
+    "../public/apps/deltatxt/gallery/windows-compare-clearly.webp",
+    "../public/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp",
+    "../public/apps/deltatxt/gallery/windows-search-workspace.webp",
+    "../public/apps/deltatxt/gallery/windows-search-workspace-thumb.webp",
   ]) {
     await access(new URL(path, import.meta.url));
   }
