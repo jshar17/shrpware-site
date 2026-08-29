@@ -70,6 +70,8 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /No Electron/);
   assert.match(productHtml, /Swift \+ AppKit/);
   assert.match(productHtml, /Python tools on Windows/);
+  assert.match(productHtml, /direct pdb commands/);
+  assert.doesNotMatch(productHtml, /Call Stack|Debug Console/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
   assert.match(productHtml, /deltatxt-mac-store/);
