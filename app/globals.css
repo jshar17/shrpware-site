@@ -247,7 +247,7 @@ img { display: block; max-width: 100%; }
 .product-hero-copy .hero-actions { align-items: center; }
 .product-hero-image { width: 100%; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,.4); }
 .fine-print { color: #7f8880; font: 600 .66rem/1.6 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; }
-.product-hero-deltatxt { grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 54px; padding-block: 78px 102px; }
+.product-hero-deltatxt { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(48px, 6.2vw, 88px); padding-block: 92px 102px; }
 .product-hero-deltatxt .product-hero-copy { width: auto; margin: 0; }
 .product-hero-deltatxt .product-hero-copy > p:not(.eyebrow):not(.fine-print) { margin-inline: 0; }
 .product-hero-deltatxt .eyebrow, .product-hero-deltatxt .app-title-lockup { justify-content: flex-start; }
