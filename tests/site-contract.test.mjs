@@ -68,7 +68,7 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /Native C# and \.NET on Windows/);
   assert.match(productHtml, /C# on \.NET 8 with Windows Forms and Scintilla/);
   assert.match(productHtml, /No Electron/);
-  assert.match(productHtml, /Native Swift on Mac/);
+  assert.match(productHtml, /Swift \+ AppKit/);
   assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);

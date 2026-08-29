@@ -64,16 +64,16 @@ function StoreLinks({ compact = false }: { compact?: boolean }) {
       <div className="store-actions" aria-label="Get DeltaTxt">
         {releaseStatus.deltaMacStoreReady ? (
           <Link className="store-button store-button-primary" href={links.deltatxt.macStore}>
-            <span>Native Swift app</span><strong>Mac App Store</strong><i aria-hidden="true">↗</i>
+            <strong>Mac App Store</strong><i aria-hidden="true">↗</i>
           </Link>
         ) : <span className="store-button store-button-disabled"><span>Mac edition</span><strong>App Store pending</strong></span>}
         {releaseStatus.deltaStoreReady ? (
           <Link className="store-button" href={links.deltatxt.store}>
-            <span>Native C# + .NET app</span><strong>Microsoft Store</strong><i aria-hidden="true">↗</i>
+            <strong>Microsoft Store</strong><i aria-hidden="true">↗</i>
           </Link>
         ) : <span className="store-button store-button-disabled"><span>Windows edition</span><strong>Microsoft Store pending</strong></span>}
       </div>
-      <p className="direct-download">Prefer a standalone installer? <Link href={links.deltatxt.download}>Download for Windows <span aria-hidden="true">↓</span></Link></p>
+      <p className="direct-download"><Link href={links.deltatxt.download}>Windows installer <span aria-hidden="true">↓</span></Link></p>
     </div>
   );
 }
@@ -87,23 +87,23 @@ export default function DeltaTxtPage() {
           <p className="eyebrow"><span />Mac + Windows · Text tools · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
           <h2>Edit, search, compare, and merge with precision.</h2>
-          <p>Two native desktop editions, each built for its platform. On Mac, DeltaTxt is written in Swift and AppKit. On Windows, it is written in C# on .NET 8 with Windows Forms and Scintilla. No Electron. No wrapped website.</p>
+          <p>Native on both platforms: Swift + AppKit on Mac; C# + .NET 8 on Windows. No Electron or web wrapper.</p>
           <StoreLinks />
-          <p className="fine-print">macOS 13+ · Windows 10/11 · Version 0.3.1 · Free · No account required</p>
+          <p className="fine-print">macOS 13+ · Windows 10/11 · Free · No account required</p>
         </div>
         <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
           <figure>
-            <figcaption><strong>macOS</strong><span>Swift + AppKit</span></figcaption>
+            <figcaption>Mac · Swift/AppKit</figcaption>
             <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
           </figure>
           <figure>
-            <figcaption><strong>Windows</strong><span>C# + .NET 8 + WinForms</span></figcaption>
+            <figcaption>Windows · C#/.NET 8</figcaption>
             <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
           </figure>
         </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>Native Swift on Mac</span><span>Find + replace</span><span>Compare + merge</span><span>No telemetry</span></div></section>
+      <section className="trust-band"><div className="wrap"><span>Swift + AppKit</span><span>C# + .NET 8</span><span>No telemetry</span><span>Freeware</span></div></section>
 
       <section className="content-section wrap">
         <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
@@ -114,15 +114,13 @@ export default function DeltaTxtPage() {
         <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">macOS 13+ · Swift + AppKit</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Written from the ground up in Swift and AppKit, with genuine Mac windows, menus, keyboard shortcuts, document behavior, and system controls.</p></div>
-            {releaseStatus.deltaMacStoreReady ? <Link className="text-link" href={links.deltatxt.macStore}>Mac App Store →</Link> : null}
+            <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
         <div className="platform-gallery-group" aria-labelledby="deltatxt-windows-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">Windows 10 / 11 · C# + .NET 8</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>Written in C# with .NET 8, Windows Forms, and Scintilla for a fast native workbench with familiar menus, dialogs, Explorer integration, and Python debugging.</p></div>
-            {releaseStatus.deltaStoreReady ? <Link className="text-link" href={links.deltatxt.store}>Microsoft Store →</Link> : null}
+            <div><p className="platform-kicker">Windows 10 / 11</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>C# + .NET 8. Windows Forms, Scintilla, Explorer integration, and Python debugging.</p></div>
           </div>
           <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" layout="featured" />
         </div>
