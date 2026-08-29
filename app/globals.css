@@ -250,7 +250,6 @@ img { display: block; max-width: 100%; }
 .product-hero-deltatxt { grid-template-columns: .88fr 1.12fr; gap: 52px; }
 .product-hero-platforms { display: grid; gap: 18px; }
 .product-hero-platforms figure { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--line); background: rgba(17,22,18,.82); box-shadow: 0 26px 70px rgba(0,0,0,.34); }
-.product-hero-platforms figcaption { position: absolute; z-index: 1; top: 12px; left: 12px; padding: 7px 9px; color: var(--acid); background: rgba(5,8,6,.88); border: 1px solid rgba(183,255,24,.3); font: 700 .58rem var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .09em; }
 .product-hero-platforms img { width: 100%; aspect-ratio: 16/9; object-fit: contain; }
 .store-link-group { margin-top: 32px; }
 .store-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }

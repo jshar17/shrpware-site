@@ -93,11 +93,9 @@ export default function DeltaTxtPage() {
         </div>
         <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
           <figure>
-            <figcaption>Mac · Swift/AppKit</figcaption>
             <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
           </figure>
           <figure>
-            <figcaption>Windows · C#/.NET 8</figcaption>
             <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
           </figure>
         </div>
