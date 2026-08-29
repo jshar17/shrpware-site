@@ -20,7 +20,7 @@ const jsonLd = {
   operatingSystem: "macOS 13 or later, Windows 10, Windows 11",
   description: "Free text and code workbench built natively for Mac in Swift and available on Windows, with find and replace, workspace search, comparison, and merge tools.",
   softwareVersion: "0.3.1",
-  featureList: ["Native Swift app for Mac", "Text and code editing", "Find and replace", "Workspace search and replace", "Side-by-side text comparison", "Merge workflows", "Python editing and debugging on Windows"],
+  featureList: ["Native Swift app for Mac", "Text and code editing", "Find and replace", "Workspace search and replace", "Streaming search and replace in large files", "Side-by-side text comparison", "Merge workflows", "Python editing and debugging on Windows"],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/deltatxt",
   downloadUrl: "https://shrpware.com/go/deltatxt-download",
@@ -38,12 +38,12 @@ const jsonLd = {
 };
 
 const features = [
-  ["A Mac app, through and through", "The Mac edition is written from the ground up in Swift and AppKit—not a wrapped website—with genuine Mac windows, menus, shortcuts, and document behavior."],
-  ["Native C# and .NET on Windows", "The Windows edition is written in C# on .NET 8 with Windows Forms and Scintilla, following familiar Windows conventions across menus, dialogs, shortcuts, Explorer commands, and high-DPI displays."],
-  ["Python tools on Windows", "The Windows edition adds interpreter discovery, Run, breakpoints, stepping, Locals, direct pdb commands, and streamed output."],
-  ["Find and replace precisely", "Search by plain text or regular expression with case and whole-word controls, then review or replace the matches you intend."],
-  ["Search and replace a workspace", "Find a value across related code, configs, and logs, with preview-first replacement and backups for broader changes."],
-  ["Compare and merge with control", "Review versions side by side, apply individual changes, export a unified diff, or build a three-way merge draft without overwriting the inputs."],
+  ["Native on both platforms", "Each edition is written for its own platform, so windows, menus, and shortcuts follow the conventions you already know."],
+  ["Python tools on Windows", "Run and debug scripts with breakpoints, stepping, and Locals, plus direct pdb commands in the docked output panel."],
+  ["Find and replace precisely", "Search by plain text or regular expression with case and whole-word controls, then replace only the matches you intend."],
+  ["Search and replace a workspace", "Find a value across code, configs, and logs, then preview broader replacements and keep a backup."],
+  ["Work through very large files", "Stream find and replace through logs and exports without holding the whole file in memory."],
+  ["Compare and merge with control", "Review versions side by side, apply individual changes, and build a three-way merge draft without overwriting the inputs."],
 ];
 
 const macScreenshots = [
@@ -85,12 +85,12 @@ export default function DeltaTxtPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
-          <p className="eyebrow"><span />Windows IDE · Native C# + .NET 8 · Freeware</p>
+          <p className="eyebrow"><span />Windows IDE · Mac editor · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
           <h2>Python debugging without the heavyweight IDE.</h2>
-          <p>Set breakpoints, step through code, inspect locals, and send direct pdb commands in a fast native Windows app. No Electron or web wrapper. Also available natively for Mac.</p>
+          <p>Set breakpoints, step through code, and inspect locals in a fast native Windows app. No Electron, no web wrapper.</p>
           <StoreLinks />
-          <p className="fine-print">macOS 13+ · Windows 10/11 · Free · No account required</p>
+          <p className="fine-print">macOS 13+ · Windows 10/11 · No account required</p>
         </div>
         <div className="product-hero-debugger" aria-label="DeltaTxt Python debugging on Windows">
           <figure>
@@ -99,7 +99,7 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>C# + .NET 8</span><span>Python debugger</span><span>Swift + AppKit</span><span>Freeware</span></div></section>
+      <section className="trust-band"><div className="wrap"><span>Python debugger</span><span>Find + replace</span><span>Compare + merge</span><span>No telemetry</span></div></section>
 
       <section className="content-section wrap">
         <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
@@ -120,20 +120,11 @@ export default function DeltaTxtPage() {
           </div>
           <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" layout="featured" />
         </div>
-      </section>
-
-      <section className="workflow-section wrap">
-        <div className="section-heading"><p className="section-number">03 / USE CASES</p><h2>Stay in the flow from code to text.</h2></div>
-        <ol className="workflow-list">
-          <li><span>01</span><div><h3>Edit text and code without the overhead</h3><p>Open a file or workspace and move between syntax-aware editing, search, navigation, and comparison without setting up a heavyweight project.</p></div></li>
-          <li><span>02</span><div><h3>Find and replace across related files</h3><p>Search code, configs, and logs together, then preview broader replacements before anything is changed.</p></div></li>
-          <li><span>03</span><div><h3>Compare two versions before you keep one</h3><p>Review inline differences, filter noise, and apply or merge only the changes you want.</p></div></li>
-        </ol>
         <div className="inline-actions"><Link className="text-link" href="/use-cases/python-ide-debugger">Python editing and debugging →</Link><Link className="text-link" href="/use-cases/find-replace-text-files">Find and replace →</Link><Link className="text-link" href="/use-cases/file-comparison-merge">Text comparison and merge →</Link></div>
       </section>
 
       <section className="faq-section wrap">
-        <div className="section-heading"><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="section-heading"><p className="section-number">03 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
         <div className="faq-list">
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
           <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
@@ -145,7 +136,7 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="closing-cta wrap"><p className="section-number">TEXT + CODE · FREEWARE · MAC + WINDOWS</p><h2>Get the focused text and code workbench.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
+      <section className="closing-cta wrap"><p className="section-number">MAC + WINDOWS · FREEWARE</p><h2>Get DeltaTxt.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
     </PageShell>
   );
 }
