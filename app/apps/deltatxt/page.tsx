@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "DeltaTxt — Native Mac and Windows text editor, diff, merge, and search",
   description: "A free native text and code editor for Mac and Windows, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
   alternates: { canonical: "/apps/deltatxt" },
-  openGraph: { images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
-  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/gallery/mac-edit-with-focus.webp"] },
+  openGraph: { images: ["/apps/deltatxt/hero-windows-debug.webp"] },
+  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/hero-windows-debug.webp"] },
 };
 
 const jsonLd = {
@@ -24,8 +24,9 @@ const jsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/deltatxt",
   downloadUrl: "https://shrpware.com/go/deltatxt-download",
-  image: "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
+  image: "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
   screenshot: [
+    "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
     "https://shrpware.com/apps/deltatxt/gallery/mac-search-every-file.webp",
@@ -39,7 +40,7 @@ const jsonLd = {
 const features = [
   ["A Mac app, through and through", "The Mac edition is written from the ground up in Swift and AppKit—not a wrapped website—with genuine Mac windows, menus, shortcuts, and document behavior."],
   ["Native C# and .NET on Windows", "The Windows edition is written in C# on .NET 8 with Windows Forms and Scintilla, following familiar Windows conventions across menus, dialogs, shortcuts, Explorer commands, and high-DPI displays."],
-  ["Python tools on Windows", "The Windows edition adds interpreter discovery, Run, breakpoints, stepping, Locals, Stack, and streamed output."],
+  ["Python tools on Windows", "The Windows edition adds interpreter discovery, Run, breakpoints, stepping, Locals, direct pdb commands, and streamed output."],
   ["Find and replace precisely", "Search by plain text or regular expression with case and whole-word controls, then review or replace the matches you intend."],
   ["Search and replace a workspace", "Find a value across related code, configs, and logs, with preview-first replacement and backups for broader changes."],
   ["Compare and merge with control", "Review versions side by side, apply individual changes, export a unified diff, or build a three-way merge draft without overwriting the inputs."],
@@ -84,24 +85,21 @@ export default function DeltaTxtPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
-          <p className="eyebrow"><span />Mac + Windows · Text tools · Freeware</p>
+          <p className="eyebrow"><span />Windows IDE · Native C# + .NET 8 · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
-          <h2>Edit, search, compare, and merge with precision.</h2>
-          <p>Native on both platforms: Swift + AppKit on Mac; C# + .NET 8 on Windows. No Electron or web wrapper.</p>
+          <h2>Python debugging without the heavyweight IDE.</h2>
+          <p>Set breakpoints, step through code, inspect locals, and send direct pdb commands in a fast native Windows app. No Electron or web wrapper. Also available natively for Mac.</p>
           <StoreLinks />
           <p className="fine-print">macOS 13+ · Windows 10/11 · Free · No account required</p>
         </div>
-        <div className="product-hero-platforms" aria-label="DeltaTxt on Mac and Windows">
+        <div className="product-hero-debugger" aria-label="DeltaTxt Python debugging on Windows">
           <figure>
-            <img src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="DeltaTxt editing Python on Mac" width={1920} height={1080} decoding="async" />
-          </figure>
-          <figure>
-            <img src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="DeltaTxt editing Python on Windows" width={1920} height={1080} decoding="async" />
+            <img src="/apps/deltatxt/hero-windows-debug.webp" alt="DeltaTxt Python debugger on Windows after stepping from a breakpoint, with its docked output panel and pdb command field visible" width={1672} height={941} fetchPriority="high" />
           </figure>
         </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>Swift + AppKit</span><span>C# + .NET 8</span><span>No telemetry</span><span>Freeware</span></div></section>
+      <section className="trust-band"><div className="wrap"><span>C# + .NET 8</span><span>Python debugger</span><span>Swift + AppKit</span><span>Freeware</span></div></section>
 
       <section className="content-section wrap">
         <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
@@ -138,7 +136,7 @@ export default function DeltaTxtPage() {
         <div className="section-heading"><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
         <div className="faq-list">
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
-          <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing Locals, Stack, current-line state, and debugger output. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
+          <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
           <details><summary>How powerful is find and replace?</summary><p>Use case-sensitive, whole-word, or regular-expression search in one document or across a workspace. For workspace replacement, DeltaTxt builds a preview, revalidates files before applying changes, and keeps a backup tree.</p></details>
           <details><summary>Is DeltaTxt really free?</summary><p>Yes. DeltaTxt is freeware with no subscription, account, advertising, or paid tier required.</p></details>
           <details><summary>Does it collect usage data?</summary><p>No. DeltaTxt does not include telemetry, analytics, advertising, or automatic crash submission.</p></details>
