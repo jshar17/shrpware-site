@@ -252,7 +252,7 @@ img { display: block; max-width: 100%; }
 .product-hero-deltatxt .product-hero-copy > p:not(.eyebrow):not(.fine-print) { margin-inline: 0; }
 .product-hero-deltatxt .eyebrow, .product-hero-deltatxt .app-title-lockup { justify-content: flex-start; }
 .product-hero-deltatxt .store-link-group { width: 100%; margin-inline: 0; }
-.product-hero-debugger { position: relative; width: 100%; margin: 0; perspective: 1700px; }
+.product-hero-debugger { --hero-bleed: min(240px, max(0px, (100vw - 1060px) / 2 - 40px)); position: relative; width: calc(100% + var(--hero-bleed)); margin: 0; perspective: 1700px; }
 .product-hero-debugger::before { content: ""; position: absolute; inset: 8% 7% -11%; background: radial-gradient(ellipse, rgba(44,115,255,.24), rgba(183,255,24,.08) 43%, transparent 72%); filter: blur(34px); }
 .product-hero-debugger figure { position: relative; margin: 0; overflow: hidden; border: 1px solid rgba(129,169,255,.52); border-radius: 14px; background: #11151d; box-shadow: 0 58px 120px rgba(0,0,0,.62), -28px 18px 70px rgba(32,93,217,.13); transform: rotateX(2.2deg) rotateY(-4.5deg) rotateZ(-.45deg); transform-origin: center; }
 .product-hero-debugger img { width: 100%; aspect-ratio: 1672/941; object-fit: cover; }
