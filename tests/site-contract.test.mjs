@@ -60,12 +60,16 @@ test("publishes search metadata routes", async () => {
   assert.match(xml, /find-replace-text-files/);
 });
 
-test("positions DeltaTxt as a native Mac and Windows text workbench", async () => {
+test("positions DeltaTxt as a code editor with a built-in Python IDE", async () => {
   const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
   const productHtml = await product.text();
   assert.match(productHtml, /Built natively for Mac in Swift/);
   assert.match(productHtml, /Native Swift on Mac/);
-  assert.match(productHtml, /Python tools on Windows/);
+  assert.match(productHtml, /A built-in Python IDE on Windows/);
+  assert.match(productHtml, /A code editor with a built-in Python IDE/);
+  // The Mac App Store edition cannot run scripts; the page must keep saying so
+  // next to any IDE claim, or the listing and the site disagree.
+  assert.match(productHtml, /Mac App Store edition focuses on editing/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
   assert.match(productHtml, /deltatxt-mac-store/);
