@@ -60,20 +60,22 @@ test("publishes search metadata routes", async () => {
   assert.match(xml, /find-replace-text-files/);
 });
 
-test("positions DeltaTxt around Python debugging, find and replace, and comparison", async () => {
+test("positions DeltaTxt as a native Mac and Windows text workbench", async () => {
   const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
   const productHtml = await product.text();
-  assert.match(productHtml, /Python IDE/);
-  assert.match(productHtml, /Run and debug Python/);
+  assert.match(productHtml, /Built natively for Mac in Swift/);
+  assert.match(productHtml, /Native Swift on Mac/);
+  assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /Find and replace precisely/);
-  assert.match(productHtml, /Compare text clearly/);
+  assert.match(productHtml, /Compare and merge with control/);
+  assert.match(productHtml, /deltatxt-mac-store/);
   assert.match(productHtml, /use-cases\/python-ide-debugger/);
   assert.match(productHtml, /use-cases\/find-replace-text-files/);
 
   const home = await fetchPath("/", { headers: { accept: "text/html" } });
   const homeHtml = await home.text();
-  assert.match(homeHtml, /focused Python IDE/i);
-  assert.match(homeHtml, /find and replace/i);
+  assert.match(homeHtml, /built natively for Mac in Swift/i);
+  assert.match(homeHtml, /Mac \+ Windows/i);
 });
 
 test("preserves the legacy WavePlume privacy URL used by App Store Connect", async () => {
@@ -109,6 +111,7 @@ test("uses first-party, no-referrer outbound redirects", async () => {
     ["/go/waveplume-trial", /WavePlume-Trial-1\.2\.5-Setup\.exe/],
     ["/go/waveplume-mac", /apps\.apple\.com/],
     ["/go/waveplume-windows", /apps\.microsoft\.com/],
+    ["/go/deltatxt-mac-store", /apps\.apple\.com\/us\/app\/deltatxt\/id6804090746/],
     ["/go/deltatxt-download", /DeltaTxt-0\.3\.1-setup\.exe/],
     ["/go/deltatxt-store", /apps\.microsoft\.com\/detail\/9P8VKC9NHPBV/],
   ];
@@ -173,6 +176,14 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/apps/waveplume/hero-wave.webp",
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/icon-160.webp",
+    "../public/apps/deltatxt/gallery/mac-edit-with-focus.webp",
+    "../public/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp",
+    "../public/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
+    "../public/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp",
+    "../public/apps/deltatxt/gallery/mac-search-every-file.webp",
+    "../public/apps/deltatxt/gallery/mac-search-every-file-thumb.webp",
+    "../public/apps/deltatxt/gallery/mac-compare-folders.webp",
+    "../public/apps/deltatxt/gallery/mac-compare-folders-thumb.webp",
   ]) {
     await access(new URL(path, import.meta.url));
   }

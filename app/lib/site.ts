@@ -24,6 +24,7 @@ export const links = {
       "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/waveplume/WavePlume-Trial-1.2.5-Setup.exe",
   },
   deltatxt: {
+    macStore: "/go/deltatxt-mac-store",
     download: "/go/deltatxt-download",
     store: "/go/deltatxt-store",
   },
@@ -32,6 +33,7 @@ export const links = {
 // Release gates prevent a deployment from promoting packages that are not ready.
 export const releaseStatus = {
   waveplumeTrialReady: true,
+  deltaMacStoreReady: true,
   deltaStoreReady: true,
 };
 
@@ -40,6 +42,7 @@ export const outboundDestinations: Record<string, string> = {
   "waveplume-windows":
     "https://apps.microsoft.com/detail/9p6h8n3vjxbx?hl=en-US&gl=US",
   "waveplume-trial": links.waveplume.trialDestination,
+  "deltatxt-mac-store": "https://apps.apple.com/us/app/deltatxt/id6804090746",
   "deltatxt-download": downloads.deltatxt.path,
   "deltatxt-store": "https://apps.microsoft.com/detail/9P8VKC9NHPBV",
 };

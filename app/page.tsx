@@ -5,13 +5,13 @@ import { SiteHeader } from "./components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Apps with an edge",
-  description: "WavePlume records and transcribes meetings locally. DeltaTxt is a focused Python IDE for debugging, find and replace, and text comparison.",
+  description: "WavePlume records and transcribes meetings locally. DeltaTxt is a native Mac and Windows editor for text, code, workspace search, comparison, and merge.",
   alternates: { canonical: "/" },
 };
 
 const products = [
   { index: "01", name: "WavePlume", href: "/apps/waveplume", icon: "/apps/waveplume/app-assets/png/waveplume-128.png", platform: "MAC + WINDOWS · $14.99", summary: "Record and transcribe meetings locally. No bot, cloud, or subscription.", className: "product-card product-card-wave" },
-  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon-160.webp", platform: "WINDOWS · FREEWARE", summary: "Write and debug Python, find and replace across files, and compare text. Free.", className: "product-card product-card-delta" },
+  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon-160.webp", platform: "MAC + WINDOWS · FREEWARE", summary: "Edit text and code, search workspaces, and compare or merge files. Free.", className: "product-card product-card-delta" },
 ];
 
 const organizationJsonLd = {
@@ -32,7 +32,7 @@ export default function Home() {
       <section className="hero wrap" aria-labelledby="hero-title">
         <div className="hero-copy">
           <h1 id="hero-title">Apps with<strong>an edge.</strong></h1>
-          <p className="hero-summary">Desktop apps for private meeting transcription and for focused Python debugging, find and replace, and text comparison. No account required.</p>
+          <p className="hero-summary">Desktop apps for private meeting transcription and focused text and code work on Mac and Windows. No account required.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="#apps">Explore the apps <span aria-hidden="true">↘</span></Link>
             <Link className="button button-secondary" href="#standard">Why ShrpWare</Link>
@@ -84,14 +84,14 @@ export default function Home() {
       <section className="feature-section feature-section-reverse wrap">
         <div className="feature-copy">
           <p className="section-number">03 / DELTATXT</p>
-          <h2>A focused Python IDE with serious text tools.</h2>
-          <p>Write, run, and debug Python with breakpoints and stepping. Then find and replace across files, compare versions, and merge changes without leaving the workbench.</p>
+          <h2>A focused text and code workbench.</h2>
+          <p>Built natively for Mac in Swift and available on Windows. Find and replace across files, compare versions, and merge changes without leaving the workbench.</p>
           <div className="inline-actions">
             <Link className="button button-primary" href="/apps/deltatxt">See DeltaTxt</Link>
-            <Link className="text-link" href="/use-cases/python-ide-debugger">Explore Python editing and debugging →</Link>
+            <Link className="text-link" href="/use-cases/file-comparison-merge">Explore text comparison and merge →</Link>
           </div>
         </div>
-        <img className="feature-image" src="/apps/deltatxt/gallery/windows-code-without-overhead.webp" alt="Python source file open in DeltaTxt with Run and Debug controls" width={1920} height={1080} loading="lazy" decoding="async" />
+        <img className="feature-image" src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="Python source file open in the native DeltaTxt editor for Mac" width={1920} height={1080} loading="lazy" decoding="async" />
       </section>
 
       <section className="use-case-section wrap">
