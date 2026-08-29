@@ -263,6 +263,8 @@ img { display: block; max-width: 100%; }
 .gallery-grid figure { margin: 0; border: 1px solid var(--line); background: var(--panel); padding: 10px; }
 .gallery-grid img { width: 100%; aspect-ratio: 16/9; object-fit: contain; }
 .gallery-grid figcaption { padding: 14px 7px 7px; color: var(--muted); font: 700 .68rem var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .09em; }
+.gallery-platform { margin: 62px 0 0; color: var(--acid); font: 700 .68rem var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .09em; }
+.gallery-platform + .gallery-grid { margin-top: 20px; }
 .screenshot-gallery-trigger { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; border: 0; background: transparent; color: var(--ink); cursor: zoom-in; }
 .screenshot-gallery-trigger::after { content: ""; position: absolute; inset: 0; border: 1px solid transparent; transition: border-color 160ms ease, background 160ms ease; }
 .screenshot-gallery-trigger > span { position: absolute; right: 12px; bottom: 12px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.24); background: rgba(7,9,8,.9); color: var(--ink); opacity: 0; transform: translateY(5px); transition: opacity 160ms ease, transform 160ms ease, color 160ms ease; font: 700 .62rem var(--font-geist-mono), monospace; letter-spacing: .08em; text-transform: uppercase; }

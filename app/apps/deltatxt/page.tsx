@@ -42,11 +42,17 @@ const features = [
   ["Compare and merge with control", "Review versions side by side, apply individual changes, export a unified diff, or build a three-way merge draft without overwriting the inputs."],
 ];
 
-const screenshots = [
+const macScreenshots = [
   { src: "/apps/deltatxt/gallery/mac-edit-with-focus.webp", alt: "Python source file open in the native DeltaTxt editor for Mac with the workspace visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-compare-with-confidence.webp", alt: "Two Swift files compared side by side in DeltaTxt for Mac with added and removed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-search-every-file.webp", alt: "Workspace search results grouped by file in DeltaTxt for Mac", caption: "Search every file", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-search-every-file-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-compare-folders.webp", alt: "Two folders compared in DeltaTxt for Mac before previewing or syncing differences", caption: "Compare folders", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-folders-thumb.webp" },
+];
+
+const windowsScreenshots = [
+  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Python source file open in DeltaTxt for Windows with the editor and run toolbar visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two Python files compared side by side in DeltaTxt for Windows with changed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results with file, line, and column detail in DeltaTxt for Windows", caption: "Search every file", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
 ];
 
 export default function DeltaTxtPage() {
@@ -74,7 +80,10 @@ export default function DeltaTxtPage() {
 
       <section className="gallery-section wrap">
         <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See the tools in context.</h2></div>
-        <ScreenshotGallery items={screenshots} label="DeltaTxt for Mac" />
+        <p className="gallery-platform">Mac</p>
+        <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" />
+        <p className="gallery-platform">Windows</p>
+        <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" />
       </section>
 
       <section className="workflow-section wrap">
