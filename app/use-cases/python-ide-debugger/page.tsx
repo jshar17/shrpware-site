@@ -3,7 +3,7 @@ import { SeoLanding } from "@/app/components/SeoLanding";
 
 export const metadata: Metadata = {
   title: "Focused Python IDE and debugger for Windows",
-  description: "Write, run, and debug Python with breakpoints, stepping, Locals, Stack, interpreter discovery, and a built-in console in DeltaTxt.",
+  description: "Write, run, and debug Python with breakpoints, stepping, Locals, interpreter discovery, and a built-in console in DeltaTxt.",
   alternates: { canonical: "/use-cases/python-ide-debugger" },
 };
 
@@ -11,7 +11,7 @@ export default function PythonIdeDebugger() {
   return <SeoLanding
     eyebrow="Use case / Python"
     title="A focused Python IDE for Windows."
-    intro="Write, run, and debug Python with breakpoints, stepping, Locals, Stack, interpreter discovery, and a built-in console—without the setup of a heavyweight project IDE."
+    intro="Write, run, and debug Python with breakpoints, stepping, Locals, interpreter discovery, and a built-in console—without the setup of a heavyweight project IDE."
     app="DeltaTxt"
     appHref="/apps/deltatxt"
     cta="See DeltaTxt"
