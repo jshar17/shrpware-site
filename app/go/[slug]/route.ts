@@ -8,6 +8,7 @@ export async function GET(
   const destination = outboundDestinations[slug];
   const releaseBlocked =
     (slug === "waveplume-trial" && !releaseStatus.waveplumeTrialReady) ||
+    (slug === "deltatxt-mac-store" && !releaseStatus.deltaMacStoreReady) ||
     (slug === "deltatxt-store" && !releaseStatus.deltaStoreReady);
 
   if (!destination || releaseBlocked) {

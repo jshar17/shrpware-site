@@ -130,6 +130,7 @@ Current redirect slugs are:
 - `waveplume-mac`
 - `waveplume-windows`
 - `waveplume-trial`
+- `deltatxt-mac-store`
 - `deltatxt-download`
 - `deltatxt-store`
 

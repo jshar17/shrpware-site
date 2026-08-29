@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | ShrpWare",
   },
   description:
-    "WavePlume records and transcribes meetings. DeltaTxt is a focused Python IDE for debugging, find and replace, and text comparison.",
+    "WavePlume records and transcribes meetings. DeltaTxt is a native Mac and Windows editor for text, code, workspace search, comparison, and merge.",
   icons: {
     icon: "/favicon.svg",
   },
