@@ -71,6 +71,7 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /No Electron/);
   assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /direct pdb commands/);
+  assert.match(productHtml, /0\.3\.2 installer pending final verification/);
   assert.doesNotMatch(productHtml, /Call Stack|Debug Console/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
@@ -124,7 +125,6 @@ test("uses first-party, no-referrer outbound redirects", async () => {
     ["/go/waveplume-mac", /apps\.apple\.com/],
     ["/go/waveplume-windows", /apps\.microsoft\.com/],
     ["/go/deltatxt-mac-store", /apps\.apple\.com\/us\/app\/deltatxt\/id6804090746/],
-    ["/go/deltatxt-download", /DeltaTxt-0\.3\.1-setup\.exe/],
     ["/go/deltatxt-store", /apps\.microsoft\.com\/detail\/9P8VKC9NHPBV/],
   ];
 
@@ -137,10 +137,7 @@ test("uses first-party, no-referrer outbound redirects", async () => {
   }
 
   const deltaTxt = await fetchPath("/go/deltatxt-download");
-  assert.equal(
-    deltaTxt.headers.get("location"),
-    "https://shrpware.com/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
-  );
+  assert.equal(deltaTxt.status, 404);
 });
 
 test("serves the DeltaTxt installer as a first-party attachment", async () => {
@@ -153,7 +150,7 @@ test("serves the DeltaTxt installer as a first-party attachment", async () => {
       status: 206,
       headers: {
         "Accept-Ranges": "bytes",
-        "Content-Range": "bytes 0-14/73175504",
+        "Content-Range": "bytes 0-14/73186616",
         ETag: '"deltatxt-installer"',
       },
     });
@@ -161,17 +158,17 @@ test("serves the DeltaTxt installer as a first-party attachment", async () => {
 
   try {
     const response = await fetchPath(
-      "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+      "/downloads/deltatxt/DeltaTxt-0.3.2-setup.exe",
       { headers: { Range: "bytes=0-14" } },
     );
 
     assert.equal(response.status, 206);
     assert.equal(
       response.headers.get("content-disposition"),
-      'attachment; filename="DeltaTxt-0.3.1-setup.exe"',
+      'attachment; filename="DeltaTxt-0.3.2-setup.exe"',
     );
     assert.equal(response.headers.get("content-type"), "application/vnd.microsoft.portable-executable");
-    assert.equal(response.headers.get("content-range"), "bytes 0-14/73175504");
+    assert.equal(response.headers.get("content-range"), "bytes 0-14/73186616");
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
     assert.equal(upstreamRequest.method, "GET");
     assert.equal(upstreamRequest.headers.get("range"), "bytes=0-14");

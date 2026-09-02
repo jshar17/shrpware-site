@@ -9,6 +9,7 @@ export async function GET(
   const releaseBlocked =
     (slug === "waveplume-trial" && !releaseStatus.waveplumeTrialReady) ||
     (slug === "deltatxt-mac-store" && !releaseStatus.deltaMacStoreReady) ||
+    (slug === "deltatxt-download" && !releaseStatus.deltaDownloadReady) ||
     (slug === "deltatxt-store" && !releaseStatus.deltaStoreReady);
 
   if (!destination || releaseBlocked) {
