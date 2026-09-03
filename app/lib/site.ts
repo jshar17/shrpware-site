@@ -6,10 +6,10 @@ export const site = {
 
 export const downloads = {
   deltatxt: {
-    path: "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+    path: "/downloads/deltatxt/DeltaTxt-0.3.2-setup.exe",
     source:
-      "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.1-setup.exe",
-    filename: "DeltaTxt-0.3.1-setup.exe",
+      "https://pub-6e5446faa8bf4deb83894211caf0c1a2.r2.dev/deltatxt/DeltaTxt-0.3.2-setup.exe",
+    filename: "DeltaTxt-0.3.2-setup.exe",
     contentType: "application/vnd.microsoft.portable-executable",
   },
 };

@@ -19,7 +19,7 @@ const jsonLd = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "macOS 13 or later, Windows 10, Windows 11",
   description: "Free text and code workbench built natively for Mac in Swift and available on Windows, with find and replace, workspace search, comparison, and merge tools.",
-  softwareVersion: "0.3.1",
+  softwareVersion: "0.3.2",
   featureList: ["Native Swift app for Mac", "Text and code editing", "Find and replace", "Workspace search and replace", "Streaming search and replace in large files", "Side-by-side text comparison", "Merge workflows", "Python editing and debugging on Windows"],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/deltatxt",
