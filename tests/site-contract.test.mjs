@@ -124,7 +124,7 @@ test("uses first-party, no-referrer outbound redirects", async () => {
     ["/go/waveplume-mac", /apps\.apple\.com/],
     ["/go/waveplume-windows", /apps\.microsoft\.com/],
     ["/go/deltatxt-mac-store", /apps\.apple\.com\/us\/app\/deltatxt\/id6804090746/],
-    ["/go/deltatxt-download", /DeltaTxt-0\.3\.1-setup\.exe/],
+    ["/go/deltatxt-download", /DeltaTxt-0\.3\.2-setup\.exe/],
     ["/go/deltatxt-store", /apps\.microsoft\.com\/detail\/9P8VKC9NHPBV/],
   ];
 
@@ -139,7 +139,7 @@ test("uses first-party, no-referrer outbound redirects", async () => {
   const deltaTxt = await fetchPath("/go/deltatxt-download");
   assert.equal(
     deltaTxt.headers.get("location"),
-    "https://shrpware.com/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+    "https://shrpware.com/downloads/deltatxt/DeltaTxt-0.3.2-setup.exe",
   );
 });
 
@@ -161,14 +161,14 @@ test("serves the DeltaTxt installer as a first-party attachment", async () => {
 
   try {
     const response = await fetchPath(
-      "/downloads/deltatxt/DeltaTxt-0.3.1-setup.exe",
+      "/downloads/deltatxt/DeltaTxt-0.3.2-setup.exe",
       { headers: { Range: "bytes=0-14" } },
     );
 
     assert.equal(response.status, 206);
     assert.equal(
       response.headers.get("content-disposition"),
-      'attachment; filename="DeltaTxt-0.3.1-setup.exe"',
+      'attachment; filename="DeltaTxt-0.3.2-setup.exe"',
     );
     assert.equal(response.headers.get("content-type"), "application/vnd.microsoft.portable-executable");
     assert.equal(response.headers.get("content-range"), "bytes 0-14/73175504");
