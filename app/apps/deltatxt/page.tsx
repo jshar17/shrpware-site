@@ -46,6 +46,15 @@ const features = [
   ["Compare and merge with control", "Review versions side by side, apply individual changes, and build a three-way merge draft without overwriting the inputs."],
 ];
 
+const capabilities = [
+  ["Languages", "Highlighting and structure", "Syntax highlighting for dozens of languages, with code folding, a function list, and a scrollable minimap."],
+  ["Editing", "Precise editing", "Column selection, bookmarks, auto-indent, matching-brace highlighting, and Go to Line."],
+  ["Folders", "Compare and sync folders", "Compare two folders side by side, then sync the differences with a preview and optional backups."],
+  ["Encoding", "Encoding kept intact", "Detects and preserves UTF-8, UTF-16, UTF-32, BOM, and CRLF, LF, or CR line endings, so nothing is silently rewritten."],
+  ["Recovery", "Safe saves", "Atomic writes with optional backups, crash recovery, and session restore that reopens your tabs."],
+  ["Privacy", "Yours alone", "Freeware with no account, no telemetry, and no ads. Your files stay on your machine."],
+];
+
 const macScreenshots = [
   { src: "/apps/deltatxt/gallery/mac-edit-with-focus.webp", alt: "Python source file open in the native DeltaTxt editor for Mac with the workspace visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp" },
   { src: "/apps/deltatxt/gallery/mac-compare-with-confidence.webp", alt: "Two Python files compared side by side in DeltaTxt for Mac with added and removed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp" },
@@ -106,8 +115,13 @@ export default function DeltaTxtPage() {
         <div className="feature-card-grid">{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
+      <section className="content-section wrap">
+        <div className="section-heading"><p className="section-number">02 / FEATURES</p><h2>The tools you&rsquo;ll actually use.</h2></div>
+        <ol className="workflow-list">{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+      </section>
+
       <section className="gallery-section platform-gallery-section wrap">
-        <div className="section-heading"><p className="section-number">02 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
+        <div className="section-heading"><p className="section-number">03 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
             <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
@@ -124,7 +138,7 @@ export default function DeltaTxtPage() {
       </section>
 
       <section className="faq-section wrap">
-        <div className="section-heading"><p className="section-number">03 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="section-heading"><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
         <div className="faq-list">
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
           <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
