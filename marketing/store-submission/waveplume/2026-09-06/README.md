@@ -20,3 +20,5 @@ python marketing/build-waveplume-assets-20260906.py
 The script preserves the entire app window and its aspect ratio. Only the surrounding presentation, captions, and image encoding are generated. The website uses 1920 × 1080 WebPs, 640 × 360 thumbnails, and an unframed transcript hero.
 
 Partner Center upload has not been performed. Upload these four PNGs in order to the Windows desktop screenshot section of the matching submission. Keep existing language-specific assets until replacements for those languages are available.
+
+Refreshed September 7, 2026: all four views are exported directly from the same application's WPF visuals, with its actual window background. Native title-bar chrome and capture-tool cursor overlays are omitted. No interface content was retouched.

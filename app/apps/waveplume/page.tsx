@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: "WavePlume — Private local meeting transcription",
   description: "Record system audio and your microphone, then transcribe meetings locally with Whisper. No bot, cloud upload, account, or subscription.",
   alternates: { canonical: "/apps/waveplume" },
-  openGraph: { images: ["/apps/waveplume/hero-windows-transcript-20260906.webp"] },
-  twitter: { card: "summary_large_image", images: ["/apps/waveplume/hero-windows-transcript-20260906.webp"] },
+  openGraph: { images: ["/apps/waveplume/hero-windows-transcript-20260907.webp"] },
+  twitter: { card: "summary_large_image", images: ["/apps/waveplume/hero-windows-transcript-20260907.webp"] },
 };
 
 const jsonLd = {
@@ -21,7 +21,7 @@ const jsonLd = {
   description: "Private local meeting recording and transcription with Whisper.",
   offers: { "@type": "Offer", price: "14.99", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/waveplume",
-  image: "https://shrpware.com/apps/waveplume/hero-windows-transcript-20260906.webp",
+  image: "https://shrpware.com/apps/waveplume/hero-windows-transcript-20260907.webp",
 };
 
 const features = [
@@ -43,10 +43,10 @@ const capabilities = [
 ];
 
 const screenshots = [
-  { src: "/apps/waveplume/gallery/windows-transcript-20260906.webp", alt: "WavePlume for Windows displaying a fictional product planning transcript with clickable timestamps, search, and edit controls", caption: "Find the words you need", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-transcript-20260906-thumb.webp" },
-  { src: "/apps/waveplume/gallery/windows-record-20260906.webp", alt: "WavePlume recording setup with Quick Note, Standard Meeting, and Archival Quality presets", caption: "Set up your next recording", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-record-20260906-thumb.webp" },
-  { src: "/apps/waveplume/gallery/windows-library-20260906.webp", alt: "WavePlume Windows session library containing five fictional meetings", caption: "Keep your meetings together", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-library-20260906-thumb.webp" },
-  { src: "/apps/waveplume/gallery/windows-edit-20260906.webp", alt: "WavePlume transcript editor with a fictional meeting transcript and Save and Cancel controls", caption: "Correct and save your transcript", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-edit-20260906-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-transcript-20260907.webp", alt: "WavePlume for Windows displaying a fictional product planning transcript with clickable timestamps, search, and edit controls", caption: "Find the words you need", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-transcript-20260907-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-record-20260907.webp", alt: "WavePlume recording setup with Quick Note, Standard Meeting, and Archival Quality presets", caption: "Set up your next recording", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-record-20260907-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-library-20260907.webp", alt: "WavePlume Windows session library containing five fictional meetings", caption: "Keep your meetings together", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-library-20260907-thumb.webp" },
+  { src: "/apps/waveplume/gallery/windows-edit-20260907.webp", alt: "WavePlume transcript editor with a fictional meeting transcript and Save and Cancel controls", caption: "Correct and save your transcript", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-edit-20260907-thumb.webp" },
 ];
 
 function StoreLinks({ compact = false }: { compact?: boolean }) {
@@ -77,7 +77,7 @@ export default function WavePlumePage() {
           <StoreLinks />
           <p className="fine-print">macOS · Windows 10/11 · $14.99 one-time purchase · No account required</p>
         </div>
-        <div className="product-hero-debugger product-hero-waveplume-screen"><figure><img src="/apps/waveplume/hero-windows-transcript-20260906.webp" alt="WavePlume on Windows showing a sample meeting transcript with timestamps and editing tools" width={1426} height={893} fetchPriority="high" /></figure></div>
+        <div className="product-hero-debugger product-hero-waveplume-screen"><figure><img src="/apps/waveplume/hero-windows-transcript-20260907.webp" alt="WavePlume on Windows showing a sample meeting transcript with timestamps and editing tools" width={1424} height={861} fetchPriority="high" /></figure></div>
       </section>
 
       <section className="trust-band"><div className="wrap"><span>Audio stays local</span><span>No meeting bot</span><span>No subscription</span><span>No account</span></div></section>
