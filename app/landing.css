@@ -76,10 +76,6 @@
 @keyframes surface-pulse { from { opacity:.25; } to { opacity:.75; } }
 @keyframes wave-meter { from { transform:scaleY(.28); opacity:.35; } to { transform:scaleY(1); opacity:.85; } }
 .landing-hidden * { animation-play-state:paused !important; }
-@media (prefers-reduced-motion:reduce) {
-  html:has(.landing) { scroll-behavior:auto; }
-  .landing-experience *,.landing-experience *::before,.landing-experience *::after { animation:none !important; transition:none !important; }
-}
 @media (max-width:1050px) {
   .landing-wrap,.landing .wrap { width:calc(100% - 56px); }
   .studio-hero { min-height:680px; }
