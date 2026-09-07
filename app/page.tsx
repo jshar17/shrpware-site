@@ -9,7 +9,7 @@ import "./landing.css";
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-landing-display", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Less friction. More flow.",
+  title: "Apps with an edge",
   description: "Independent desktop software for work that matters. Record and transcribe locally with WavePlume. Edit, compare, and debug with DeltaTxt. Mac + Windows. No subscription.",
   alternates: { canonical: "/" },
 };
@@ -23,8 +23,8 @@ export default function Home() {
       <section className="studio-hero landing-wrap" aria-labelledby="hero-title">
         <div className="studio-hero-copy">
           <p className="landing-label"><span className="live-dot" />Independent software. Personal computing.</p>
-          <h1 id="hero-title">Less friction.<br /><em>More flow.</em></h1>
-          <p className="landing-intro">Catch the conversation. Find the difference.<br className="desktop-break" /> Get back to what you do best.</p>
+          <h1 id="hero-title">Apps with<br /><em>an edge.</em></h1>
+          <p className="landing-intro">Capture every conversation with WavePlume.<br className="desktop-break" /> Edit, compare, and code with DeltaTxt.</p>
           <div className="landing-actions"><Link className="landing-button" href="#apps">Find your app <span aria-hidden="true">↘</span></Link><span className="platform-note">Made for<br /><strong>Mac + Windows</strong></span></div>
         </div>
         <SignalSculpture />

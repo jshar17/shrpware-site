@@ -55,8 +55,6 @@ export function SignalSculpture() {
       })}
       <path className="signal-traveler" d="M 520 130 C 340 10 100 105 180 264 C 249 360 520 267 518 410 C 495 565 268 585 130 445" stroke="url(#signal-glint)" strokeWidth="3" pathLength="100" />
     </svg>
-    <div className="signal-caption signal-caption-in"><span className="signal-dot" />A little less noise.</div>
-    <div className="signal-caption signal-caption-out">A lot more clarity.<span className="signal-cross">+</span></div>
   </div>;
 }
 

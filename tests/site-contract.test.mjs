@@ -93,7 +93,8 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
 test("renders the animated homepage with useful content before JavaScript", async () => {
   const response = await fetchPath("/", { headers: { accept: "text/html" } });
   const html = await response.text();
-  assert.match(html, /Less friction/);
+  assert.match(html, /Apps with/);
+  assert.match(html, /an edge\./);
   assert.match(html, /Pause motion/);
   assert.match(html, /aria-pressed="false"/);
   assert.match(html, /id="apps"/);

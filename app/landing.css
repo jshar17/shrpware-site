@@ -23,7 +23,7 @@
 .platform-note { color:#8b9db0; font:.62rem/1.6 var(--font-geist-mono, monospace),monospace; }
 .platform-note strong { color:#c3d0de; font-weight:500; }
 .live-dot,.signal-dot { width:6px; height:6px; border-radius:50%; background:var(--landing-cyan); display:inline-block; box-shadow:0 0 15px #9aeaff80; }
-.signal-sculpture { position:relative; width:135%; margin-left:-16%; margin-top:-25px; height:510px; pointer-events:none; }
+.signal-sculpture { position:relative; width:100%; margin:0; height:400px; opacity:.72; pointer-events:none; }
 .signal-halo { position:absolute; inset:20% 12%; border-radius:50%; background:radial-gradient(ellipse,#687cdb1c,#9aeaff08 45%,transparent 68%); filter:blur(30px); }
 .signal-ribbon { width:100%; height:100%; overflow:visible; transform:rotate(-13deg); animation:ribbon-breathe 10s ease-in-out infinite alternate; filter:drop-shadow(0 0 12px #9aeaff1a); }
 .signal-traveler { stroke-dasharray:9 91; animation:signal-travel 9s linear infinite; }
@@ -119,7 +119,7 @@
   .landing .site-header nav a:nth-child(2),.landing .site-header nav a:nth-child(3) { display:none; }
   .studio-hero { display:block; padding-top:68px; padding-bottom:105px; min-height:auto; }
   .studio-hero h1 { font-size:clamp(3.6rem,11.8vw,5.8rem); margin-top:28px; }
-  .signal-sculpture { width:95%; height:auto; aspect-ratio:720/650; margin:-15px auto -35px; max-width:510px; }
+  .signal-sculpture { width:65%; height:auto; aspect-ratio:720/650; margin:10px auto -15px; max-width:330px; }
   .signal-caption { font-size:.51rem; }
   .signal-caption-out { bottom:8%; }
   .hero-bottom { bottom:18px; font-size:.56rem; gap:20px; line-height:1.6; }
