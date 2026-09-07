@@ -23,13 +23,11 @@
 .platform-note { color:#8b9db0; font:.62rem/1.6 var(--font-geist-mono, monospace),monospace; }
 .platform-note strong { color:#c3d0de; font-weight:500; }
 .live-dot,.signal-dot { width:6px; height:6px; border-radius:50%; background:var(--landing-cyan); display:inline-block; box-shadow:0 0 15px #9aeaff80; }
-.signal-sculpture { position:relative; width:100%; margin:0; height:400px; opacity:.72; pointer-events:none; }
+.signal-sculpture { position:relative; width:100%; margin:0; height:400px; opacity:.9; pointer-events:none; }
 .signal-halo { position:absolute; inset:20% 12%; border-radius:50%; background:radial-gradient(ellipse,#687cdb1c,#9aeaff08 45%,transparent 68%); filter:blur(30px); }
-.signal-ribbon { width:100%; height:100%; overflow:visible; transform:rotate(-13deg); animation:ribbon-breathe 10s ease-in-out infinite alternate; filter:drop-shadow(0 0 12px #9aeaff1a); }
-.signal-traveler { stroke-dasharray:9 91; animation:signal-travel 9s linear infinite; }
-.signal-caption { position:absolute; color:#8da3ba; font:.57rem var(--font-geist-mono, monospace),monospace; letter-spacing:.03em; display:flex; gap:15px; align-items:center; }
-.signal-caption-in { top:12%; right:18%; }
-.signal-caption-out { bottom:9%; left:10%; }
+.signal-surface { width:100%; height:100%; overflow:visible; animation:surface-float 9s ease-in-out infinite alternate; filter:drop-shadow(0 28px 25px #0005); }
+.surface-scan { animation:surface-scan 5s ease-in-out infinite alternate; }
+.surface-wave { animation:surface-pulse 3s ease-in-out infinite alternate; }
 .signal-cross { color:var(--landing-coral); font-size:1.3rem; line-height:1; }
 .hero-bottom { position:absolute; bottom:38px; inset-inline:0; border-top:1px solid var(--landing-line); padding-top:23px; display:flex; justify-content:space-between; color:#8295aa; font:.63rem var(--font-geist-mono, monospace),monospace; }
 .hero-bottom a { color:#cad5e0; display:flex; gap:30px; }
@@ -92,8 +90,9 @@
 .landing .footer-bottom { padding-bottom:72px; }
 .has-arrived { animation:landing-arrive .9s both; }
 @keyframes landing-arrive { from { opacity:.3; transform:translateY(26px); } to { opacity:1; transform:translateY(0); } }
-@keyframes ribbon-breathe { from { transform:rotate(-13deg) translateY(-8px) scale(.98); } to { transform:rotate(-8deg) translateY(8px) scale(1.02); } }
-@keyframes signal-travel { to { stroke-dashoffset:-100; } }
+@keyframes surface-float { from { transform:translateY(-7px) rotate(-2deg); } to { transform:translateY(7px) rotate(1deg); } }
+@keyframes surface-scan { from { transform:translateX(-12px); opacity:.6; } to { transform:translateX(12px); opacity:1; } }
+@keyframes surface-pulse { from { opacity:.25; } to { opacity:.75; } }
 @keyframes wave-meter { from { transform:scaleY(.28); opacity:.35; } to { transform:scaleY(1); opacity:.85; } }
 .motion-paused *,.landing-hidden * { animation-play-state:paused !important; }
 .motion-paused .has-arrived { animation:none; }
@@ -119,9 +118,7 @@
   .landing .site-header nav a:nth-child(2),.landing .site-header nav a:nth-child(3) { display:none; }
   .studio-hero { display:block; padding-top:68px; padding-bottom:105px; min-height:auto; }
   .studio-hero h1 { font-size:clamp(3.6rem,11.8vw,5.8rem); margin-top:28px; }
-  .signal-sculpture { width:65%; height:auto; aspect-ratio:720/650; margin:10px auto -15px; max-width:330px; }
-  .signal-caption { font-size:.51rem; }
-  .signal-caption-out { bottom:8%; }
+  .signal-sculpture { width:80%; height:auto; aspect-ratio:720/650; margin:10px auto -15px; max-width:330px; }
   .hero-bottom { bottom:18px; font-size:.56rem; gap:20px; line-height:1.6; }
   .hero-bottom > span { max-width:145px; }
   .hero-bottom a { max-width:160px; gap:14px; }
