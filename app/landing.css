@@ -27,7 +27,6 @@
 .signal-halo { position:absolute; inset:20% 12%; border-radius:50%; background:radial-gradient(ellipse,#687cdb1c,#9aeaff08 45%,transparent 68%); filter:blur(30px); }
 .signal-ribbon { width:100%; height:100%; overflow:visible; transform:rotate(-13deg); animation:ribbon-breathe 10s ease-in-out infinite alternate; filter:drop-shadow(0 0 12px #9aeaff1a); }
 .signal-traveler { stroke-dasharray:9 91; animation:signal-travel 9s linear infinite; }
-.signal-text-sheet { animation:sheet-float 8s ease-in-out infinite alternate; }
 .signal-caption { position:absolute; color:#8da3ba; font:.57rem var(--font-geist-mono, monospace),monospace; letter-spacing:.03em; display:flex; gap:15px; align-items:center; }
 .signal-caption-in { top:12%; right:18%; }
 .signal-caption-out { bottom:9%; left:10%; }
@@ -95,7 +94,6 @@
 @keyframes landing-arrive { from { opacity:.3; transform:translateY(26px); } to { opacity:1; transform:translateY(0); } }
 @keyframes ribbon-breathe { from { transform:rotate(-13deg) translateY(-8px) scale(.98); } to { transform:rotate(-8deg) translateY(8px) scale(1.02); } }
 @keyframes signal-travel { to { stroke-dashoffset:-100; } }
-@keyframes sheet-float { from { transform:translateY(0); } to { transform:translateY(22px); } }
 @keyframes wave-meter { from { transform:scaleY(.28); opacity:.35; } to { transform:scaleY(1); opacity:.85; } }
 .motion-paused *,.landing-hidden * { animation-play-state:paused !important; }
 .motion-paused .has-arrived { animation:none; }
