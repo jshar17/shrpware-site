@@ -460,7 +460,7 @@ a.store-button-primary:hover { background: #c4ff40; color: #10130e; }
   .screenshot-lightbox-body figcaption { gap: 10px; font-size: .58rem; }
 }
 
-.product-hero-waveplume-screen img { aspect-ratio: 1426/893; object-fit: contain; }
+.product-hero-waveplume-screen img { aspect-ratio: 1424/861; object-fit: contain; }
 @media (max-width: 620px) {
   .product-hero-waveplume .app-title-lockup { gap: 12px; }
   .product-hero-waveplume .app-title-lockup img { width: 56px; height: 56px; border-radius: 13px; }

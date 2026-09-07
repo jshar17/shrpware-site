@@ -101,7 +101,7 @@ test("renders the animated homepage with useful content before JavaScript", asyn
   assert.match(html, /id="standard"/);
   assert.match(html, /Explore WavePlume/);
   assert.match(html, /Explore DeltaTxt/);
-  assert.match(html, /hero-windows-transcript-20260906.webp/);
+  assert.match(html, /hero-windows-transcript-20260907.webp/);
   assert.match(html, /hero-windows-debug.webp/);
 });
 
@@ -113,7 +113,7 @@ test("shows the current WavePlume Windows gallery and platform-specific features
   assert.match(html, /go\/waveplume-mac/);
   assert.match(html, /go\/waveplume-windows/);
   for (const feature of ["record", "transcript", "library", "edit"]) {
-    assert.match(html, new RegExp(`windows-${feature}-20260906\\.webp`));
+    assert.match(html, new RegExp(`windows-${feature}-20260907\\.webp`));
   }
 });
 
@@ -213,10 +213,10 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/brand/shrpware-wordmark.svg",
     "../public/og-v5.png",
     "../public/apps/waveplume/hero-wave.webp",
-    "../public/apps/waveplume/hero-windows-transcript-20260906.webp",
+    "../public/apps/waveplume/hero-windows-transcript-20260907.webp",
     ...["record", "transcript", "library", "edit"].flatMap((feature) => [
-      `../public/apps/waveplume/gallery/windows-${feature}-20260906.webp`,
-      `../public/apps/waveplume/gallery/windows-${feature}-20260906-thumb.webp`,
+      `../public/apps/waveplume/gallery/windows-${feature}-20260907.webp`,
+      `../public/apps/waveplume/gallery/windows-${feature}-20260907-thumb.webp`,
     ]),
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/hero-windows-debug.webp",

@@ -42,7 +42,7 @@ export default function Home() {
             <Link className="landing-product-link" href="/apps/waveplume">Explore WavePlume <span aria-hidden="true">↗</span></Link>
             <p className="landing-product-meta">Mac + Windows <span>·</span> $14.99 once</p>
           </div>
-          <div className="product-stage wave-stage"><div className="stage-label"><span className="signal-dot" />Your conversation → your transcript</div><img src="/apps/waveplume/hero-windows-transcript-20260906.webp" alt="WavePlume for Windows showing a sample meeting transcript with timestamps and editing tools" width={1426} height={893} loading="lazy" /><div className="stage-footer"><span>Recorded locally.</span><span>Ready when you need it.</span></div></div>
+          <div className="product-stage wave-stage"><div className="stage-label"><span className="signal-dot" />Your conversation → your transcript</div><img src="/apps/waveplume/hero-windows-transcript-20260907.webp" alt="WavePlume for Windows showing a sample meeting transcript with timestamps and editing tools" width={1424} height={861} loading="lazy" /><div className="stage-footer"><span>Recorded locally.</span><span>Ready when you need it.</span></div></div>
         </article>
         <article className="landing-product delta-product" data-arrival>
           <div className="product-story">
