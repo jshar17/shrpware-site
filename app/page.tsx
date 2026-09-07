@@ -1,122 +1,81 @@
 import type { Metadata } from "next";
+import { Space_Grotesk } from "next/font/google";
 import { SafeLink as Link } from "./components/SafeLink";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { LandingMotion, SignalSculpture, AudioSignal } from "./components/LandingMotion";
+import "./landing.css";
+
+const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-landing-display", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Apps with an edge",
-  description: "WavePlume records and transcribes meetings locally. DeltaTxt is a native Mac and Windows editor for text, code, workspace search, comparison, and merge.",
+  title: "Less friction. More flow.",
+  description: "Independent desktop software for work that matters. Record and transcribe locally with WavePlume. Edit, compare, and debug with DeltaTxt. Mac + Windows. No subscription.",
   alternates: { canonical: "/" },
 };
-
-const products = [
-  { index: "01", name: "WavePlume", href: "/apps/waveplume", icon: "/apps/waveplume/app-assets/png/waveplume-128.png", platform: "MAC + WINDOWS · $14.99", summary: "Record and transcribe meetings locally. No bot, cloud, or subscription.", className: "product-card product-card-wave" },
-  { index: "02", name: "DeltaTxt", href: "/apps/deltatxt", icon: "/apps/deltatxt/icon-160.webp", platform: "MAC + WINDOWS · FREEWARE", summary: "Edit text and code, search workspaces, and compare or merge files. Free.", className: "product-card product-card-delta" },
-];
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "ShrpWare",
-  url: "https://shrpware.com",
-  email: "support@shrpware.com",
-  logo: "https://shrpware.com/brand/shrpware-wordmark.svg",
-};
+const organizationJsonLd = { "@context": "https://schema.org", "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com", email: "support@shrpware.com", logo: "https://shrpware.com/brand/shrpware-wordmark.svg" };
 
 export default function Home() {
-  return (
-    <main id="top" className="site-shell">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+  return <main id="top" className={`site-shell landing ${display.variable}`}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+    <LandingMotion>
       <SiteHeader />
+      <section className="studio-hero landing-wrap" aria-labelledby="hero-title">
+        <div className="studio-hero-copy">
+          <p className="landing-label"><span className="live-dot" />Independent software. Personal computing.</p>
+          <h1 id="hero-title">Less friction.<br /><em>More flow.</em></h1>
+          <p className="landing-intro">Catch the conversation. Find the difference.<br className="desktop-break" /> Get back to what you do best.</p>
+          <div className="landing-actions"><Link className="landing-button" href="#apps">Find your app <span aria-hidden="true">↘</span></Link><span className="platform-note">Made for<br /><strong>Mac + Windows</strong></span></div>
+        </div>
+        <SignalSculpture />
+        <div className="hero-bottom"><span>Powerful tools. A lighter footprint.</span><a href="#apps" aria-label="Scroll to the apps">Meet your next daily driver <span aria-hidden="true">↓</span></a></div>
+      </section>
 
-      <section className="hero wrap" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <h1 id="hero-title">Apps with<strong>an edge.</strong></h1>
-          <p className="hero-summary">Desktop apps for private meeting transcription and focused text and code work on Mac and Windows. No account required.</p>
-          <div className="hero-actions">
-            <Link className="button button-primary" href="#apps">Explore the apps <span aria-hidden="true">↘</span></Link>
-            <Link className="button button-secondary" href="#standard">Why ShrpWare</Link>
+      <section id="apps" className="landing-catalog landing-wrap" aria-labelledby="catalog-title">
+        <div className="landing-section-heading" data-arrival><p className="landing-label">The collection</p><h2 id="catalog-title">Two apps.<br /><span>Room to do more.</span></h2><p>Purpose-built desktop tools.<br />Your files stay in your hands.</p></div>
+        <article className="landing-product wave-product" data-arrival>
+          <div className="product-story">
+            <div className="landing-app-name"><img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="" width={56} height={56} /><span>WavePlume<small>Recording + transcription</small></span></div>
+            <h3>Be in the meeting.<br /><em>Keep every word.</em></h3>
+            <p>Record system audio and your microphone, then turn the conversation into searchable text with local Whisper. No bot in the call. No audio uploaded for transcription.</p>
+            <AudioSignal />
+            <Link className="landing-product-link" href="/apps/waveplume">Explore WavePlume <span aria-hidden="true">↗</span></Link>
+            <p className="landing-product-meta">Mac + Windows <span>·</span> $14.99 once</p>
           </div>
-        </div>
-
-        <div id="apps" className="product-stack" aria-label="ShrpWare app collection">
-          <div className="stack-frame" aria-hidden="true" />
-          {products.map((product) => (
-            <Link href={product.href} className={product.className} key={product.name}>
-              <img src={product.icon} alt="" />
-              <span className="product-copy">
-                <span className="product-meta">{product.index} / {product.platform}</span>
-                <strong>{product.name}<sup>™</sup></strong>
-                <span className="product-summary">{product.summary}</span>
-              </span>
-              <span className="product-arrow" aria-hidden="true">↗</span>
-            </Link>
-          ))}
-          <div className="catalog-meta"><span>Catalog / 2026</span><span>2 desktop apps</span></div>
-        </div>
-      </section>
-
-      <section id="standard" className="principles-section wrap">
-        <div className="section-heading">
-          <p className="section-number">01 / WHY SHRPWARE</p>
-          <h2>Straightforward desktop software.</h2>
-        </div>
-        <div className="principle-grid">
-          <article><span>01</span><h3>No account required</h3><p>Download the app and start using it without creating an account or profile.</p></article>
-          <article><span>02</span><h3>Simple pricing</h3><p>WavePlume is a one-time purchase, and DeltaTxt is free. Neither app requires an account.</p></article>
-          <article><span>03</span><h3>Built for specific tasks</h3><p>Each app focuses on a clear set of meeting or text-file workflows.</p></article>
-        </div>
-      </section>
-
-      <section className="feature-section wrap">
-        <div className="feature-copy">
-          <p className="section-number">02 / WAVEPLUME</p>
-          <h2>Record and transcribe meetings locally.</h2>
-          <p>Record system audio and your microphone, then transcribe locally with Whisper. No meeting bot joins the call, and no audio is uploaded for processing.</p>
-          <div className="inline-actions">
-            <Link className="button button-primary" href="/apps/waveplume">See WavePlume</Link>
-            <Link className="text-link" href="/compare/waveplume-vs-cloud-meeting-bots">Compare with cloud bots →</Link>
+          <div className="product-stage wave-stage"><div className="stage-label"><span className="signal-dot" />Your conversation → your transcript</div><img src="/apps/waveplume/hero-windows-transcript-20260906.webp" alt="WavePlume for Windows showing a sample meeting transcript with timestamps and editing tools" width={1426} height={893} loading="lazy" /><div className="stage-footer"><span>Recorded locally.</span><span>Ready when you need it.</span></div></div>
+        </article>
+        <article className="landing-product delta-product" data-arrival>
+          <div className="product-story">
+            <div className="landing-app-name"><img src="/apps/deltatxt/icon-160.webp" alt="" width={56} height={56} /><span>DeltaTxt<small>Text + code + comparison</small></span></div>
+            <h3>Less digging.<br /><em>More doing.</em></h3>
+            <p>Find and replace across files. Compare versions. Merge with control. Built natively for Mac in Swift, with Python editing and debugging on Windows.</p>
+            <div className="delta-change" aria-hidden="true"><span>− searching for the difference</span><span>+ seeing exactly what changed</span></div>
+            <Link className="landing-product-link" href="/apps/deltatxt">Explore DeltaTxt <span aria-hidden="true">↗</span></Link>
+            <p className="landing-product-meta">Mac + Windows <span>·</span> Freeware</p>
           </div>
-        </div>
-        <img className="feature-image" src="/apps/waveplume/hero-windows-transcript-20260906.webp" alt="WavePlume for Windows showing a sample meeting transcript with timestamps and editing tools" width={1426} height={893} loading="lazy" decoding="async" />
+          <div className="product-stage delta-stage"><div className="stage-label"><span className="signal-cross">+</span>Small details. Big difference.</div><img src="/apps/deltatxt/hero-windows-debug.webp" alt="DeltaTxt Python debugger on Windows with source code and its docked output panel" width={1672} height={941} loading="lazy" /><div className="stage-footer"><span>Find. Edit. Compare.</span><span>Stay in your flow.</span></div></div>
+        </article>
       </section>
 
-      <section className="feature-section feature-section-reverse wrap">
-        <div className="feature-copy">
-          <p className="section-number">03 / DELTATXT</p>
-          <h2>A focused text and code workbench.</h2>
-          <p>Built natively for Mac in Swift and available on Windows. Find and replace across files, compare versions, and merge changes without leaving the workbench.</p>
-          <div className="inline-actions">
-            <Link className="button button-primary" href="/apps/deltatxt">See DeltaTxt</Link>
-            <Link className="text-link" href="/use-cases/file-comparison-merge">Explore text comparison and merge →</Link>
-          </div>
-        </div>
-        <img className="feature-image" src="/apps/deltatxt/gallery/mac-edit-with-focus.webp" alt="Python source file open in the native DeltaTxt editor for Mac" width={1920} height={1080} loading="lazy" decoding="async" />
-      </section>
-
-      <section className="use-case-section wrap">
-        <div className="section-heading compact-heading">
-          <p className="section-number">04 / USE CASES</p>
-          <h2>Focused workflows, without the overhead.</h2>
-        </div>
-        <div className="link-card-grid link-card-grid-four">
-          <Link href="/use-cases/offline-meeting-transcription"><span>Meetings</span><strong>Offline meeting transcription</strong><b>→</b></Link>
-          <Link href="/use-cases/python-ide-debugger"><span>Python</span><strong>Focused editing and debugging</strong><b>→</b></Link>
-          <Link href="/use-cases/find-replace-text-files"><span>Find + replace</span><strong>Change text across files safely</strong><b>→</b></Link>
-          <Link href="/use-cases/file-comparison-merge"><span>Diff + merge</span><strong>Compare and merge text files</strong><b>→</b></Link>
+      <section id="standard" className="landing-standard landing-wrap" aria-labelledby="standard-title">
+        <div className="landing-section-heading" data-arrival><p className="landing-label">The ShrpWare way</p><h2 id="standard-title">Your computer.<br /><span>Your call.</span></h2><p>Software should make your day simpler.<br />That’s the standard we build to.</p></div>
+        <div className="landing-values">
+          <article data-arrival><span className="value-symbol" aria-hidden="true">↗</span><h3>Open the app.<br />Get to work.</h3><p>No account to create. No profile to complete. Start with the task you came to do.</p></article>
+          <article data-arrival><span className="value-symbol" aria-hidden="true">∞</span><h3>Useful software.<br />Simple pricing.</h3><p>WavePlume is a one-time purchase. DeltaTxt is free. Neither needs a subscription.</p></article>
+          <article data-arrival><span className="value-symbol" aria-hidden="true">⌘</span><h3>Keep your files.<br />Keep your options.</h3><p>Local recordings, transcripts, text, and code. Files you can open and use outside the app.</p></article>
         </div>
       </section>
-
-      <section className="closing-cta wrap">
-        <p className="section-number">NO ACCOUNT. NO SUBSCRIPTION.</p>
-        <h2>Choose the app that fits your work.</h2>
-        <div className="hero-actions">
-          <Link className="button button-primary" href="/apps/waveplume">Try WavePlume</Link>
-          <Link className="button button-secondary" href="/apps/deltatxt">Get DeltaTxt free</Link>
+      <section className="landing-workflows landing-wrap" aria-labelledby="workflow-title" data-arrival>
+        <div><p className="landing-label">Start with your work</p><h2 id="workflow-title">What’s on your desk?</h2></div>
+        <div className="workflow-links">
+          <Link href="/use-cases/offline-meeting-transcription"><span>Meeting notes, without the bot</span><b aria-hidden="true">↗</b></Link>
+          <Link href="/use-cases/python-ide-debugger"><span>A Python script to figure out</span><b aria-hidden="true">↗</b></Link>
+          <Link href="/use-cases/find-replace-text-files"><span>The same change across a hundred files</span><b aria-hidden="true">↗</b></Link>
+          <Link href="/use-cases/file-comparison-merge"><span>Two versions. One clear answer.</span><b aria-hidden="true">↗</b></Link>
         </div>
       </section>
-
+      <section className="landing-finale landing-wrap" data-arrival><p className="landing-label">Make a little room for focus.</p><h2>Good tools.<br /><em>Great headspace.</em></h2><div className="landing-actions"><Link className="landing-button" href="/apps/waveplume">Meet WavePlume <span aria-hidden="true">↗</span></Link><Link className="landing-button landing-button-quiet" href="/apps/deltatxt">Get DeltaTxt free <span aria-hidden="true">↗</span></Link></div></section>
       <SiteFooter />
-    </main>
-  );
+    </LandingMotion>
+  </main>;
 }

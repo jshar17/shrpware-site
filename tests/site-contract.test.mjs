@@ -90,6 +90,20 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(homeHtml, /Mac \+ Windows/i);
 });
 
+test("renders the animated homepage with useful content before JavaScript", async () => {
+  const response = await fetchPath("/", { headers: { accept: "text/html" } });
+  const html = await response.text();
+  assert.match(html, /Less friction/);
+  assert.match(html, /Pause motion/);
+  assert.match(html, /aria-pressed="false"/);
+  assert.match(html, /id="apps"/);
+  assert.match(html, /id="standard"/);
+  assert.match(html, /Explore WavePlume/);
+  assert.match(html, /Explore DeltaTxt/);
+  assert.match(html, /hero-windows-transcript-20260906.webp/);
+  assert.match(html, /hero-windows-debug.webp/);
+});
+
 test("shows the current WavePlume Windows gallery and platform-specific features", async () => {
   const response = await fetchPath("/apps/waveplume", { headers: { accept: "text/html" } });
   const html = await response.text();
