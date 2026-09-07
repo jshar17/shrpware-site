@@ -1,17 +1,11 @@
 "use client";
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 
 export function LandingMotion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
-  const [motionChoice, setMotionChoice] = useState(false);
   useEffect(() => {
     const element = root.current;
     if (!element) return;
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncPreference = () => { setPaused(preference.matches); setMotionChoice(false); };
-    syncPreference();
-    preference.addEventListener("change", syncPreference);
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -26,16 +20,10 @@ export function LandingMotion({ children }: { children: ReactNode }) {
     visibility();
     return () => {
       observer.disconnect();
-      preference.removeEventListener("change", syncPreference);
       document.removeEventListener("visibilitychange", visibility);
     };
   }, []);
-  return <div ref={root} className={`landing-experience${paused ? " motion-paused" : ""}`} data-motion-opt-in={motionChoice && !paused ? "true" : undefined}>
-    <button className="motion-control" type="button" aria-pressed={paused} onClick={() => { setPaused(!paused); setMotionChoice(true); }}>
-      <span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span>{paused ? "Motion paused" : "Pause motion"}
-    </button>
-    {children}
-  </div>;
+  return <div ref={root} className="landing-experience">{children}</div>;
 }
 
 export function SignalSculpture() {
