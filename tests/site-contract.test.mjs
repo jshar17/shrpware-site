@@ -90,6 +90,18 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(homeHtml, /Mac \+ Windows/i);
 });
 
+test("shows the current WavePlume Windows gallery and platform-specific features", async () => {
+  const response = await fetchPath("/apps/waveplume", { headers: { accept: "text/html" } });
+  const html = await response.text();
+  assert.match(html, /Quick Note, Standard Meeting, or Archival Quality/);
+  assert.match(html, /platform interfaces and individual tools differ/);
+  assert.match(html, /go\/waveplume-mac/);
+  assert.match(html, /go\/waveplume-windows/);
+  for (const feature of ["record", "transcript", "library", "edit"]) {
+    assert.match(html, new RegExp(`windows-${feature}-20260906\\.webp`));
+  }
+});
+
 test("preserves the legacy WavePlume privacy URL used by App Store Connect", async () => {
   const response = await fetchPath("/privacy.html");
   assert.equal(response.status, 301);
@@ -186,6 +198,11 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/brand/shrpware-wordmark.svg",
     "../public/og-v5.png",
     "../public/apps/waveplume/hero-wave.webp",
+    "../public/apps/waveplume/hero-windows-transcript-20260906.webp",
+    ...["record", "transcript", "library", "edit"].flatMap((feature) => [
+      `../public/apps/waveplume/gallery/windows-${feature}-20260906.webp`,
+      `../public/apps/waveplume/gallery/windows-${feature}-20260906-thumb.webp`,
+    ]),
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/hero-windows-debug.webp",
     "../public/apps/deltatxt/icon-160.webp",

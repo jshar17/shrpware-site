@@ -78,7 +78,7 @@ export default function Home() {
             <Link className="text-link" href="/compare/waveplume-vs-cloud-meeting-bots">Compare with cloud bots →</Link>
           </div>
         </div>
-        <img className="feature-image" src="/apps/waveplume/hero-wave.webp" alt="WavePlume meeting recording and transcription interface" width={1600} height={900} loading="lazy" decoding="async" />
+        <img className="feature-image" src="/apps/waveplume/hero-windows-transcript-20260906.webp" alt="WavePlume for Windows showing a sample meeting transcript with timestamps and editing tools" width={1426} height={893} loading="lazy" decoding="async" />
       </section>
 
       <section className="feature-section feature-section-reverse wrap">
