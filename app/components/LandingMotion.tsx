@@ -48,12 +48,19 @@ export function SignalSculpture() {
         </linearGradient>
         <linearGradient id="signal-glint"><stop stopColor="#ffffff" stopOpacity="0" /><stop offset=".5" stopColor="#ffffff" /><stop offset="1" stopColor="#ffffff" stopOpacity="0" /></linearGradient>
       </defs>
-      {Array.from({length: 42}, (_, i) => {
-        const o = i * 2.7;
-        const d = `M ${545-o*.46} ${105+o*.45} C ${390-o*.8} ${-25+o*.52}, ${98+o*.15} ${95+o*.35}, ${176+o*.1} ${247+o*.34} C ${236+o*.22} ${351+o*.12}, ${543-o*.48} ${231+o*.75}, ${528-o*.15} ${382+o*.51} C ${506-o*.13} ${546+o*.17}, ${250+o*.34} ${620-o*.32}, ${107+o*.49} ${452-o*.12}`;
-        return <path key={i} d={d} stroke="url(#signal-spectrum)" strokeWidth={i%7===0 ? 1.9 : 1.05} opacity={.42+i/85} />;
-      })}
-      <path className="signal-traveler" d="M 520 130 C 340 10 100 105 180 264 C 249 360 520 267 518 410 C 495 565 268 585 130 445" stroke="url(#signal-glint)" strokeWidth="3" pathLength="100" />
+      <g className="signal-audio-sheet">
+        {Array.from({length: 34}, (_, i) => {
+          const o = i * 4;
+          return <path key={i} d={`M 80 ${310+o} C 210 ${320+o}, 205 ${85+o*.5}, 345 ${155+o*.7} C 460 ${215+o*.7}, 490 ${285+o*.4}, 640 ${145+o*.5}`} stroke="url(#signal-spectrum)" strokeWidth={i%6===0 ? 2 : 1} opacity={.5+i/90} />;
+        })}
+        <path className="signal-traveler" d="M 80 374 C 210 384 205 117 345 200 C 460 260 490 311 640 177" stroke="url(#signal-glint)" strokeWidth="3" pathLength="100" />
+      </g>
+      <g className="signal-text-sheet">
+        {Array.from({length: 25}, (_, i) => {
+          const o = i * 5;
+          return <path key={i} d={`M ${140+o*.3} ${475+o*.22} L ${345+o*.14} ${305+o*.5} L ${545+o*.3} ${440+o*.32}`} stroke="url(#signal-spectrum)" strokeWidth={i%5===0 ? 2 : 1} opacity={.45+i/70} />;
+        })}
+      </g>
     </svg>
   </div>;
 }
