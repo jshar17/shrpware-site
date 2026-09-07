@@ -95,8 +95,7 @@ test("renders the animated homepage with useful content before JavaScript", asyn
   const html = await response.text();
   assert.match(html, /Apps with/);
   assert.match(html, /an edge\./);
-  assert.match(html, /Pause motion/);
-  assert.match(html, /aria-pressed="false"/);
+  assert.doesNotMatch(html, /Pause motion/);
   assert.match(html, /id="apps"/);
   assert.match(html, /id="standard"/);
   assert.match(html, /Explore WavePlume/);
