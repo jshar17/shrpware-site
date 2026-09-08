@@ -47,12 +47,12 @@ const features = [
 ];
 
 const capabilities = [
-  ["Languages", "Highlighting and structure", "Syntax highlighting for dozens of languages, with code folding, a function list, and a scrollable minimap."],
-  ["Editing", "Precise editing", "Column selection, bookmarks, auto-indent, matching-brace highlighting, and Go to Line."],
-  ["Folders", "Compare and sync folders", "Compare two folders side by side, then sync the differences with a preview and optional backups."],
-  ["Encoding", "Encoding kept intact", "Detects and preserves UTF-8, UTF-16, UTF-32, BOM, and CRLF, LF, or CR line endings, so nothing is silently rewritten."],
-  ["Recovery", "Safe saves", "Atomic writes with optional backups, crash recovery, and session restore that reopens your tabs."],
-  ["Privacy", "Yours alone", "Freeware with no account, no telemetry, and no ads. Your files stay on your machine."],
+  ["Highlighting and structure", "Syntax highlighting for dozens of languages, with code folding, a function list, and a scrollable minimap."],
+  ["Precise editing", "Column selection, bookmarks, auto-indent, matching-brace highlighting, and Go to Line."],
+  ["Compare and sync folders", "Compare two folders side by side, then sync the differences with a preview and optional backups."],
+  ["Encoding kept intact", "Detects and preserves UTF-8, UTF-16, UTF-32, BOM, and CRLF, LF, or CR line endings, so nothing is silently rewritten."],
+  ["Safe saves", "Atomic writes with optional backups, crash recovery, and session restore that reopens your tabs."],
+  ["Yours alone", "Freeware with no account, no telemetry, and no ads. Your files stay on your machine."],
 ];
 
 const macScreenshots = [
@@ -94,12 +94,11 @@ export default function DeltaTxtPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
-          <p className="eyebrow"><span />Windows IDE · Mac editor · Freeware</p>
           <div className="app-title-lockup"><img src="/apps/deltatxt/icon-160.webp" alt="" width={160} height={160} /><h1>DeltaTxt</h1></div>
           <h2>Python debugging without the heavyweight IDE.</h2>
           <p>Set breakpoints, step through code, and inspect locals in a fast native Windows app. No Electron, no web wrapper.</p>
           <StoreLinks />
-          <p className="fine-print">macOS 13+ · Windows 10/11 · No account required</p>
+          <p className="fine-print">Mac + Windows · Freeware</p>
         </div>
         <div className="product-hero-debugger" aria-label="DeltaTxt Python debugging on Windows">
           <figure>
@@ -108,29 +107,27 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="trust-band"><div className="wrap"><span>Python debugger</span><span>Find + replace</span><span>Compare + merge</span><span>No telemetry</span></div></section>
-
       <section className="content-section wrap">
-        <div className="section-heading" data-arrival><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
-        <div className="feature-card-grid" data-arrival>{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+        <div className="section-heading" data-arrival><h2>Focused text tools on Mac and Windows.</h2></div>
+        <div className="feature-card-grid" data-arrival>{features.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
       <section className="content-section wrap">
-        <div className="section-heading" data-arrival><p className="section-number">02 / FEATURES</p><h2>The tools you&rsquo;ll actually use.</h2></div>
-        <ol className="workflow-list" data-arrival>{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+        <div className="section-heading" data-arrival><h2>The tools you&rsquo;ll actually use.</h2></div>
+        <ol className="workflow-list" data-arrival>{capabilities.map(([title, body]) => <li key={title}><h3>{title}</h3><p>{body}</p></li>)}</ol>
       </section>
 
       <section className="gallery-section platform-gallery-section wrap">
-        <div className="section-heading" data-arrival><p className="section-number">03 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
+        <div className="section-heading" data-arrival><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
+            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-windows-gallery">
           <div className="platform-gallery-heading">
-            <div><p className="platform-kicker">Windows 10 / 11</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>C# + .NET 8. Windows Forms, Scintilla, Explorer integration, and Python debugging.</p></div>
+            <div><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>C# + .NET 8. Windows Forms, Scintilla, Explorer integration, and Python debugging.</p></div>
           </div>
           <ScreenshotGallery items={windowsScreenshots} label="DeltaTxt for Windows" layout="featured" />
         </div>
@@ -138,7 +135,7 @@ export default function DeltaTxtPage() {
       </section>
 
       <section className="faq-section wrap">
-        <div className="section-heading" data-arrival><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="section-heading" data-arrival><h2>Frequently asked questions.</h2></div>
         <div className="faq-list" data-arrival>
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
           <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
@@ -150,7 +147,7 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="closing-cta wrap" data-arrival><p className="section-number">MAC + WINDOWS · FREEWARE</p><h2>Get DeltaTxt.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
+      <section className="closing-cta wrap" data-arrival><h2>Get DeltaTxt.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
     </PageShell>
   );
 }

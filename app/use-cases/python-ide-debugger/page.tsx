@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PythonIdeDebugger() {
   return <SeoLanding
-    eyebrow="Use case / Python"
+   
     title="A focused Python IDE for Windows."
     intro="Write, run, and debug Python with breakpoints, stepping, Locals, Stack, interpreter discovery, and a built-in console—without the setup of a heavyweight project IDE."
     app="DeltaTxt"

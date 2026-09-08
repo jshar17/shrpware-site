@@ -18,18 +18,9 @@ export function PageShell({ children, accent }: { children: ReactNode; accent?: 
   );
 }
 
-export function ArticleHero({
-  eyebrow,
-  title,
-  intro,
-}: {
-  eyebrow: string;
-  title: string;
-  intro: string;
-}) {
+export function ArticleHero({ title, intro }: { title: string; intro: string }) {
   return (
     <header className="article-hero wrap">
-      <p className="eyebrow"><span />{eyebrow}</p>
       <h1>{title}</h1>
       <p>{intro}</p>
     </header>

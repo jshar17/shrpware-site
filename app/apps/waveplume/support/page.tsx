@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "WavePlume support", description: "Se
 
 export default function WavePlumeSupport() {
   return <PageShell accent="waveplume">
-    <ArticleHero eyebrow="WavePlume / Support" title="WavePlume support." intro="Help with audio, transcripts, model downloads, storage, and licensing." />
+    <ArticleHero title="WavePlume support." intro="Help with audio, transcripts, model downloads, storage, and licensing." />
     <article className="article-body wrap">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
       <h2>Fast checks</h2>
