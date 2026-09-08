@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import { SafeLink as Link } from "./components/SafeLink";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { LandingMotion, AudioSignal } from "./components/LandingMotion";
 import { HeroStage } from "./components/HeroStage";
 import "./landing.css";
-
-const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-landing-display", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Apps with an edge",
@@ -17,7 +14,7 @@ export const metadata: Metadata = {
 const organizationJsonLd = { "@context": "https://schema.org", "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com", email: "support@shrpware.com", logo: "https://shrpware.com/brand/shrpware-wordmark.svg" };
 
 export default function Home() {
-  return <main id="top" className={`site-shell landing ${display.variable}`}>
+  return <main id="top" className="site-shell landing">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
     <LandingMotion>
       <SiteHeader />

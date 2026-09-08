@@ -62,7 +62,7 @@ This repository is public. Never commit secrets, private operations material, si
 ### Shared behavior
 
 - `app/components/SiteHeader.tsx` and `SiteFooter.tsx` — global navigation.
-- `app/components/PageShell.tsx` — shared interior-page shell.
+- `app/components/PageShell.tsx` — shared interior-page shell. Pass `accent="waveplume"` or `accent="deltatxt"` so the page picks up that product's colour (cyan or purple); the theme tokens live at the top of `app/globals.css`.
 - `app/components/SeoLanding.tsx` — shared use-case/comparison layout.
 - `app/components/SafeLink.tsx` — stable link implementation.
 - `app/components/ScreenshotGallery.tsx` — product screenshot grid and lightbox.

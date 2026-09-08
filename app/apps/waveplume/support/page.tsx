@@ -4,7 +4,7 @@ import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
 export const metadata: Metadata = { title: "WavePlume support", description: "Setup and troubleshooting help for WavePlume on macOS and Windows.", alternates: { canonical: "/apps/waveplume/support" } };
 
 export default function WavePlumeSupport() {
-  return <PageShell>
+  return <PageShell accent="waveplume">
     <ArticleHero eyebrow="WavePlume / Support" title="WavePlume support." intro="Help with audio, transcripts, model downloads, storage, and licensing." />
     <article className="article-body wrap">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>

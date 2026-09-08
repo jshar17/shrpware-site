@@ -63,7 +63,7 @@ function StoreLinks({ compact = false }: { compact?: boolean }) {
 
 export default function WavePlumePage() {
   return (
-    <PageShell>
+    <PageShell accent="waveplume">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-waveplume wrap">
         <div className="product-hero-copy">
@@ -83,28 +83,28 @@ export default function WavePlumePage() {
       <section className="trust-band"><div className="wrap"><span>Audio stays local</span><span>No meeting bot</span><span>No subscription</span><span>No account</span></div></section>
 
       <section className="content-section wrap">
-        <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>From conversation to words you can use.</h2></div>
-        <div className="feature-card-grid">
+        <div className="section-heading" data-arrival><p className="section-number">01 / CORE WORKFLOWS</p><h2>From conversation to words you can use.</h2></div>
+        <div className="feature-card-grid" data-arrival>
           {features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}
         </div>
       </section>
 
       <section className="content-section wrap">
-        <div className="section-heading"><p className="section-number">02 / FEATURES</p><h2>The controls behind a useful recording.</h2></div>
-        <ol className="workflow-list">{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+        <div className="section-heading" data-arrival><p className="section-number">02 / FEATURES</p><h2>The controls behind a useful recording.</h2></div>
+        <ol className="workflow-list" data-arrival>{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
       </section>
 
       <section className="gallery-section platform-gallery-section wrap">
-        <div className="section-heading"><p className="section-number">03 / IN THE APP</p><h2>See the Windows workflow.</h2></div>
-        <div className="platform-gallery-group" aria-labelledby="waveplume-windows-gallery">
+        <div className="section-heading" data-arrival><p className="section-number">03 / IN THE APP</p><h2>See the Windows workflow.</h2></div>
+        <div className="platform-gallery-group" data-arrival aria-labelledby="waveplume-windows-gallery">
           <div className="platform-gallery-heading"><div><p className="platform-kicker">Windows 10 / 11</p><h3 id="waveplume-windows-gallery">Record. Find. Revisit.</h3><p>The Windows interface, shown with fictional meeting content. Select a screenshot to explore it at full size.</p></div></div>
           <ScreenshotGallery items={screenshots} label="WavePlume for Windows" layout="featured" />
         </div>
       </section>
 
       <section className="comparison-section wrap">
-        <div className="section-heading"><p className="section-number">04 / COMPARISON</p><h2>How WavePlume compares with cloud meeting bots.</h2></div>
-        <div className="comparison-table" role="table" aria-label="WavePlume and cloud meeting bot comparison">
+        <div className="section-heading" data-arrival><p className="section-number">04 / COMPARISON</p><h2>How WavePlume compares with cloud meeting bots.</h2></div>
+        <div className="comparison-table" data-arrival role="table" aria-label="WavePlume and cloud meeting bot comparison">
           <div className="comparison-row comparison-head" role="row"><span>Capability</span><strong>WavePlume</strong><span>Typical cloud bot</span></div>
           <div className="comparison-row" role="row"><span>Joins the call</span><strong>No</strong><span>Usually</span></div>
           <div className="comparison-row" role="row"><span>Audio processing</span><strong>On your device</strong><span>Remote servers</span></div>
@@ -115,8 +115,8 @@ export default function WavePlumePage() {
       </section>
 
       <section className="faq-section wrap">
-        <div className="section-heading"><p className="section-number">05 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
-        <div className="faq-list">
+        <div className="section-heading" data-arrival><p className="section-number">05 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="faq-list" data-arrival>
           <details><summary>Does WavePlume upload my meeting audio?</summary><p>No. Recording and transcription happen locally. An internet connection is needed to download a selected Whisper model before its first use. Optional connected features may also use the network.</p></details>
           <details><summary>Can I edit and reuse a transcript?</summary><p>Yes. On Windows, search the transcript, correct its text, and save your changes. Transcription produces text and SRT subtitle files; timestamp links can return you to the source recording when that media is present.</p></details>
           <details><summary>Are the Mac and Windows editions identical?</summary><p>Both provide local recording and Whisper transcription. The screenshots and detailed controls on this page show the Windows edition; platform interfaces and individual tools differ.</p></details>
@@ -126,7 +126,7 @@ export default function WavePlumePage() {
         </div>
       </section>
 
-      <section className="closing-cta wrap"><p className="section-number">MAC + WINDOWS · ONE-TIME PURCHASE</p><h2>Get WavePlume.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/waveplume/changelog">Release notes →</Link><Link className="text-link" href="/apps/waveplume/privacy">Privacy →</Link><Link className="text-link" href="/apps/waveplume/support">Support →</Link></div></section>
+      <section className="closing-cta wrap" data-arrival><p className="section-number">MAC + WINDOWS · ONE-TIME PURCHASE</p><h2>Get WavePlume.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/waveplume/changelog">Release notes →</Link><Link className="text-link" href="/apps/waveplume/privacy">Privacy →</Link><Link className="text-link" href="/apps/waveplume/support">Support →</Link></div></section>
     </PageShell>
   );
 }
