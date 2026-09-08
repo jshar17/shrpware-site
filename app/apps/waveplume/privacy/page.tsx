@@ -4,7 +4,7 @@ import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
 export const metadata: Metadata = { title: "WavePlume privacy policy", description: "How WavePlume handles recordings, transcripts, permissions, model downloads, and optional calendar access.", alternates: { canonical: "/apps/waveplume/privacy" } };
 
 export default function WavePlumePrivacy() {
-  return <PageShell>
+  return <PageShell accent="waveplume">
     <ArticleHero eyebrow="WavePlume / Privacy" title="How WavePlume handles your data." intro="Effective August 12, 2026. This policy explains how WavePlume uses files, permissions, and network access." />
     <article className="article-body wrap policy-copy">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>

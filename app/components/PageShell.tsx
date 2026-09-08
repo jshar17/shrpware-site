@@ -1,14 +1,19 @@
 import type { ReactNode } from "react";
 import { SafeLink as Link } from "./SafeLink";
+import { LandingMotion } from "./LandingMotion";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
-export function PageShell({ children }: { children: ReactNode }) {
+export type Accent = "waveplume" | "deltatxt";
+
+export function PageShell({ children, accent }: { children: ReactNode; accent?: Accent }) {
   return (
-    <main className="site-shell">
-      <SiteHeader />
-      {children}
-      <SiteFooter />
+    <main className="site-shell" data-accent={accent}>
+      <LandingMotion>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </LandingMotion>
     </main>
   );
 }

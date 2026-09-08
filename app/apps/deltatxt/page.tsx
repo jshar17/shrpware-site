@@ -90,7 +90,7 @@ function StoreLinks({ compact = false }: { compact?: boolean }) {
 
 export default function DeltaTxtPage() {
   return (
-    <PageShell>
+    <PageShell accent="deltatxt">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="product-hero product-hero-deltatxt wrap">
         <div className="product-hero-copy">
@@ -111,24 +111,24 @@ export default function DeltaTxtPage() {
       <section className="trust-band"><div className="wrap"><span>Python debugger</span><span>Find + replace</span><span>Compare + merge</span><span>No telemetry</span></div></section>
 
       <section className="content-section wrap">
-        <div className="section-heading"><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
-        <div className="feature-card-grid">{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+        <div className="section-heading" data-arrival><p className="section-number">01 / CORE WORKFLOWS</p><h2>Focused text tools on Mac and Windows.</h2></div>
+        <div className="feature-card-grid" data-arrival>{features.map(([title, body], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
       <section className="content-section wrap">
-        <div className="section-heading"><p className="section-number">02 / FEATURES</p><h2>The tools you&rsquo;ll actually use.</h2></div>
-        <ol className="workflow-list">{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+        <div className="section-heading" data-arrival><p className="section-number">02 / FEATURES</p><h2>The tools you&rsquo;ll actually use.</h2></div>
+        <ol className="workflow-list" data-arrival>{capabilities.map(([tag, title, body]) => <li key={title}><span>{tag}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
       </section>
 
       <section className="gallery-section platform-gallery-section wrap">
-        <div className="section-heading"><p className="section-number">03 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
-        <div className="platform-gallery-group" aria-labelledby="deltatxt-mac-gallery">
+        <div className="section-heading" data-arrival><p className="section-number">03 / THE WORKBENCH</p><h2>See both editions at work.</h2></div>
+        <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
             <div><p className="platform-kicker">macOS 13+</p><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
-        <div className="platform-gallery-group" aria-labelledby="deltatxt-windows-gallery">
+        <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-windows-gallery">
           <div className="platform-gallery-heading">
             <div><p className="platform-kicker">Windows 10 / 11</p><h3 id="deltatxt-windows-gallery">Built for Windows.</h3><p>C# + .NET 8. Windows Forms, Scintilla, Explorer integration, and Python debugging.</p></div>
           </div>
@@ -138,8 +138,8 @@ export default function DeltaTxtPage() {
       </section>
 
       <section className="faq-section wrap">
-        <div className="section-heading"><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
-        <div className="faq-list">
+        <div className="section-heading" data-arrival><p className="section-number">04 / QUESTIONS</p><h2>Frequently asked questions.</h2></div>
+        <div className="faq-list" data-arrival>
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
           <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
           <details><summary>How powerful is find and replace?</summary><p>Use case-sensitive, whole-word, or regular-expression search in one document or across a workspace. For workspace replacement, DeltaTxt builds a preview, revalidates files before applying changes, and keeps a backup tree.</p></details>
@@ -150,7 +150,7 @@ export default function DeltaTxtPage() {
         </div>
       </section>
 
-      <section className="closing-cta wrap"><p className="section-number">MAC + WINDOWS · FREEWARE</p><h2>Get DeltaTxt.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
+      <section className="closing-cta wrap" data-arrival><p className="section-number">MAC + WINDOWS · FREEWARE</p><h2>Get DeltaTxt.</h2><StoreLinks compact /><div className="inline-actions closing-links"><Link className="text-link" href="/apps/deltatxt/changelog">Release notes and checksum →</Link><Link className="text-link" href="/compare/deltatxt-vs-heavyweight-editors">Compare with a full IDE →</Link><Link className="text-link" href="/apps/deltatxt/support">Support →</Link></div></section>
     </PageShell>
   );
 }
