@@ -3,7 +3,8 @@ import { Space_Grotesk } from "next/font/google";
 import { SafeLink as Link } from "./components/SafeLink";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
-import { LandingMotion, SignalSculpture, AudioSignal } from "./components/LandingMotion";
+import { LandingMotion, AudioSignal } from "./components/LandingMotion";
+import { HeroStage } from "./components/HeroStage";
 import "./landing.css";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-landing-display", display: "swap" });
@@ -26,7 +27,7 @@ export default function Home() {
           <p className="landing-intro">Capture every conversation with WavePlume.<br className="desktop-break" /> Edit, compare, and code with DeltaTxt.</p>
           <div className="landing-actions"><Link className="landing-button" href="#apps">Find your app <span aria-hidden="true">↘</span></Link></div>
         </div>
-        <SignalSculpture />
+        <HeroStage />
       </section>
 
       <section id="apps" className="landing-catalog landing-wrap" aria-labelledby="catalog-title">

@@ -66,6 +66,7 @@ This repository is public. Never commit secrets, private operations material, si
 - `app/components/SeoLanding.tsx` — shared use-case/comparison layout.
 - `app/components/SafeLink.tsx` — stable link implementation.
 - `app/components/ScreenshotGallery.tsx` — product screenshot grid and lightbox.
+- `app/components/HeroStage.tsx` — homepage hero: two CSS-animated product demos (WavePlume transcript, DeltaTxt compare/merge) that take turns in front; the switcher under the stage pins one.
 - `app/go/[slug]/route.ts` — first-party 307 redirects to stores and downloads.
 - `worker/index.ts` — vinext Worker entry point and image handling.
 - `vite.config.ts` — vinext and Cloudflare build configuration.
