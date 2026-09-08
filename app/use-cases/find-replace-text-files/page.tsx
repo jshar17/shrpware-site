@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function FindReplaceTextFiles() {
   return <SeoLanding
-    eyebrow="Use case / Find + replace"
+   
     title="Find and replace across files with control."
     intro="Search one document, scan an entire workspace, or process a file too large to open normally—then review broader replacements before DeltaTxt changes anything."
     app="DeltaTxt"

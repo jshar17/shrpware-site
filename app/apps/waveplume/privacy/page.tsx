@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "WavePlume privacy policy", descripti
 
 export default function WavePlumePrivacy() {
   return <PageShell accent="waveplume">
-    <ArticleHero eyebrow="WavePlume / Privacy" title="How WavePlume handles your data." intro="Effective August 12, 2026. This policy explains how WavePlume uses files, permissions, and network access." />
+    <ArticleHero title="How WavePlume handles your data." intro="Effective August 12, 2026. This policy explains how WavePlume uses files, permissions, and network access." />
     <article className="article-body wrap policy-copy">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
       <h2>Local content</h2><p>WavePlume records audio and creates transcripts on your device. It does not require an account and does not provide cloud storage for your meeting content.</p>

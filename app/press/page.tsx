@@ -5,7 +5,7 @@ import { ArticleHero, PageShell } from "@/app/components/PageShell";
 export const metadata: Metadata = { title: "Press kit", description: "Approved descriptions, product facts, screenshots, icons, and contact details for ShrpWare, WavePlume, and DeltaTxt.", alternates: { canonical: "/press" } };
 
 export default function PressPage() {
-  return <PageShell><ArticleHero eyebrow="ShrpWare / Press kit" title="ShrpWare press kit." intro="Product descriptions, facts, screenshots, icons, and contact information for coverage and app listings." />
+  return <PageShell><ArticleHero title="ShrpWare press kit." intro="Product descriptions, facts, screenshots, icons, and contact information for coverage and app listings." />
     <article className="article-body wrap press-body">
       <h2>ShrpWare</h2><p><strong>Boilerplate:</strong> ShrpWare makes WavePlume, a meeting recorder and transcriber, and DeltaTxt, a Mac and Windows text editor.</p>
       <h2>WavePlume</h2><p><strong>One line:</strong> WavePlume records and transcribes meetings locally with Whisper—without a meeting bot, cloud processing, account, or subscription.</p><ul><li>macOS and Windows</li><li>$14.99 one-time purchase</li><li>14-day standalone Windows trial</li><li>Local audio recording and transcription</li></ul>
