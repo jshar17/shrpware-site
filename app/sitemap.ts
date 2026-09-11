@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const routes = [
   "", "/support", "/apps/waveplume", "/apps/waveplume/support", "/apps/waveplume/privacy", "/apps/waveplume/changelog",
-  "/apps/deltatxt", "/apps/deltatxt/support", "/apps/deltatxt/privacy", "/apps/deltatxt/changelog",
+  "/apps/deltatxt", "/apps/deltatxt/guide", "/apps/deltatxt/support", "/apps/deltatxt/privacy", "/apps/deltatxt/changelog",
   "/use-cases/offline-meeting-transcription", "/use-cases/python-ide-debugger", "/use-cases/find-replace-text-files", "/use-cases/large-log-file-editor", "/use-cases/file-comparison-merge",
   "/compare/waveplume-vs-cloud-meeting-bots", "/compare/deltatxt-vs-heavyweight-editors", "/press",
 ];
