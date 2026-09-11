@@ -52,8 +52,13 @@ img { display: block; max-width: 100%; }
 .footer-bottom { margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: #6f8096; font: 600 .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
 
 /* Shared type + motion */
-@keyframes arrive { from { opacity: .3; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
-.has-arrived { animation: arrive .9s both; }
+/* A section waits in its arrival pose, so easing in never drops it from a spot
+   the reader has already seen. Without the resting state here, adding the class
+   shunted the section 26px down before it slid back. */
+[data-arrival] { opacity: 0; transform: translateY(16px); }
+@keyframes arrive { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.has-arrived { animation: arrive .5s cubic-bezier(.22, .8, .3, 1) both; }
+@media (scripting: none) { [data-arrival] { opacity: 1; transform: none; } }
 .landing-hidden * { animation-play-state: paused !important; }
 
 /* Buttons and links */
@@ -256,6 +261,8 @@ a.store-button-primary:hover { background: color-mix(in srgb, var(--accent) 78%,
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  [data-arrival] { opacity: 1; transform: none; }
+  .has-arrived { animation: none; }
 }
 
 @media (max-width: 860px) {

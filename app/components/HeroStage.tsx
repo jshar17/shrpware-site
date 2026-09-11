@@ -46,27 +46,41 @@ const code: CodeLine[] = [
 export function HeroStage() {
   const [active, setActive] = useState(0);
   const [cycle, setCycle] = useState(0);
-  const timer = useRef<number | undefined>(undefined);
+  // Both start false so the first client render matches the server one; the
+  // observer below wakes the stage as soon as it is actually on screen.
+  const [onScreen, setOnScreen] = useState(false);
+  const [tabVisible, setTabVisible] = useState(true);
+  const stage = useRef<HTMLDivElement>(null);
+  const running = onScreen && tabVisible;
 
   useEffect(() => {
-    const arm = () => {
-      window.clearTimeout(timer.current);
-      timer.current = window.setTimeout(() => {
-        setActive((index) => (index + 1) % apps.length);
-        setCycle((count) => count + 1);
-      }, HOLD_MS);
+    const element = stage.current;
+    if (!element) return;
+    // Coming back into play restarts the demo from the top, so nobody returns
+    // to a frozen half-finished transcript.
+    const set = (visible: boolean, apply: (value: boolean) => void) => {
+      apply(visible);
+      if (visible) setCycle((count) => count + 1);
     };
-    const visibility = () => {
-      if (document.hidden) window.clearTimeout(timer.current);
-      else setCycle((count) => count + 1);
-    };
-    arm();
+    const observer = new IntersectionObserver(([entry]) => set(entry.isIntersecting, setOnScreen), { rootMargin: "140px" });
+    observer.observe(element);
+    const visibility = () => set(!document.hidden, setTabVisible);
     document.addEventListener("visibilitychange", visibility);
     return () => {
-      window.clearTimeout(timer.current);
+      observer.disconnect();
       document.removeEventListener("visibilitychange", visibility);
     };
-  }, [active, cycle]);
+  }, []);
+
+  // Hand over to the other app, but only while anyone can see it happen.
+  useEffect(() => {
+    if (!running) return;
+    const timer = window.setTimeout(() => {
+      setActive((index) => (index + 1) % apps.length);
+      setCycle((count) => count + 1);
+    }, HOLD_MS);
+    return () => window.clearTimeout(timer);
+  }, [active, cycle, running]);
 
   const choose = (index: number) => {
     if (index === active) return;
@@ -74,7 +88,7 @@ export function HeroStage() {
     setCycle((count) => count + 1);
   };
 
-  return <div className="hero-stage" data-active={apps[active].id}>
+  return <div ref={stage} className={`hero-stage${running ? "" : " is-asleep"}`} data-active={apps[active].id}>
     <div className="stage-scene" aria-hidden="true">
       <div className="stage-glow" />
 
