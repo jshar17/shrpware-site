@@ -15,11 +15,17 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       });
     }, { threshold: 0.12 });
     element.querySelectorAll("[data-arrival]").forEach((item) => observer.observe(item));
+    // Looping decoration costs paint work even when it is nowhere near the viewport.
+    const ambient = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.target.classList.toggle("is-asleep", !entry.isIntersecting));
+    }, { rootMargin: "140px" });
+    element.querySelectorAll("[data-ambient]").forEach((item) => ambient.observe(item));
     const visibility = () => element.classList.toggle("landing-hidden", document.hidden);
     document.addEventListener("visibilitychange", visibility);
     visibility();
     return () => {
       observer.disconnect();
+      ambient.disconnect();
       document.removeEventListener("visibilitychange", visibility);
     };
   }, []);
@@ -27,5 +33,5 @@ export function LandingMotion({ children }: { children: ReactNode }) {
 }
 
 export function AudioSignal() {
-  return <div className="audio-signal" aria-hidden="true">{Array.from({length: 45}, (_, i) => <span key={i} style={{"--bar-height": `${12 + ((i * 29 + i*i * 7) % 64)}px`, "--bar-delay": `${-i*.13}s`} as CSSProperties} />)}</div>;
+  return <div className="audio-signal is-asleep" data-ambient aria-hidden="true">{Array.from({length: 45}, (_, i) => <span key={i} style={{"--bar-height": `${12 + ((i * 29 + i*i * 7) % 64)}px`, "--bar-delay": `${-i*.13}s`} as CSSProperties} />)}</div>;
 }
