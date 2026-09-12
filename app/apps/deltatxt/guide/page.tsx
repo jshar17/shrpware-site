@@ -151,7 +151,7 @@ export default function DeltaTxtGuide() {
       </Shot>
 
       <h2 id="compare">Comparing and merging</h2>
-      <p><strong>Compare ▸ Compare Two Files…</strong>, <strong>Compare This Document With Clipboard</strong> and <strong>Compare with Saved Version</strong> cover most of what people want. In Finder, use <strong>Select for Compare</strong> and then <strong>Compare to Selected</strong> from the Services menu. The left pane is editable, individual changes can be applied across, and the whole comparison exports as a unified diff. A file with Windows line endings compared against its Unix twin reports as identical rather than as every line changed.</p>
+      <p><strong>Compare ▸ Compare Two Files…</strong>, <strong>Compare This Document With File…</strong> and <strong>Compare This Document With Clipboard</strong> cover most of what people want. In Finder, use <strong>Select for Compare</strong> and then <strong>Compare to Selected</strong> from the Services menu. The left pane is editable, individual changes can be applied across, and the whole comparison exports as a unified diff. A file with Windows line endings compared against its Unix twin reports as identical rather than as every line changed.</p>
       <Shot name="compare-files" alt="Two versions of a Swift file compared side by side in DeltaTxt, with changed lines highlighted on both sides">
         A side-by-side comparison. The left pane is editable, individual changes can be applied across, and the whole thing exports as a unified diff.
       </Shot>
