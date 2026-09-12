@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { SafeLink as Link } from "@/app/components/SafeLink";
 import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
 
 export const metadata: Metadata = { title: "DeltaTxt support", description: "Installation and troubleshooting help for DeltaTxt editing, find and replace, text comparison, and large files on Mac and Windows.", alternates: { canonical: "/apps/deltatxt/support" } };
 
 export default function DeltaTxtSupport() {
   return <PageShell accent="deltatxt"><ArticleHero title="DeltaTxt support." intro="Help with editing, find and replace, text comparison, installation, and recovery on Mac and Windows." />
-    <article className="article-body wrap"><BackToApp href="/apps/deltatxt">Back to DeltaTxt</BackToApp><h2>Fast checks</h2><div className="faq-list">
+    <article className="article-body wrap"><BackToApp href="/apps/deltatxt">Back to DeltaTxt</BackToApp><p>For how a feature works rather than why it is misbehaving, the <Link href="/apps/deltatxt/guide">Mac user guide</Link> covers every menu, every preference, and the command-line and git integration.</p><h2>Fast checks</h2><div className="faq-list">
       <details open><summary>Does the Mac App Store edition run or debug Python?</summary><p>No. The Mac App Store edition focuses on editing and text tools because App Sandbox restrictions make external script execution unreliable. Python run and debug remain available in the Windows edition.</p></details>
       <details><summary>Python will not run or debug on Windows</summary><p>Confirm the selected interpreter exists and runs from Windows outside DeltaTxt. Refresh interpreter discovery, then check the saved arguments, working directory, and environment values for the script.</p></details>
       <details><summary>A breakpoint is not being reached</summary><p>Save the script, confirm you started Debug rather than Run, and verify the breakpoint is set on an executable line in the active file. The current execution line appears when Python pauses.</p></details>
