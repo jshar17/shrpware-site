@@ -213,6 +213,22 @@ a.store-button-primary:hover { background: color-mix(in srgb, var(--accent) 78%,
 .article-body .comparison-table { margin-block: 0 72px; }
 .callout { margin: 50px 0; padding: 25px 28px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--accent-soft); color: var(--ink) !important; }
 .release-entry { border-top: 1px solid var(--line); padding-top: 34px; }
+
+/* Guide figures and the on-this-page nav. Used by /apps/deltatxt/guide, whose
+   screenshots are annotated and need the full column width — the article body
+   caps its children at 900px, and a window screenshot at that size is unreadable. */
+.guide-figure { margin: 46px 0; }
+.article-body > .guide-figure { max-width: none; }
+.guide-figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-strong); }
+.guide-figure figcaption { margin-top: 14px; max-width: 900px; color: var(--muted); font-size: .95rem; line-height: 1.65; }
+.guide-figure figcaption strong { color: var(--ink); font-weight: 650; }
+.guide-toc { margin: 0 0 12px; padding: 26px 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.guide-toc p { margin: 0 0 14px; color: var(--ink); font: 700 .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+.guide-toc ol { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 34px; }
+.guide-toc li { margin: 0 0 7px; break-inside: avoid; }
+.guide-toc a { color: var(--muted); text-decoration: none; }
+.guide-toc a:hover, .guide-toc a:focus-visible { color: var(--accent); }
+@media (max-width: 700px) { .guide-toc ol { columns: 1; } .guide-toc { padding: 20px 22px; } }
 .release-entry h2 { margin-top: 0; }
 .checksum { display: grid; gap: 8px; margin-top: 24px; }
 .checksum strong { color: var(--accent); font: 700 .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
