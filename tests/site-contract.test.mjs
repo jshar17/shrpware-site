@@ -116,6 +116,21 @@ test("shows the current WavePlume Windows gallery and platform-specific features
   }
 });
 
+test("keeps WavePlume support and privacy aligned with current recording and handoff behavior", async () => {
+  const support = await fetchPath("/apps/waveplume/support", { headers: { accept: "text/html" } });
+  const supportHtml = await support.text();
+  assert.match(supportHtml, /window you want to capture is open and not minimized/);
+  assert.doesNotMatch(supportHtml, /records audio, not video/);
+  assert.doesNotMatch(supportHtml, /Hugging Face-hosted Argmax model repository/);
+
+  const privacy = await fetchPath("/apps/waveplume/privacy", { headers: { accept: "text/html" } });
+  const privacyHtml = await privacy.text();
+  assert.match(privacyHtml, /selected screens or windows/);
+  assert.match(privacyHtml, /Whisper\.net’s model downloader/);
+  assert.match(privacyHtml, /WavePlume does not paste or upload the transcript/);
+  assert.match(privacyHtml, /TEMP%\\WavePlume\\handoff/);
+});
+
 test("preserves the legacy WavePlume privacy URL used by App Store Connect", async () => {
   const response = await fetchPath("/privacy.html");
   assert.equal(response.status, 301);
