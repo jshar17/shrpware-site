@@ -10,11 +10,11 @@ export default function WavePlumeSupport() {
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
       <h2>Fast checks</h2>
       <div className="faq-list">
-        <details open><summary>No screens or windows appear</summary><p>WavePlume records audio, not video. It does not capture your screen or meeting windows.</p></details>
+        <details open><summary>No screens or windows appear</summary><p>On Windows, choose Refresh in Record Setup and make sure the window you want to capture is open and not minimized. On macOS, grant Screen &amp; System Audio Recording access in System Settings › Privacy &amp; Security, then quit and reopen WavePlume.</p></details>
         <details><summary>The recording is silent</summary><p>Open the recording setup and confirm the intended system-audio and microphone sources. Check the level meters before starting, then verify that WavePlume has the required audio permissions.</p></details>
         <details><summary>I cannot find an earlier recording</summary><p>Open the session library and search by title, date, or transcript text. Check the storage folder selected in Settings if files were moved outside the app.</p></details>
         <details><summary>The transcript is inaccurate</summary><p>Clearer source audio helps most. Try a larger Whisper model if your computer has enough resources, and confirm the spoken language before transcribing again.</p></details>
-        <details><summary>A model will not download</summary><p>Confirm the computer is online and that a firewall is not blocking the Hugging Face-hosted Argmax model repository. Meeting audio is not uploaded during the download.</p></details>
+        <details><summary>A model will not download</summary><p>Confirm the computer is online and that a firewall is not blocking Hugging Face. Meeting audio, video, and transcripts are not uploaded during the download.</p></details>
         <details><summary>How does the license work?</summary><p>WavePlume is $14.99 as a one-time purchase from the Mac App Store or Microsoft Store. The standalone Windows installer includes a 14-day trial.</p></details>
         <details><summary>Who is responsible for recording consent?</summary><p>You are. Recording laws and workplace policies vary. Make sure everyone receives any notice or consent required in your situation.</p></details>
       </div>

@@ -5,15 +5,16 @@ export const metadata: Metadata = { title: "WavePlume privacy policy", descripti
 
 export default function WavePlumePrivacy() {
   return <PageShell accent="waveplume">
-    <ArticleHero title="How WavePlume handles your data." intro="Effective August 12, 2026. This policy explains how WavePlume uses files, permissions, and network access." />
+    <ArticleHero title="How WavePlume handles your data." intro="Effective September 13, 2026. This policy explains how WavePlume uses files, permissions, clipboard handoffs, and network access." />
     <article className="article-body wrap policy-copy">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
-      <h2>Local content</h2><p>WavePlume records audio and creates transcripts on your device. It does not require an account and does not provide cloud storage for your meeting content.</p>
+      <h2>Local content</h2><p>WavePlume records selected screens or windows, system audio, and microphone audio, then creates transcripts on your device. It does not require an account and does not provide cloud storage for your meeting content.</p>
       <h2>No analytics or advertising</h2><p>The app does not include product analytics, behavioral advertising, or automatic upload of recordings, transcripts, or crash reports.</p>
-      <h2>Model downloads</h2><p>When you choose a Whisper model, WavePlume may connect to the Hugging Face-hosted Argmax repository to download model files. This network request downloads software data; it does not upload your meeting audio or transcript.</p>
+      <h2>Model downloads</h2><p>When you choose a Whisper model, WavePlume may connect to Hugging Face to download model files. The Windows app uses Whisper.net’s model downloader; the Mac app uses WhisperKit’s Argmax repository. These requests download model data and do not upload your meeting audio, video, or transcript.</p>
       <h2>Optional Webex schedule connection</h2><p>If you choose to connect Webex calendar schedule information, WavePlume uses that connection to show relevant meeting schedule details. The feature is optional and does not change where recording or transcription happens.</p>
+      <h2>Sending a transcript to another app</h2><p>On Windows, Send to… copies the transcript and the prompt you choose to the Windows clipboard, then opens the chat assistant you selected in your browser. WavePlume does not paste or upload the transcript. You decide whether to share it after reviewing the destination. If you choose to send the transcript as a file, WavePlume creates a temporary copy under <code>%TEMP%\WavePlume\handoff</code>. The copy remains for seven days so a later paste can work, and older copies are removed the next time you use the feature.</p>
       <h2>Permissions</h2><p>Depending on your operating system and the features you use, WavePlume may request access to screen/system audio capture, microphone input, files and folders, calendar schedule information, and the network for model downloads.</p>
-      <h2>Collection and sharing</h2><p>ShrpWare does not collect, sell, or share your recordings, transcripts, or app usage through WavePlume. Files you place in a third-party synced folder are subject to that provider’s terms.</p>
+      <h2>Collection and sharing</h2><p>ShrpWare does not collect, sell, or share your recordings, transcripts, or app usage through WavePlume. Files you place in a third-party synced folder are subject to that provider’s terms. A transcript you choose to paste into a browser or another app is governed by that destination’s terms.</p>
       <h2>Your responsibility when recording</h2><p>You are responsible for complying with applicable recording-consent laws, workplace rules, and meeting policies.</p>
       <h2>Questions and changes</h2><p>Questions can be sent to <a href="mailto:support@shrpware.com">support@shrpware.com</a>. Material policy changes will be posted on this page with a new effective date.</p>
     </article>
