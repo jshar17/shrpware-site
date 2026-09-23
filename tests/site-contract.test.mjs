@@ -129,6 +129,12 @@ test("keeps WavePlume support and privacy aligned with current recording and han
   assert.match(privacyHtml, /Whisper\.net’s model downloader/);
   assert.match(privacyHtml, /WavePlume does not paste or upload the transcript/);
   assert.match(privacyHtml, /TEMP%\\WavePlume\\handoff/);
+  // The Mac App Store listing declares transcripts sent for online summaries
+  // as collected, and App Review reads this page against that declaration.
+  assert.match(privacyHtml, /Optional meeting summaries on Mac/);
+  assert.match(privacyHtml, /Google Gemini, Groq/);
+  assert.match(privacyHtml, /asks your permission before sending/);
+  assert.match(privacyHtml, /Microsoft 365 Copilot, Claude, and ChatGPT are hand-offs/);
 });
 
 test("preserves the legacy WavePlume privacy URL used by App Store Connect", async () => {
