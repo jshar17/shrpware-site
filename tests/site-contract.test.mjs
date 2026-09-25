@@ -72,6 +72,9 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /direct pdb commands/);
   assert.doesNotMatch(productHtml, /Call Stack|Debug Console/);
+  // The Mac App Store edition cannot run scripts; the page must keep saying so
+  // next to any IDE claim, or the listing and the site disagree.
+  assert.match(productHtml, /Mac App Store edition focuses on editing/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
   assert.match(productHtml, /deltatxt-mac-store/);
