@@ -97,15 +97,21 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(homeHtml, /Mac \+ Windows/i);
 });
 
-test("lists the 0.3.3 Mac release without run or debug claims", async () => {
+test("lists the 0.3.3 Mac release as in review, without run or debug claims", async () => {
   const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
-  assert.match(await product.text(), /New in 0\.3\.3: Markdown preview/);
+  const productHtml = await product.text();
+  // 0.3.3 is in App Review; the App Store sells 0.3.1. Flip these on approval.
+  assert.match(productHtml, /Coming in 0\.3\.3, now in App Store review: Markdown preview/);
+  assert.doesNotMatch(productHtml, /New in 0\.3\.3/);
 
   const changelog = await fetchPath("/apps/deltatxt/changelog", { headers: { accept: "text/html" } });
   const html = await changelog.text();
   const mac = html.slice(html.indexOf("DeltaTxt 0.3.3 for Mac"), html.indexOf("DeltaTxt 0.3.2"));
   assert.ok(mac.length > 0, "the 0.3.3 Mac entry precedes 0.3.2");
-  assert.match(mac, /Mac App Store edition/);
+  assert.match(mac, /Submitted to the Mac App Store — in review/);
+  assert.match(mac, /offers 0\.3\.1/);
+  assert.doesNotMatch(mac, /current Mac App Store edition/);
+  assert.doesNotMatch(mac, /class="button[^"]*"[^>]*>Mac App Store</);
   assert.match(mac, /Follow File: watch a growing log update in place/);
   assert.match(mac, /format or minify JSON, format XML/);
   // The Mac App Store edition runs no scripts, so its notes must never claim to.
@@ -123,7 +129,9 @@ test("describes DeltaTxt for search with per-edition structured data", async () 
   const [mac, windows] = ld["@graph"];
   assert.equal(mac["@type"], "SoftwareApplication");
   assert.equal(mac.applicationCategory, "DeveloperApplication");
-  assert.equal(mac.softwareVersion, "0.3.3");
+  // The node describes what the App Store sells today, not the build in review.
+  assert.equal(mac.softwareVersion, "0.3.1");
+  assert.doesNotMatch(JSON.stringify(mac), /Markdown|Follow File|JSON and XML|macro/i);
   assert.equal(mac.offers.price, "0");
   assert.equal(mac.installUrl, "https://apps.apple.com/us/app/deltatxt/id6804090746");
   assert.equal(mac.downloadUrl, mac.installUrl);

@@ -4,7 +4,7 @@ import { PageShell } from "@/app/components/PageShell";
 import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
 import { links, releaseStatus } from "@/app/lib/site";
 
-const description = "DeltaTxt is a free, native code editor and diff tool for Mac and Windows: file compare, three-way merge, find in files, folder compare, and a large log viewer. The Mac edition adds Markdown preview and a JSON formatter.";
+const description = "DeltaTxt is a free, native code editor and diff tool for Mac and Windows: file compare, three-way merge, find in files, folder compare, and a large log viewer. Markdown preview and a JSON formatter are coming to Mac in 0.3.3.";
 const socialImage = { url: "/apps/deltatxt/gallery/mac-code-editor.webp", width: 1920, height: 1080, alt: "DeltaTxt code editor for Mac with a Python project open" };
 
 export const metadata: Metadata = {
@@ -57,6 +57,13 @@ const absolute = (path: string) => `https://shrpware.com${path}`;
 
 // Two nodes because the editions ship on separate version tracks, and only the
 // Windows one runs or debugs scripts. Keep Python claims off the Mac node.
+//
+// The Mac node describes what the App Store sells today: 0.3.1. 0.3.3 is in
+// App Review. When Apple approves it, set softwareVersion to "0.3.3", add
+// Markdown preview, JSON and XML formatting, Follow File, and snippets and
+// macros back to the description and featureList, and drop the screenshot
+// filter. The full checklist is in marketing/launch-kit.md.
+const macOnSale = { version: "0.3.1", screenshots: macScreenshots.filter((shot) => !shot.src.includes("markdown-preview")) };
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -67,15 +74,15 @@ const jsonLd = {
       applicationCategory: "DeveloperApplication",
       applicationSubCategory: "Code editor",
       operatingSystem: "macOS 13 or later",
-      softwareVersion: "0.3.3",
-      description: "Free native code editor for Mac, built in Swift, with side-by-side diff and file compare, three-way merge, find in files, folder compare, Markdown preview, JSON and XML formatting, and a large log viewer with Follow File.",
-      featureList: ["Code editor with syntax highlighting, folding, and a workspace explorer", "Side-by-side diff with word-level highlights", "Three-way merge", "Find and replace in files", "Folder compare and sync", "Markdown preview", "JSON and XML formatting", "Large log viewer with Follow File", "Snippets and macros"],
+      softwareVersion: macOnSale.version,
+      description: "Free native code editor for Mac, built in Swift, with side-by-side diff and file compare, three-way merge, find in files, folder compare, and search through large log files.",
+      featureList: ["Code editor with syntax highlighting, folding, and a workspace explorer", "Side-by-side diff with word-level highlights", "Three-way merge", "Find and replace in files", "Folder compare and sync", "Search and replace in large files"],
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: macAppStoreUrl },
       url: pageUrl,
       downloadUrl: macAppStoreUrl,
       installUrl: macAppStoreUrl,
       image: absolute(macScreenshots[0].src),
-      screenshot: macScreenshots.map((shot) => absolute(shot.src)),
+      screenshot: macOnSale.screenshots.map((shot) => absolute(shot.src)),
       publisher,
     },
     {
@@ -151,7 +158,7 @@ export default function DeltaTxtPage() {
         <div className="section-heading" data-arrival><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior. New in 0.3.3: Markdown preview, snippets, macros, Follow File for live logs, and JSON and XML formatting.</p></div>
+            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior. Coming in 0.3.3, now in App Store review: Markdown preview, snippets, macros, Follow File for live logs, and JSON and XML formatting.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
