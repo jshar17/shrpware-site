@@ -82,6 +82,10 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /Made like a Mac app/);
   assert.match(productHtml, /Built for Windows/);
   assert.match(productHtml, /hero-windows-debug\.webp/);
+  for (const shot of ["code-editor", "diff-compare", "find-in-files", "three-way-merge", "folder-compare", "markdown-preview", "logs-large-files"]) {
+    assert.match(productHtml, new RegExp(`mac-${shot}\\.webp`));
+  }
+  assert.doesNotMatch(productHtml, /mac-(edit-with-focus|compare-with-confidence|search-every-file|compare-folders)/);
   assert.match(productHtml, /windows-code-without-overhead\.webp/);
   assert.match(productHtml, /windows-search-workspace\.webp/);
   assert.match(productHtml, /use-cases\/python-ide-debugger/);
@@ -244,14 +248,10 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/hero-windows-debug.webp",
     "../public/apps/deltatxt/icon-160.webp",
-    "../public/apps/deltatxt/gallery/mac-edit-with-focus.webp",
-    "../public/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-search-every-file.webp",
-    "../public/apps/deltatxt/gallery/mac-search-every-file-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-folders.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-folders-thumb.webp",
+    ...["code-editor", "diff-compare", "find-in-files", "three-way-merge", "folder-compare", "markdown-preview", "logs-large-files"].flatMap((shot) => [
+      `../public/apps/deltatxt/gallery/mac-${shot}.webp`,
+      `../public/apps/deltatxt/gallery/mac-${shot}-thumb.webp`,
+    ]),
     "../public/apps/deltatxt/gallery/windows-code-without-overhead.webp",
     "../public/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp",
     "../public/apps/deltatxt/gallery/windows-compare-clearly.webp",

@@ -27,10 +27,13 @@ const jsonLd = {
   image: "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
   screenshot: [
     "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-search-every-file.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-compare-folders.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-code-editor.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-diff-compare.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-find-in-files.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-three-way-merge.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-folder-compare.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-markdown-preview.webp",
+    "https://shrpware.com/apps/deltatxt/gallery/mac-logs-large-files.webp",
     "https://shrpware.com/apps/deltatxt/gallery/windows-code-without-overhead.webp",
     "https://shrpware.com/apps/deltatxt/gallery/windows-compare-clearly.webp",
     "https://shrpware.com/apps/deltatxt/gallery/windows-search-workspace.webp",
@@ -56,10 +59,13 @@ const capabilities = [
 ];
 
 const macScreenshots = [
-  { src: "/apps/deltatxt/gallery/mac-edit-with-focus.webp", alt: "Python source file open in the native DeltaTxt editor for Mac with the workspace visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-compare-with-confidence.webp", alt: "Two Swift files compared side by side in DeltaTxt for Mac with added and removed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-search-every-file.webp", alt: "Workspace search results grouped by file in DeltaTxt for Mac", caption: "Search every file", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-search-every-file-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-compare-folders.webp", alt: "Two folders compared in DeltaTxt for Mac before previewing or syncing differences", caption: "Compare folders", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-folders-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-code-editor.webp", alt: "DeltaTxt code editor for Mac with a Python file open, showing syntax highlighting, code folding, tabs, and the workspace explorer", caption: "Code editor", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-code-editor-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-diff-compare.webp", alt: "DeltaTxt for Mac side-by-side diff comparing two versions of a Python file with word-level highlights and per-change copy and apply controls", caption: "Diff and compare", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-diff-compare-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-find-in-files.webp", alt: "DeltaTxt for Mac find in files, searching every file in a project folder with match case, whole word, and regex options and results grouped by file and line", caption: "Find in files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-find-in-files-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-three-way-merge.webp", alt: "DeltaTxt for Mac three-way merge stepping through a conflict in a Python file, with the left and right changes side by side", caption: "Three-way merge", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-three-way-merge-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-folder-compare.webp", alt: "DeltaTxt for Mac folder compare listing changed, left-only, and right-only files, with sync direction, backup, and preview controls", caption: "Folder compare", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-folder-compare-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-markdown-preview.webp", alt: "DeltaTxt for Mac Markdown preview rendering a README beside its Markdown source", caption: "Markdown preview", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-markdown-preview-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-logs-large-files.webp", alt: "DeltaTxt for Mac log viewer with Find All pulling every ERROR line of a sync log into one list", caption: "Logs and large files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-logs-large-files-thumb.webp" },
 ];
 
 const windowsScreenshots = [
