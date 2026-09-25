@@ -97,6 +97,21 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(homeHtml, /Mac \+ Windows/i);
 });
 
+test("lists the 0.3.3 Mac release without run or debug claims", async () => {
+  const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  assert.match(await product.text(), /New in 0\.3\.3: Markdown preview/);
+
+  const changelog = await fetchPath("/apps/deltatxt/changelog", { headers: { accept: "text/html" } });
+  const html = await changelog.text();
+  const mac = html.slice(html.indexOf("DeltaTxt 0.3.3 for Mac"), html.indexOf("DeltaTxt 0.3.2"));
+  assert.ok(mac.length > 0, "the 0.3.3 Mac entry precedes 0.3.2");
+  assert.match(mac, /Mac App Store edition/);
+  assert.match(mac, /Follow File: watch a growing log update in place/);
+  assert.match(mac, /format or minify JSON, format XML/);
+  // The Mac App Store edition runs no scripts, so its notes must never claim to.
+  assert.doesNotMatch(mac, /\b(run|debug\w*|interpreter|console)\b/i);
+});
+
 test("renders the animated homepage with useful content before JavaScript", async () => {
   const response = await fetchPath("/", { headers: { accept: "text/html" } });
   const html = await response.text();

@@ -127,7 +127,7 @@ export default function DeltaTxtPage() {
         <div className="section-heading" data-arrival><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
+            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior. New in 0.3.3: Markdown preview, snippets, macros, Follow File for live logs, and JSON and XML formatting.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
