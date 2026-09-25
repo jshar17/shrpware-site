@@ -72,6 +72,9 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /Python tools on Windows/);
   assert.match(productHtml, /direct pdb commands/);
   assert.doesNotMatch(productHtml, /Call Stack|Debug Console/);
+  // The Mac App Store edition cannot run scripts; the page must keep saying so
+  // next to any IDE claim, or the listing and the site disagree.
+  assert.match(productHtml, /Mac App Store edition focuses on editing/);
   assert.match(productHtml, /Find and replace precisely/);
   assert.match(productHtml, /Compare and merge with control/);
   assert.match(productHtml, /deltatxt-mac-store/);
@@ -79,6 +82,10 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   assert.match(productHtml, /Made like a Mac app/);
   assert.match(productHtml, /Built for Windows/);
   assert.match(productHtml, /hero-windows-debug\.webp/);
+  for (const shot of ["code-editor", "diff-compare", "find-in-files", "three-way-merge", "folder-compare", "markdown-preview", "logs-large-files"]) {
+    assert.match(productHtml, new RegExp(`mac-${shot}\\.webp`));
+  }
+  assert.doesNotMatch(productHtml, /mac-(edit-with-focus|compare-with-confidence|search-every-file|compare-folders)/);
   assert.match(productHtml, /windows-code-without-overhead\.webp/);
   assert.match(productHtml, /windows-search-workspace\.webp/);
   assert.match(productHtml, /use-cases\/python-ide-debugger/);
@@ -88,6 +95,50 @@ test("positions DeltaTxt as a native Mac and Windows text workbench", async () =
   const homeHtml = await home.text();
   assert.match(homeHtml, /built natively for Mac in Swift/i);
   assert.match(homeHtml, /Mac \+ Windows/i);
+});
+
+test("lists the 0.3.3 Mac release as in review, without run or debug claims", async () => {
+  const product = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  const productHtml = await product.text();
+  // 0.3.3 is in App Review; the App Store sells 0.3.1. Flip these on approval.
+  assert.match(productHtml, /Coming in 0\.3\.3, now in App Store review: Markdown preview/);
+  assert.doesNotMatch(productHtml, /New in 0\.3\.3/);
+
+  const changelog = await fetchPath("/apps/deltatxt/changelog", { headers: { accept: "text/html" } });
+  const html = await changelog.text();
+  const mac = html.slice(html.indexOf("DeltaTxt 0.3.3 for Mac"), html.indexOf("DeltaTxt 0.3.2"));
+  assert.ok(mac.length > 0, "the 0.3.3 Mac entry precedes 0.3.2");
+  assert.match(mac, /Submitted to the Mac App Store — in review/);
+  assert.match(mac, /offers 0\.3\.1/);
+  assert.doesNotMatch(mac, /current Mac App Store edition/);
+  assert.doesNotMatch(mac, /class="button[^"]*"[^>]*>Mac App Store</);
+  assert.match(mac, /Follow File: watch a growing log update in place/);
+  assert.match(mac, /format or minify JSON, format XML/);
+  // The Mac App Store edition runs no scripts, so its notes must never claim to.
+  assert.doesNotMatch(mac, /\b(run|debug\w*|interpreter|console)\b/i);
+});
+
+test("describes DeltaTxt for search with per-edition structured data", async () => {
+  const response = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  const html = await response.text();
+  assert.match(html, /<title>DeltaTxt — Code editor, diff &amp; merge for Mac and Windows/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/shrpware\.com\/apps\/deltatxt"/);
+  assert.match(html, /property="og:image" content="https:\/\/shrpware\.com\/apps\/deltatxt\/gallery\/mac-code-editor\.webp"/);
+
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  const [mac, windows] = ld["@graph"];
+  assert.equal(mac["@type"], "SoftwareApplication");
+  assert.equal(mac.applicationCategory, "DeveloperApplication");
+  // The node describes what the App Store sells today, not the build in review.
+  assert.equal(mac.softwareVersion, "0.3.1");
+  assert.doesNotMatch(JSON.stringify(mac), /Markdown|Follow File|JSON and XML|macro/i);
+  assert.equal(mac.offers.price, "0");
+  assert.equal(mac.installUrl, "https://apps.apple.com/us/app/deltatxt/id6804090746");
+  assert.equal(mac.downloadUrl, mac.installUrl);
+  // The Mac App Store edition runs no scripts; keep IDE claims on the Windows node.
+  assert.doesNotMatch(JSON.stringify(mac), /python|debug|interpreter|\brun\b/i);
+  assert.match(windows.operatingSystem, /Windows/);
+  assert.match(JSON.stringify(windows), /Python/);
 });
 
 test("renders the animated homepage with useful content before JavaScript", async () => {
@@ -241,14 +292,10 @@ test("keeps required brand and product assets in the deployable tree", async () 
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/hero-windows-debug.webp",
     "../public/apps/deltatxt/icon-160.webp",
-    "../public/apps/deltatxt/gallery/mac-edit-with-focus.webp",
-    "../public/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-search-every-file.webp",
-    "../public/apps/deltatxt/gallery/mac-search-every-file-thumb.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-folders.webp",
-    "../public/apps/deltatxt/gallery/mac-compare-folders-thumb.webp",
+    ...["code-editor", "diff-compare", "find-in-files", "three-way-merge", "folder-compare", "markdown-preview", "logs-large-files"].flatMap((shot) => [
+      `../public/apps/deltatxt/gallery/mac-${shot}.webp`,
+      `../public/apps/deltatxt/gallery/mac-${shot}-thumb.webp`,
+    ]),
     "../public/apps/deltatxt/gallery/windows-code-without-overhead.webp",
     "../public/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp",
     "../public/apps/deltatxt/gallery/windows-compare-clearly.webp",

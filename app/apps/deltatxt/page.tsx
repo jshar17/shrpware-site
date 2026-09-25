@@ -4,38 +4,17 @@ import { PageShell } from "@/app/components/PageShell";
 import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
 import { links, releaseStatus } from "@/app/lib/site";
 
+const description = "DeltaTxt is a free, native code editor and diff tool for Mac and Windows: file compare, three-way merge, find in files, folder compare, and a large log viewer. Markdown preview and a JSON formatter are coming to Mac in 0.3.3.";
+const socialImage = { url: "/apps/deltatxt/gallery/mac-code-editor.webp", width: 1920, height: 1080, alt: "DeltaTxt code editor for Mac with a Python project open" };
+
 export const metadata: Metadata = {
-  title: "DeltaTxt — Native Mac and Windows text editor, diff, merge, and search",
-  description: "A free native text and code editor for Mac and Windows, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
+  title: "DeltaTxt — Code editor, diff & merge for Mac and Windows",
+  description,
   alternates: { canonical: "/apps/deltatxt" },
-  openGraph: { images: ["/apps/deltatxt/hero-windows-debug.webp"] },
-  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/hero-windows-debug.webp"] },
+  openGraph: { type: "website", siteName: "ShrpWare", url: "/apps/deltatxt", title: "DeltaTxt — Code Editor, Diff & Merge", description, images: [socialImage] },
+  twitter: { card: "summary_large_image", title: "DeltaTxt — Code Editor, Diff & Merge", description, images: [socialImage.url] },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "DeltaTxt",
-  applicationCategory: "DeveloperApplication",
-  operatingSystem: "macOS 13 or later, Windows 10, Windows 11",
-  description: "Free text and code workbench built natively for Mac in Swift and available on Windows, with find and replace, workspace search, comparison, and merge tools.",
-  softwareVersion: "0.3.2",
-  featureList: ["Native Swift app for Mac", "Text and code editing", "Find and replace", "Workspace search and replace", "Streaming search and replace in large files", "Side-by-side text comparison", "Merge workflows", "Python editing and debugging on Windows"],
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  url: "https://shrpware.com/apps/deltatxt",
-  downloadUrl: "https://shrpware.com/go/deltatxt-download",
-  image: "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
-  screenshot: [
-    "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-edit-with-focus.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-compare-with-confidence.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-search-every-file.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-compare-folders.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-code-without-overhead.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-compare-clearly.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-search-workspace.webp",
-  ],
-};
 
 const features = [
   ["Native on both platforms", "Each edition is written for its own platform, so windows, menus, and shortcuts follow the conventions you already know."],
@@ -56,17 +35,75 @@ const capabilities = [
 ];
 
 const macScreenshots = [
-  { src: "/apps/deltatxt/gallery/mac-edit-with-focus.webp", alt: "Python source file open in the native DeltaTxt editor for Mac with the workspace visible", caption: "Edit with focus", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-edit-with-focus-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-compare-with-confidence.webp", alt: "Two Python files compared side by side in DeltaTxt for Mac with added and removed lines highlighted", caption: "Compare with confidence", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-with-confidence-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-search-every-file.webp", alt: "Workspace search results grouped by file in DeltaTxt for Mac", caption: "Search every file", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-search-every-file-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/mac-compare-folders.webp", alt: "Two folders compared in DeltaTxt for Mac before previewing or syncing differences", caption: "Compare folders", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-compare-folders-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-code-editor.webp", alt: "DeltaTxt code editor for Mac with a Python file open, showing syntax highlighting, code folding, tabs, and the workspace explorer", caption: "Code editor", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-code-editor-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-diff-compare.webp", alt: "DeltaTxt for Mac side-by-side diff comparing two versions of a Python file with word-level highlights and per-change copy and apply controls", caption: "Diff and compare", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-diff-compare-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-find-in-files.webp", alt: "DeltaTxt for Mac find in files, searching every file in a project folder with match case, whole word, and regex options and results grouped by file and line", caption: "Find in files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-find-in-files-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-three-way-merge.webp", alt: "DeltaTxt for Mac three-way merge stepping through a conflict in a Python file, with the left and right changes side by side", caption: "Three-way merge", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-three-way-merge-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-folder-compare.webp", alt: "DeltaTxt for Mac folder compare listing changed, left-only, and right-only files, with sync direction, backup, and preview controls", caption: "Folder compare", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-folder-compare-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-markdown-preview.webp", alt: "DeltaTxt for Mac Markdown preview rendering a README beside its Markdown source", caption: "Markdown preview", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-markdown-preview-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/mac-logs-large-files.webp", alt: "DeltaTxt for Mac log viewer with Find All pulling every ERROR line of a sync log into one list", caption: "Logs and large files", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/mac-logs-large-files-thumb.webp" },
 ];
 
 const windowsScreenshots = [
-  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Python source file open in the native DeltaTxt editor for Windows", caption: "Edit without overhead", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two Python files compared side by side in DeltaTxt for Windows with changes highlighted", caption: "Compare clearly", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
-  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results shown in DeltaTxt for Windows", caption: "Search the workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-code-without-overhead.webp", alt: "Python source file open in DeltaTxt for Windows with the editor and run toolbar visible", caption: "Edit without overhead", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-code-without-overhead-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two Python files compared side by side in DeltaTxt for Windows with changed lines highlighted", caption: "Compare clearly", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
+  { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results with file, line, and column detail in DeltaTxt for Windows", caption: "Search the workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
 ];
+
+const pageUrl = "https://shrpware.com/apps/deltatxt";
+const macAppStoreUrl = "https://apps.apple.com/us/app/deltatxt/id6804090746";
+const publisher = { "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com" };
+const absolute = (path: string) => `https://shrpware.com${path}`;
+
+// Two nodes because the editions ship on separate version tracks, and only the
+// Windows one runs or debugs scripts. Keep Python claims off the Mac node.
+//
+// The Mac node describes what the App Store sells today: 0.3.1. 0.3.3 is in
+// App Review. When Apple approves it, set softwareVersion to "0.3.3", add
+// Markdown preview, JSON and XML formatting, Follow File, and snippets and
+// macros back to the description and featureList, and drop the screenshot
+// filter. The full checklist is in marketing/launch-kit.md.
+const macOnSale = { version: "0.3.1", screenshots: macScreenshots.filter((shot) => !shot.src.includes("markdown-preview")) };
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${pageUrl}#mac`,
+      name: "DeltaTxt",
+      applicationCategory: "DeveloperApplication",
+      applicationSubCategory: "Code editor",
+      operatingSystem: "macOS 13 or later",
+      softwareVersion: macOnSale.version,
+      description: "Free native code editor for Mac, built in Swift, with side-by-side diff and file compare, three-way merge, find in files, folder compare, and search through large log files.",
+      featureList: ["Code editor with syntax highlighting, folding, and a workspace explorer", "Side-by-side diff with word-level highlights", "Three-way merge", "Find and replace in files", "Folder compare and sync", "Search and replace in large files"],
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: macAppStoreUrl },
+      url: pageUrl,
+      downloadUrl: macAppStoreUrl,
+      installUrl: macAppStoreUrl,
+      image: absolute(macScreenshots[0].src),
+      screenshot: macOnSale.screenshots.map((shot) => absolute(shot.src)),
+      publisher,
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${pageUrl}#windows`,
+      name: "DeltaTxt",
+      applicationCategory: "DeveloperApplication",
+      applicationSubCategory: "Code editor",
+      operatingSystem: "Windows 10, Windows 11",
+      softwareVersion: "0.3.2",
+      description: "Free native code editor for Windows with find in files, file compare, three-way merge, streaming search in large files, and Python run and debug.",
+      featureList: ["Text and code editing", "Find and replace in files", "Streaming search and replace in large files", "Side-by-side text comparison", "Three-way merge", "Python editing and debugging"],
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      url: pageUrl,
+      downloadUrl: absolute(links.deltatxt.download),
+      image: absolute("/apps/deltatxt/hero-windows-debug.webp"),
+      screenshot: [absolute("/apps/deltatxt/hero-windows-debug.webp"), ...windowsScreenshots.map((shot) => absolute(shot.src))],
+      publisher,
+    },
+  ],
+};
 
 function StoreLinks({ compact = false }: { compact?: boolean }) {
   return (
@@ -121,7 +158,7 @@ export default function DeltaTxtPage() {
         <div className="section-heading" data-arrival><h2>See both editions at work.</h2></div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="deltatxt-mac-gallery">
           <div className="platform-gallery-heading">
-            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior.</p></div>
+            <div><h3 id="deltatxt-mac-gallery">Made like a Mac app.</h3><p>Swift + AppKit. Native windows, menus, shortcuts, and document behavior. Coming in 0.3.3, now in App Store review: Markdown preview, snippets, macros, Follow File for live logs, and JSON and XML formatting.</p></div>
           </div>
           <ScreenshotGallery items={macScreenshots} label="DeltaTxt for Mac" layout="featured" />
         </div>
@@ -138,7 +175,7 @@ export default function DeltaTxtPage() {
         <div className="section-heading" data-arrival><h2>Frequently asked questions.</h2></div>
         <div className="faq-list" data-arrival>
           <details><summary>Is the Mac version native?</summary><p>Yes. DeltaTxt for Mac is built natively in Swift with AppKit. It is not an Electron app or a wrapped website.</p></details>
-          <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not include script execution.</p></details>
+          <details><summary>Can DeltaTxt debug Python?</summary><p>Yes, in the Windows edition. Set breakpoints, then Continue, Step Over, Step Into, or Step Out while reviewing the current line, printing Locals, and entering direct pdb commands in the docked output panel. The Mac App Store edition focuses on editing and text tools and does not run or debug scripts — the App Sandbox it ships under cannot launch an interpreter.</p></details>
           <details><summary>How powerful is find and replace?</summary><p>Use case-sensitive, whole-word, or regular-expression search in one document or across a workspace. For workspace replacement, DeltaTxt builds a preview, revalidates files before applying changes, and keeps a backup tree.</p></details>
           <details><summary>Is DeltaTxt really free?</summary><p>Yes. DeltaTxt is freeware with no subscription, account, advertising, or paid tier required.</p></details>
           <details><summary>Does it collect usage data?</summary><p>No. DeltaTxt does not include telemetry, analytics, advertising, or automatic crash submission.</p></details>
