@@ -112,6 +112,27 @@ test("lists the 0.3.3 Mac release without run or debug claims", async () => {
   assert.doesNotMatch(mac, /\b(run|debug\w*|interpreter|console)\b/i);
 });
 
+test("describes DeltaTxt for search with per-edition structured data", async () => {
+  const response = await fetchPath("/apps/deltatxt", { headers: { accept: "text/html" } });
+  const html = await response.text();
+  assert.match(html, /<title>DeltaTxt — Code editor, diff &amp; merge for Mac and Windows/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/shrpware\.com\/apps\/deltatxt"/);
+  assert.match(html, /property="og:image" content="https:\/\/shrpware\.com\/apps\/deltatxt\/gallery\/mac-code-editor\.webp"/);
+
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  const [mac, windows] = ld["@graph"];
+  assert.equal(mac["@type"], "SoftwareApplication");
+  assert.equal(mac.applicationCategory, "DeveloperApplication");
+  assert.equal(mac.softwareVersion, "0.3.3");
+  assert.equal(mac.offers.price, "0");
+  assert.equal(mac.installUrl, "https://apps.apple.com/us/app/deltatxt/id6804090746");
+  assert.equal(mac.downloadUrl, mac.installUrl);
+  // The Mac App Store edition runs no scripts; keep IDE claims on the Windows node.
+  assert.doesNotMatch(JSON.stringify(mac), /python|debug|interpreter|\brun\b/i);
+  assert.match(windows.operatingSystem, /Windows/);
+  assert.match(JSON.stringify(windows), /Python/);
+});
+
 test("renders the animated homepage with useful content before JavaScript", async () => {
   const response = await fetchPath("/", { headers: { accept: "text/html" } });
   const html = await response.text();

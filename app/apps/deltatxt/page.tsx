@@ -4,41 +4,17 @@ import { PageShell } from "@/app/components/PageShell";
 import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
 import { links, releaseStatus } from "@/app/lib/site";
 
+const description = "DeltaTxt is a free, native code editor and diff tool for Mac and Windows: file compare, three-way merge, find in files, folder compare, and a large log viewer. The Mac edition adds Markdown preview and a JSON formatter.";
+const socialImage = { url: "/apps/deltatxt/gallery/mac-code-editor.webp", width: 1920, height: 1080, alt: "DeltaTxt code editor for Mac with a Python project open" };
+
 export const metadata: Metadata = {
-  title: "DeltaTxt — Native Mac and Windows text editor, diff, merge, and search",
-  description: "A free native text and code editor for Mac and Windows, with workspace search, replace, side-by-side comparison, merge, and large-file tools.",
+  title: "DeltaTxt — Code editor, diff & merge for Mac and Windows",
+  description,
   alternates: { canonical: "/apps/deltatxt" },
-  openGraph: { images: ["/apps/deltatxt/hero-windows-debug.webp"] },
-  twitter: { card: "summary_large_image", images: ["/apps/deltatxt/hero-windows-debug.webp"] },
+  openGraph: { type: "website", siteName: "ShrpWare", url: "/apps/deltatxt", title: "DeltaTxt — Code Editor, Diff & Merge", description, images: [socialImage] },
+  twitter: { card: "summary_large_image", title: "DeltaTxt — Code Editor, Diff & Merge", description, images: [socialImage.url] },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "DeltaTxt",
-  applicationCategory: "DeveloperApplication",
-  operatingSystem: "macOS 13 or later, Windows 10, Windows 11",
-  description: "Free text and code workbench built natively for Mac in Swift and available on Windows, with find and replace, workspace search, comparison, and merge tools.",
-  softwareVersion: "0.3.2",
-  featureList: ["Native Swift app for Mac", "Text and code editing", "Find and replace", "Workspace search and replace", "Streaming search and replace in large files", "Side-by-side text comparison", "Merge workflows", "Python editing and debugging on Windows"],
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  url: "https://shrpware.com/apps/deltatxt",
-  downloadUrl: "https://shrpware.com/go/deltatxt-download",
-  image: "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
-  screenshot: [
-    "https://shrpware.com/apps/deltatxt/hero-windows-debug.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-code-editor.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-diff-compare.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-find-in-files.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-three-way-merge.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-folder-compare.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-markdown-preview.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/mac-logs-large-files.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-code-without-overhead.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-compare-clearly.webp",
-    "https://shrpware.com/apps/deltatxt/gallery/windows-search-workspace.webp",
-  ],
-};
 
 const features = [
   ["Native on both platforms", "Each edition is written for its own platform, so windows, menus, and shortcuts follow the conventions you already know."],
@@ -73,6 +49,54 @@ const windowsScreenshots = [
   { src: "/apps/deltatxt/gallery/windows-compare-clearly.webp", alt: "Two Python files compared side by side in DeltaTxt for Windows with changed lines highlighted", caption: "Compare clearly", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-compare-clearly-thumb.webp" },
   { src: "/apps/deltatxt/gallery/windows-search-workspace.webp", alt: "Workspace search results with file, line, and column detail in DeltaTxt for Windows", caption: "Search the workspace", width: 1920, height: 1080, thumbnail: "/apps/deltatxt/gallery/windows-search-workspace-thumb.webp" },
 ];
+
+const pageUrl = "https://shrpware.com/apps/deltatxt";
+const macAppStoreUrl = "https://apps.apple.com/us/app/deltatxt/id6804090746";
+const publisher = { "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com" };
+const absolute = (path: string) => `https://shrpware.com${path}`;
+
+// Two nodes because the editions ship on separate version tracks, and only the
+// Windows one runs or debugs scripts. Keep Python claims off the Mac node.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${pageUrl}#mac`,
+      name: "DeltaTxt",
+      applicationCategory: "DeveloperApplication",
+      applicationSubCategory: "Code editor",
+      operatingSystem: "macOS 13 or later",
+      softwareVersion: "0.3.3",
+      description: "Free native code editor for Mac, built in Swift, with side-by-side diff and file compare, three-way merge, find in files, folder compare, Markdown preview, JSON and XML formatting, and a large log viewer with Follow File.",
+      featureList: ["Code editor with syntax highlighting, folding, and a workspace explorer", "Side-by-side diff with word-level highlights", "Three-way merge", "Find and replace in files", "Folder compare and sync", "Markdown preview", "JSON and XML formatting", "Large log viewer with Follow File", "Snippets and macros"],
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: macAppStoreUrl },
+      url: pageUrl,
+      downloadUrl: macAppStoreUrl,
+      installUrl: macAppStoreUrl,
+      image: absolute(macScreenshots[0].src),
+      screenshot: macScreenshots.map((shot) => absolute(shot.src)),
+      publisher,
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${pageUrl}#windows`,
+      name: "DeltaTxt",
+      applicationCategory: "DeveloperApplication",
+      applicationSubCategory: "Code editor",
+      operatingSystem: "Windows 10, Windows 11",
+      softwareVersion: "0.3.2",
+      description: "Free native code editor for Windows with find in files, file compare, three-way merge, streaming search in large files, and Python run and debug.",
+      featureList: ["Text and code editing", "Find and replace in files", "Streaming search and replace in large files", "Side-by-side text comparison", "Three-way merge", "Python editing and debugging"],
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      url: pageUrl,
+      downloadUrl: absolute(links.deltatxt.download),
+      image: absolute("/apps/deltatxt/hero-windows-debug.webp"),
+      screenshot: [absolute("/apps/deltatxt/hero-windows-debug.webp"), ...windowsScreenshots.map((shot) => absolute(shot.src))],
+      publisher,
+    },
+  ],
+};
 
 function StoreLinks({ compact = false }: { compact?: boolean }) {
   return (
