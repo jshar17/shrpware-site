@@ -16,14 +16,9 @@ Do not start the WavePlume launch push until all five items are true:
 
 DeltaTxt can launch after Microsoft Store certification. Until then, use the direct installer and describe the Store release as pending—not available.
 
-### DeltaTxt 0.3.3 for Mac: in App Store review
+### DeltaTxt 0.3.3 for Mac: released
 
-As of September 25, 2026, 0.3.3 is waiting for review in App Store Connect and the Mac App Store sells 0.3.1. The site says so. When Apple approves 0.3.3 and the listing shows it, flip these in one reviewed change:
-
-1. `app/apps/deltatxt/changelog/page.tsx`: replace "Submitted to the Mac App Store — in review. Until Apple approves it, the Mac App Store listing offers 0.3.1." with wording that says 0.3.3 is the current Mac App Store edition, and restore a Mac App Store button to the entry. Drop "now in App Store review" from the page's metadata description.
-2. `app/apps/deltatxt/page.tsx`, Mac gallery intro: "Coming in 0.3.3, now in App Store review:" becomes "New in 0.3.3:". Change the metadata description's "are coming to Mac in 0.3.3" to say the Mac edition has them.
-3. `app/apps/deltatxt/page.tsx`, structured data: set `macOnSale.version` to `"0.3.3"`, remove the filter that holds back the Markdown preview screenshot, and add Markdown preview, JSON and XML formatting, Follow File, and snippets and macros back to the Mac node's description and `featureList`.
-4. `tests/site-contract.test.mjs`: re-anchor the two tests that assert the in-review wording and `softwareVersion` 0.3.1.
+Apple approved 0.3.3 on September 25, 2026, and the Mac App Store listing sells it, with the seven screenshots the site gallery uses. The changelog, product page, and structured data all describe 0.3.3 as the current Mac edition. For the next Mac release, repeat the pattern: describe it as in review until the listing shows it, then flip the changelog note, gallery intro, `softwareVersion`, and the matching tests in one change.
 
 ## Positioning
 
