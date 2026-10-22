@@ -155,16 +155,34 @@ test("renders the animated homepage with useful content before JavaScript", asyn
   assert.match(html, /hero-windows-debug.webp/);
 });
 
-test("shows the current WavePlume Windows gallery and platform-specific features", async () => {
+test("shows the current WavePlume Mac and Windows galleries and platform-specific features", async () => {
   const response = await fetchPath("/apps/waveplume", { headers: { accept: "text/html" } });
   const html = await response.text();
   assert.match(html, /Quick Note, Standard Meeting, or Archival Quality/);
   assert.match(html, /platform interfaces and individual tools differ/);
+  assert.doesNotMatch(html, /screenshots and detailed controls on this page show the Windows edition/);
   assert.match(html, /go\/waveplume-mac/);
   assert.match(html, /go\/waveplume-windows/);
   for (const feature of ["record", "transcript", "library", "edit"]) {
     assert.match(html, new RegExp(`windows-${feature}-20260907\\.webp`));
   }
+  for (const shot of ["ready", "transcript", "summary", "sessions", "settings"]) {
+    assert.match(html, new RegExp(`mac-${shot}-20261022\\.webp`));
+  }
+});
+
+test("lists 1.5.0 as the current Mac release and 1.2.5 as the Windows release", async () => {
+  const response = await fetchPath("/apps/waveplume/changelog", { headers: { accept: "text/html" } });
+  const html = await response.text();
+  const mac = html.slice(html.indexOf("WavePlume 1.5.0 for Mac"), html.indexOf("WavePlume 1.2.5 for Windows"));
+  assert.ok(mac.length > 0, "the 1.5.0 Mac entry precedes the 1.2.5 Windows entry");
+  assert.match(mac, /The current Mac App Store release/);
+  assert.match(mac, /Summaries are written on your Mac by default/);
+  const windows = html.slice(html.indexOf("WavePlume 1.2.5 for Windows"));
+  assert.match(windows, /The current Windows release, from the Microsoft Store/);
+  assert.match(windows, /14-day trial/);
+  assert.match(windows, /E16834C2EF89AFED237AA1DD46E7C1F709346B9FC5E684D1332A9EB00B6ED7FC/);
+  assert.doesNotMatch(html, /store release for macOS and Windows/);
 });
 
 test("keeps WavePlume support and privacy aligned with current recording and handoff behavior", async () => {
@@ -288,6 +306,10 @@ test("keeps required brand and product assets in the deployable tree", async () 
     ...["record", "transcript", "library", "edit"].flatMap((feature) => [
       `../public/apps/waveplume/gallery/windows-${feature}-20260907.webp`,
       `../public/apps/waveplume/gallery/windows-${feature}-20260907-thumb.webp`,
+    ]),
+    ...["ready", "transcript", "summary", "sessions", "settings"].flatMap((shot) => [
+      `../public/apps/waveplume/gallery/mac-${shot}-20261022.webp`,
+      `../public/apps/waveplume/gallery/mac-${shot}-20261022-thumb.webp`,
     ]),
     "../public/apps/deltatxt/hero-workbench.webp",
     "../public/apps/deltatxt/hero-windows-debug.webp",

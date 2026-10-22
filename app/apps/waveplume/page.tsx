@@ -42,6 +42,14 @@ const capabilities = [
   ["Keep a folder you can open", "Choose your Windows recording library location, open session folders in Explorer, and keep your files accessible outside the app."],
 ];
 
+const macScreenshots = [
+  { src: "/apps/waveplume/gallery/mac-ready-20261022.webp", alt: "WavePlume for Mac ready for the next meeting, with Record Setup set to record the meeting automatically, no microphone, Standard quality, and Start by itself off", caption: "Ready for your next meeting", width: 1749, height: 1460, thumbnail: "/apps/waveplume/gallery/mac-ready-20261022-thumb.webp" },
+  { src: "/apps/waveplume/gallery/mac-transcript-20261022.webp", alt: "WavePlume for Mac displaying a fictional client kickoff transcript, transcribed locally with Whisper, with clickable timestamps, search, and Email, Copy, Save As, and Edit controls", caption: "Read and search the transcript", width: 1749, height: 1460, thumbnail: "/apps/waveplume/gallery/mac-transcript-20261022-thumb.webp" },
+  { src: "/apps/waveplume/gallery/mac-summary-20261022.webp", alt: "WavePlume for Mac displaying a summary of the fictional client kickoff, written by WavePlume’s internal model, with an overview, decisions, action items, and open questions", caption: "A summary written on your Mac", width: 1749, height: 1460, thumbnail: "/apps/waveplume/gallery/mac-summary-20261022-thumb.webp" },
+  { src: "/apps/waveplume/gallery/mac-sessions-20261022.webp", alt: "WavePlume for Mac Sessions and Tools library containing five fictional meetings, with playback, transcript, summary, trim, and export audio controls for the selected session", caption: "Keep your meetings together", width: 1749, height: 1460, thumbnail: "/apps/waveplume/gallery/mac-sessions-20261022-thumb.webp" },
+  { src: "/apps/waveplume/gallery/mac-settings-20261022.webp", alt: "WavePlume for Mac Settings on the Recording tab, with the recording library folder and options for recording mode, source, video size and quality, audio quality, frame rate, and microphone", caption: "Set the source and quality once", width: 1366, height: 1460, thumbnail: "/apps/waveplume/gallery/mac-settings-20261022-thumb.webp" },
+];
+
 const screenshots = [
   { src: "/apps/waveplume/gallery/windows-transcript-20260907.webp", alt: "WavePlume for Windows displaying a fictional product planning transcript with clickable timestamps, search, and edit controls", caption: "Find the words you need", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-transcript-20260907-thumb.webp" },
   { src: "/apps/waveplume/gallery/windows-record-20260907.webp", alt: "WavePlume recording setup with Quick Note, Standard Meeting, and Archival Quality presets", caption: "Set up your next recording", width: 1920, height: 1080, thumbnail: "/apps/waveplume/gallery/windows-record-20260907-thumb.webp" },
@@ -92,7 +100,11 @@ export default function WavePlumePage() {
       </section>
 
       <section className="gallery-section platform-gallery-section wrap">
-        <div className="section-heading" data-arrival><h2>See the Windows workflow.</h2></div>
+        <div className="section-heading" data-arrival><h2>See the Mac and Windows workflows.</h2></div>
+        <div className="platform-gallery-group" data-arrival aria-labelledby="waveplume-mac-gallery">
+          <div className="platform-gallery-heading"><div><h3 id="waveplume-mac-gallery">Record. Transcribe. Summarize.</h3><p>The Mac edition, version 1.5.0, shown with fictional meeting content.</p></div></div>
+          <ScreenshotGallery items={macScreenshots} label="WavePlume for Mac" layout="featured" />
+        </div>
         <div className="platform-gallery-group" data-arrival aria-labelledby="waveplume-windows-gallery">
           <div className="platform-gallery-heading"><div><h3 id="waveplume-windows-gallery">Record. Find. Revisit.</h3><p>The Windows edition, shown with fictional meeting content.</p></div></div>
           <ScreenshotGallery items={screenshots} label="WavePlume for Windows" layout="featured" />
@@ -114,9 +126,9 @@ export default function WavePlumePage() {
       <section className="faq-section wrap">
         <div className="section-heading" data-arrival><h2>Frequently asked questions.</h2></div>
         <div className="faq-list" data-arrival>
-          <details><summary>Does WavePlume upload my meeting audio?</summary><p>No. Recording and transcription happen locally. An internet connection is needed to download a selected Whisper model before its first use. Optional connected features may also use the network.</p></details>
+          <details><summary>Does WavePlume upload my meeting audio?</summary><p>No. Recording and transcription happen locally. An internet connection is needed to download a selected Whisper model before its first use. On Mac, meeting summaries are also written on your Mac by default; a transcript goes to an online service only if you choose one and agree when the app asks. Optional connected features may also use the network.</p></details>
           <details><summary>Can I edit and reuse a transcript?</summary><p>Yes. On Windows, search the transcript, correct its text, and save your changes. Transcription produces text and SRT subtitle files; timestamp links can return you to the source recording when that media is present.</p></details>
-          <details><summary>Are the Mac and Windows editions identical?</summary><p>Both provide local recording and Whisper transcription. The screenshots and detailed controls on this page show the Windows edition; platform interfaces and individual tools differ.</p></details>
+          <details><summary>Are the Mac and Windows editions identical?</summary><p>Both provide local recording and Whisper transcription. The screenshots on this page show each edition separately, and the detailed controls listed above describe the Windows edition; platform interfaces and individual tools differ.</p></details>
           <details><summary>Is the trial really 14 days?</summary><p>Yes. The Windows trial gives you 14 days to test the workflow before buying through the Microsoft Store.</p></details>
           <details><summary>Can I record any meeting?</summary><p>WavePlume can capture system and microphone audio. You are responsible for following the recording and consent laws that apply to you and the people in the meeting.</p></details>
           <details><summary>Where can I get help?</summary><p>Visit <Link href="/apps/waveplume/support">WavePlume support</Link> or email <a href="mailto:support@shrpware.com">support@shrpware.com</a>.</p></details>
