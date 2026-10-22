@@ -5,8 +5,8 @@ import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
 import { links, releaseStatus } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "WavePlume — Private local meeting transcription",
-  description: "Record system audio and your microphone, then transcribe meetings locally with Whisper. No bot, cloud upload, account, or subscription.",
+  title: "WavePlume — Private on-device AI meeting transcription",
+  description: "Record system audio and your microphone, then transcribe meetings with on-device AI. On Mac, an AI summary is written on your computer too. No bot, cloud upload, account, or subscription.",
   alternates: { canonical: "/apps/waveplume" },
   openGraph: { images: ["/apps/waveplume/hero-windows-transcript-20260907.webp"] },
   twitter: { card: "summary_large_image", images: ["/apps/waveplume/hero-windows-transcript-20260907.webp"] },
@@ -18,7 +18,7 @@ const jsonLd = {
   name: "WavePlume",
   applicationCategory: "BusinessApplication",
   operatingSystem: "macOS, Windows 10, Windows 11",
-  description: "Private local meeting recording and transcription with Whisper.",
+  description: "Private meeting recording with on-device AI transcription (Whisper), and on Mac, on-device AI meeting summaries.",
   offers: { "@type": "Offer", price: "14.99", priceCurrency: "USD" },
   url: "https://shrpware.com/apps/waveplume",
   image: "https://shrpware.com/apps/waveplume/hero-windows-transcript-20260907.webp",
@@ -26,7 +26,7 @@ const jsonLd = {
 
 const features = [
   ["Bot-free recording", "Capture system audio and your microphone without inviting an assistant into the meeting."],
-  ["Local Whisper transcription", "Turn recordings into searchable text on your computer instead of uploading audio for processing."],
+  ["On-device AI transcription", "Turn recordings into searchable text with Whisper, an AI speech model that runs on your computer, instead of uploading audio for processing."],
   ["A library for your meetings", "Keep recordings and transcripts together, browse past sessions, and search meeting names in the Windows library."],
   ["Find the part you need", "Search transcript text and use timestamps to return to the corresponding moment in a recording."],
   ["Correct and export", "Edit a transcript on Windows, save your corrections, and keep text and subtitle files alongside the original media."],
@@ -79,8 +79,8 @@ export default function WavePlumePage() {
             <img src="/apps/waveplume/app-assets/png/waveplume-128.png" alt="" />
             <h1>WavePlume</h1>
           </div>
-          <h2>Your meetings, recorded and transcribed on your computer.</h2>
-          <p>Capture the conversation, turn it into searchable text with local Whisper, and keep the files in your own folders. No meeting bot, cloud upload, or subscription.</p>
+          <h2>Your meetings, recorded and transcribed by AI on your computer.</h2>
+          <p>Capture the conversation, turn it into searchable text with on-device AI, and on Mac get an AI summary written on your computer too. Keep the files in your own folders. No meeting bot, cloud upload, or subscription.</p>
           <StoreLinks />
           <p className="fine-print">Mac + Windows · $14.99 once</p>
         </div>
@@ -126,6 +126,7 @@ export default function WavePlumePage() {
       <section className="faq-section wrap">
         <div className="section-heading" data-arrival><h2>Frequently asked questions.</h2></div>
         <div className="faq-list" data-arrival>
+          <details><summary>Does WavePlume use AI?</summary><p>Yes, on your computer. Transcription uses Whisper, an AI speech-recognition model, on Mac and Windows. On Mac, WavePlume’s built-in AI model also writes meeting summaries on your Mac by default. You can choose Apple Intelligence instead, or an online service with your own key, and the app asks before a transcript leaves your Mac.</p></details>
           <details><summary>Does WavePlume upload my meeting audio?</summary><p>No. Recording and transcription happen locally. An internet connection is needed to download a selected Whisper model before its first use. On Mac, meeting summaries are also written on your Mac by default; a transcript goes to an online service only if you choose one and agree when the app asks. Optional connected features may also use the network.</p></details>
           <details><summary>Can I edit and reuse a transcript?</summary><p>Yes. On Windows, search the transcript, correct its text, and save your changes. Transcription produces text and SRT subtitle files; timestamp links can return you to the source recording when that media is present.</p></details>
           <details><summary>Are the Mac and Windows editions identical?</summary><p>Both provide local recording and Whisper transcription. The screenshots on this page show each edition separately, and the detailed controls listed above describe the Windows edition; platform interfaces and individual tools differ.</p></details>
