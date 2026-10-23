@@ -257,7 +257,7 @@ export function ScreenshotGallery({ items, label, layout = "grid" }: ScreenshotG
               <img
                 src={item.thumbnail ?? item.src}
                 srcSet={item.thumbnail ? `${item.thumbnail} 640w, ${item.src} ${item.width}w` : undefined}
-                sizes={item.thumbnail ? (layout === "featured" && index === 0 ? FEATURED_SIZES : layout === "featured" && items.length === 3 ? FEATURED_HALF_SIZES : GRID_SIZES) : undefined}
+                sizes={item.thumbnail ? (layout === "featured" && index === 0 ? FEATURED_SIZES : layout === "featured" && (items.length === 3 || items.length === 5) ? FEATURED_HALF_SIZES : GRID_SIZES) : undefined}
                 alt={item.alt}
                 width={item.width}
                 height={item.height}
