@@ -18,8 +18,9 @@
 .splash-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 6px 20px; align-items: start; height: 100%; padding: 24px 24px 22px; border: 1px solid var(--line); border-radius: 16px;
   background: linear-gradient(180deg, var(--panel-strong), var(--panel)); transition: border-color .18s, transform .18s, background .18s; }
 .splash-card:hover { border-color: var(--accent-line); transform: translateY(-2px); background: linear-gradient(180deg, #13233a, var(--panel)); }
-.splash-glyph { grid-row: span 3; display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid var(--line); border-radius: 14px; background: var(--accent-soft); }
-.splash-glyph svg { width: 40px; height: 40px; }
+/* each site's own logo, a rounded tile */
+.splash-glyph { grid-row: span 3; display: block; width: 64px; height: 64px; }
+.splash-glyph svg, .splash-glyph img { display: block; width: 64px; height: 64px; border-radius: 18px; box-shadow: 0 0 0 1px #ffffff14, 0 8px 22px #0006; }
 .splash-card h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; font-family: var(--font-landing-display, Arial), var(--font-geist-sans, Arial), sans-serif; font-size: 24px; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; }
 .splash-arrow { margin-left: auto; font-size: 18px; font-weight: 400; line-height: 1; color: var(--muted); transition: color .18s, transform .18s; }
 .splash-card:hover .splash-arrow { color: var(--accent); transform: translate(2px, -2px); }
@@ -34,8 +35,8 @@
   .splash-lede { font-size: 16px; }
   .splash-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 36px; }
   .splash-card { grid-template-columns: 48px minmax(0, 1fr); gap: 4px 14px; padding: 18px; }
-  .splash-glyph { width: 48px; height: 48px; border-radius: 12px; }
-  .splash-glyph svg { width: 30px; height: 30px; }
+  .splash-glyph, .splash-glyph svg, .splash-glyph img { width: 48px; height: 48px; }
+  .splash-glyph svg, .splash-glyph img { border-radius: 14px; }
   .splash-card h2 { font-size: 21px; }
 }
 @media (prefers-reduced-motion: reduce) { .splash-card, .splash-arrow { transition: none; } .splash-card:hover { transform: none; } }
