@@ -34,6 +34,7 @@ test("renders every public content route", async () => {
     "/compare/waveplume-vs-cloud-meeting-bots",
     "/compare/deltatxt-vs-heavyweight-editors",
     "/press",
+    "/splash",
   ];
 
   for (const route of routes) {
