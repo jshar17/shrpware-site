@@ -21,12 +21,8 @@ const places: Place[] = [
     shown: "lab.shrpware.com",
     text: "Power system simulators that run in your browser: a generator, line protection, stability, steady state, FACTS devices and distribution planning.",
     glyph: (
-      // three phases, a third of a cycle apart
-      <svg viewBox="0 0 40 40" fill="none" strokeWidth="2.2" strokeLinecap="round">
-        <path d="M3 20c3.5-11 7-11 10.5 0s7 11 10.5 0 7-11 10.5 0" stroke="#9aeaff" />
-        <path d="M3 26.5c2.8-4.6 5.9-7.6 9.2-6.4 3.6 1.3 6 11 9.6 11.4 3.1.4 6.2-7.1 9.2-15" stroke="#c7ff2f" opacity=".85" />
-        <path d="M3 13.5c2.8 4.6 5.9 7.6 9.2 6.4 3.6-1.3 6-11 9.6-11.4 3.1-.4 6.2 7.1 9.2 15" stroke="#ffbd9f" opacity=".85" />
-      </svg>
+      // the lab's logo: a phasor diagram, three phases a third of a cycle apart
+      <svg viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#16294d" /><circle cx="24" cy="24" r="15" fill="none" stroke="#83a9d6" strokeWidth="1.5" opacity=".5" /><path d="M24 24V11.5M24 24 13.2 30.3M24 24 34.8 30.3" stroke="#edf6fb" strokeWidth="3" strokeLinecap="round" /><circle cx="24" cy="11.5" r="3.4" fill="#5cdbc3" /><circle cx="13.2" cy="30.3" r="3.4" fill="#5aa9ff" /><circle cx="34.8" cy="30.3" r="3.4" fill="#f5a15a" /><circle cx="24" cy="24" r="2.3" fill="#edf6fb" /></svg>
     ),
   },
   {
@@ -35,13 +31,8 @@ const places: Place[] = [
     shown: "lab.shrpware.com/academy",
     text: "Five courses on transmission planning: NERC TPL-001, ERCOT's planning criteria, building the cases, proving the models and getting connected.",
     glyph: (
-      // a stack of standards
-      <svg viewBox="0 0 40 40" fill="none" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round">
-        <path d="M6 28.5 20 34l14-5.5" stroke="#ffbd9f" opacity=".55" />
-        <path d="M6 22.5 20 28l14-5.5" stroke="#ffbd9f" opacity=".8" />
-        <path d="M20 6 6 11.5 20 17l14-5.5L20 6Z" stroke="#ffbd9f" />
-        <path d="M6 11.5v5L20 22l14-5.5v-5" stroke="#ffbd9f" />
-      </svg>
+      // the academy's logo: a mortarboard, its tassel amber
+      <svg viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#2a2346" /><path d="M7 19.5 24 12l17 7.5L24 27 7 19.5Z" fill="none" stroke="#f3eefc" strokeWidth="3" strokeLinejoin="round" /><path d="M14.5 23.2v6.6c0 2.9 4.3 5 9.5 5s9.5-2.1 9.5-5v-6.6" fill="none" stroke="#b8a9e6" strokeWidth="2.4" strokeLinecap="round" /><path d="M38 21v7.5" stroke="#f3eefc" strokeWidth="2" strokeLinecap="round" /><circle cx="38" cy="31" r="3.4" fill="#ffc24d" /></svg>
     ),
   },
   {
@@ -50,12 +41,8 @@ const places: Place[] = [
     shown: "grid.shrpware.com",
     text: "ERCOT, NERC, PUCT and Texas Legislature activity in one place: today's meetings, new documents and a morning digest.",
     glyph: (
-      // a pulse on the grid
-      <svg viewBox="0 0 40 40" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 10h30M5 20h30M5 30h30" stroke="#ffffff" opacity=".14" />
-        <path d="M4 22h8l3-9 5 16 4-11 2 4h10" stroke="#c7ff2f" />
-        <circle cx="34" cy="22" r="2.4" fill="#c7ff2f" />
-      </svg>
+      // Grid Watch's own logo, as its header draws it
+      <svg viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#12334b" /><path d="M33 14H18l-5 5v14l5 5h15V25H24" fill="none" stroke="#edf6fb" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" /><path d="M13 25h6M24 14v6M24 32v6" stroke="#83b5c8" strokeWidth="2" strokeLinecap="round" /><circle cx="33" cy="14" r="4" fill="#5cdbc3" /></svg>
     ),
   },
   {
@@ -65,13 +52,8 @@ const places: Place[] = [
     internal: true,
     text: "WavePlume, private meeting transcription, and DeltaTxt, a code editor for compare and merge. For Mac and Windows.",
     glyph: (
-      // two apps
-      <svg viewBox="0 0 40 40" fill="none" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round">
-        <rect x="5" y="9" width="14" height="22" rx="4" stroke="#9aeaff" />
-        <path d="M9 17v6M12 15v10M15 18v4" stroke="#9aeaff" />
-        <rect x="22" y="9" width="13" height="22" rx="4" stroke="#e9f4fa" opacity=".8" />
-        <path d="M25.5 15h6M25.5 20h4M25.5 25h6" stroke="#e9f4fa" opacity=".8" />
-      </svg>
+      // ShrpWare's own mark (public/favicon.svg)
+      <img src="/favicon.svg" alt="" width={64} height={64} />
     ),
   },
 ];
