@@ -1,5 +1,6 @@
 export const site = {
   name: "ShrpWare",
+  legalName: "Shrpware LLC",
   url: "https://shrpware.com",
   email: "support@shrpware.com",
 };

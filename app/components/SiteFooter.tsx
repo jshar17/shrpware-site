@@ -1,4 +1,5 @@
 import { SafeLink as Link } from "./SafeLink";
+import { site } from "../lib/site";
 
 export function SiteFooter() {
   return (
@@ -26,7 +27,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="wrap footer-bottom">
-        <span>© {new Date().getFullYear()} ShrpWare</span>
+        <span>© {new Date().getFullYear()} {site.legalName}</span>
         <a href="mailto:support@shrpware.com">support@shrpware.com</a>
       </div>
     </footer>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SafeLink as Link } from "@/app/components/SafeLink";
 import { PageShell } from "@/app/components/PageShell";
 import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
-import { links, releaseStatus } from "@/app/lib/site";
+import { links, releaseStatus, site } from "@/app/lib/site";
 
 export const metadata: Metadata = {
   title: "WavePlume — Private on-device AI meeting transcription",
@@ -20,6 +20,7 @@ const jsonLd = {
   operatingSystem: "macOS, Windows 10, Windows 11",
   description: "Private meeting recording with on-device AI transcription (Whisper), and on Mac, on-device AI meeting summaries.",
   offers: { "@type": "Offer", price: "14.99", priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: site.legalName, url: site.url },
   url: "https://shrpware.com/apps/waveplume",
   image: "https://shrpware.com/apps/waveplume/hero-windows-transcript-20260907.webp",
 };

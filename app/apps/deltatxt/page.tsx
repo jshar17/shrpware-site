@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SafeLink as Link } from "@/app/components/SafeLink";
 import { PageShell } from "@/app/components/PageShell";
 import { ScreenshotGallery } from "@/app/components/ScreenshotGallery";
-import { links, releaseStatus } from "@/app/lib/site";
+import { links, releaseStatus, site } from "@/app/lib/site";
 
 const description = "DeltaTxt is a free, native code editor and diff tool for Mac and Windows: file compare, three-way merge, find in files, folder compare, and a large log viewer. The Mac edition adds Markdown preview and a JSON formatter.";
 const socialImage = { url: "/apps/deltatxt/gallery/mac-code-editor.webp", width: 1920, height: 1080, alt: "DeltaTxt code editor for Mac with a Python project open" };
@@ -52,7 +52,7 @@ const windowsScreenshots = [
 
 const pageUrl = "https://shrpware.com/apps/deltatxt";
 const macAppStoreUrl = "https://apps.apple.com/us/app/deltatxt/id6804090746";
-const publisher = { "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com" };
+const publisher = { "@type": "Organization", name: site.legalName, url: site.url };
 const absolute = (path: string) => `https://shrpware.com${path}`;
 
 // Two nodes because the editions ship on separate version tracks, and only the
