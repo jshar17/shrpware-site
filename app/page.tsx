@@ -4,6 +4,7 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { LandingMotion, AudioSignal } from "./components/LandingMotion";
 import { HeroStage } from "./components/HeroStage";
+import { site } from "./lib/site";
 import "./landing.css";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   description: "Independent desktop software for work that matters. Record and transcribe locally with WavePlume. Edit, compare, and debug with DeltaTxt. Mac + Windows. No subscription.",
   alternates: { canonical: "/" },
 };
-const organizationJsonLd = { "@context": "https://schema.org", "@type": "Organization", name: "ShrpWare", url: "https://shrpware.com", email: "support@shrpware.com", logo: "https://shrpware.com/brand/shrpware-wordmark.svg" };
+const organizationJsonLd = { "@context": "https://schema.org", "@type": "Organization", name: site.name, legalName: site.legalName, url: site.url, email: site.email, logo: `${site.url}/brand/shrpware-wordmark.svg` };
 
 export default function Home() {
   return <main id="top" className="site-shell landing">

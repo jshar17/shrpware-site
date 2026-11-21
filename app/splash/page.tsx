@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SafeLink as Link } from "@/app/components/SafeLink";
+import { site } from "@/app/lib/site";
 import "./splash.css";
 
 // A page to hand out: every ShrpWare site in one place. Nothing on the main site links here, and it stays out of the
@@ -92,7 +93,7 @@ export default function SplashPage() {
         </main>
 
         <footer className="splash-foot">
-          <span>© 2026 ShrpWare</span>
+          <span>© 2026 {site.legalName}</span>
           <a href="mailto:support@shrpware.com">support@shrpware.com</a>
         </footer>
       </div>

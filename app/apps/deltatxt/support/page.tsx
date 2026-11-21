@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SafeLink as Link } from "@/app/components/SafeLink";
 import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
+import { site } from "@/app/lib/site";
 
 export const metadata: Metadata = { title: "DeltaTxt support", description: "Installation and troubleshooting help for DeltaTxt editing, find and replace, text comparison, and large files on Mac and Windows.", alternates: { canonical: "/apps/deltatxt/support" } };
 
@@ -15,6 +16,6 @@ export default function DeltaTxtSupport() {
       <details><summary>A large file is slow to open</summary><p>Keep the file on a local drive when possible. For a file too large to edit comfortably, use Find in Large File or Streaming Replace so DeltaTxt can process it without loading the entire file into a normal tab.</p></details>
       <details><summary>Where are recovery snapshots?</summary><p>Recovery data is stored locally. Reopen DeltaTxt after an unexpected exit and use the available recovery prompt before replacing the affected file.</p></details>
       <details><summary>Does DeltaTxt send crash or usage data?</summary><p>No. There is no telemetry, analytics, advertising, or automatic crash submission.</p></details>
-    </div><h2>Still stuck?</h2><p>Email <a href="mailto:support@shrpware.com">support@shrpware.com</a> with your macOS or Windows version, DeltaTxt version, and steps to reproduce the problem. Remove confidential text before sharing a sample.</p></article>
+    </div><h2>Still stuck?</h2><p>{site.legalName} provides support for DeltaTxt. Email <a href="mailto:support@shrpware.com">support@shrpware.com</a> with your macOS or Windows version, DeltaTxt version, and steps to reproduce the problem. Remove confidential text before sharing a sample.</p></article>
   </PageShell>;
 }

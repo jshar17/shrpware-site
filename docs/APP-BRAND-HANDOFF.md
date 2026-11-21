@@ -39,7 +39,8 @@ re-stage a copy here; a second copy is how the two drift apart.
 
 ## Identity rules
 
-- Company name in prose: **ShrpWare**
+- Brand name in prose and app-facing attribution: **ShrpWare**
+- Legal company name when identifying the site operator or legal publisher: **Shrpware LLC**
 - Full display wordmark: **SHRPWARE** followed by an oversized Angular S
 - Symbol name: **Angular S**
 - Tagline: **Apps with an edge.**

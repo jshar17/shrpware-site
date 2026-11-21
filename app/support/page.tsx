@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { SafeLink as Link } from "@/app/components/SafeLink";
 import { ArticleHero, PageShell } from "@/app/components/PageShell";
+import { site } from "@/app/lib/site";
 
-export const metadata: Metadata = { title: "Support", description: "Get help with WavePlume or DeltaTxt, or reach ShrpWare by email.", alternates: { canonical: "/support" } };
+export const metadata: Metadata = { title: "Support", description: `Get help with WavePlume or DeltaTxt, or reach ${site.legalName} by email.`, alternates: { canonical: "/support" } };
 
 export default function SupportPage() {
-  return <PageShell><ArticleHero title="Support." intro="Pick the product you need help with, or email us directly." />
+  return <PageShell><ArticleHero title="Support." intro={`${site.legalName} provides support for WavePlume and DeltaTxt. Pick the product you need help with, or email the company directly.`} />
     <article className="article-body wrap">
       <div className="link-card-grid">
         <Link href="/apps/waveplume/support"><strong>WavePlume</strong><small>Audio, transcripts, models, and licensing</small><b>→</b></Link>

@@ -15,6 +15,14 @@ async function fetchPath(path, init) {
   return worker.fetch(new Request(`https://shrpware.com${path}`, init), env, ctx);
 }
 
+// React puts an empty comment between adjacent text nodes, so a sentence built from
+// literal text and a value arrives split. Drop those separators before matching prose.
+async function fetchProse(path) {
+  const response = await fetchPath(path, { headers: { accept: "text/html" } });
+  assert.equal(response.status, 200, path);
+  return (await response.text()).replaceAll("<!-- -->", "");
+}
+
 test("renders every public content route", async () => {
   const routes = [
     "/",
@@ -33,6 +41,7 @@ test("renders every public content route", async () => {
     "/use-cases/file-comparison-merge",
     "/compare/waveplume-vs-cloud-meeting-bots",
     "/compare/deltatxt-vs-heavyweight-editors",
+    "/support",
     "/press",
     "/splash",
   ];
@@ -44,6 +53,42 @@ test("renders every public content route", async () => {
     const html = await response.text();
     assert.match(html, /SHRPWARE|ShrpWare/, route);
   }
+});
+
+test("identifies Shrpware LLC as the legal operator and product publisher", async () => {
+  const homeHtml = await fetchProse("/");
+  const organization = JSON.parse(homeHtml.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(organization.name, "ShrpWare");
+  assert.equal(organization.legalName, "Shrpware LLC");
+  assert.match(homeHtml, /© \d{4} Shrpware LLC/);
+
+  const waveplumeHtml = await fetchProse("/apps/waveplume");
+  const waveplumeSoftware = JSON.parse(waveplumeHtml.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(waveplumeSoftware.publisher.name, "Shrpware LLC");
+
+  const deltatxtHtml = await fetchProse("/apps/deltatxt");
+  const deltatxtSoftware = JSON.parse(deltatxtHtml.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  for (const edition of deltatxtSoftware["@graph"]) {
+    assert.equal(edition.publisher.name, "Shrpware LLC");
+  }
+
+  const waveplumePrivacyHtml = await fetchProse("/apps/waveplume/privacy");
+  assert.match(waveplumePrivacyHtml, /WavePlume is provided by Shrpware LLC, a Texas limited liability company\./);
+  assert.match(waveplumePrivacyHtml, /Shrpware LLC operates this site and can be reached at/);
+
+  const deltatxtPrivacyHtml = await fetchProse("/apps/deltatxt/privacy");
+  assert.match(deltatxtPrivacyHtml, /DeltaTxt is provided by Shrpware LLC, a Texas limited liability company\./);
+  assert.match(deltatxtPrivacyHtml, /Shrpware LLC operates this site and can be reached at/);
+
+  assert.match(await fetchProse("/apps/waveplume/support"), /Shrpware LLC provides support for WavePlume\./);
+  assert.match(await fetchProse("/apps/deltatxt/support"), /Shrpware LLC provides support for DeltaTxt\./);
+  assert.match(await fetchProse("/support"), /Shrpware LLC provides support for WavePlume and DeltaTxt\./);
+
+  const pressHtml = await fetchProse("/press");
+  assert.match(pressHtml, /Shrpware LLC makes WavePlume/);
+  assert.match(pressHtml, /under the ShrpWare brand\./);
+
+  assert.match(await fetchProse("/splash"), /© 2026 Shrpware LLC/);
 });
 
 test("publishes search metadata routes", async () => {

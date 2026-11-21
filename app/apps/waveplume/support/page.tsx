@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArticleHero, BackToApp, PageShell } from "@/app/components/PageShell";
+import { site } from "@/app/lib/site";
 
 export const metadata: Metadata = { title: "WavePlume support", description: "Setup and troubleshooting help for WavePlume on macOS and Windows.", alternates: { canonical: "/apps/waveplume/support" } };
 
@@ -19,7 +20,7 @@ export default function WavePlumeSupport() {
         <details><summary>Who is responsible for recording consent?</summary><p>You are. Recording laws and workplace policies vary. Make sure everyone receives any notice or consent required in your situation.</p></details>
       </div>
       <h2>Still stuck?</h2>
-      <p>Email <a href="mailto:support@shrpware.com">support@shrpware.com</a> with your operating system, WavePlume version, and what happened. Do not attach private recordings unless requested and safe to share.</p>
+      <p>{site.legalName} provides support for WavePlume. Email <a href="mailto:support@shrpware.com">support@shrpware.com</a> with your operating system, WavePlume version, and what happened. Do not attach private recordings unless requested and safe to share.</p>
     </article>
   </PageShell>;
 }
