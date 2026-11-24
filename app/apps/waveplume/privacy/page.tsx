@@ -6,10 +6,11 @@ export const metadata: Metadata = { title: "WavePlume privacy policy", descripti
 
 export default function WavePlumePrivacy() {
   return <PageShell accent="waveplume">
-    <ArticleHero title="How WavePlume handles your data." intro="Effective October 22, 2026. This policy explains how WavePlume uses files, permissions, clipboard handoffs, optional summaries, and network access." />
+    <ArticleHero title="How WavePlume handles your data." intro="Effective November 23, 2026. This policy explains how WavePlume uses files, permissions, clipboard handoffs, optional summaries, and network access." />
     <article className="article-body wrap policy-copy">
       <BackToApp href="/apps/waveplume">Back to WavePlume</BackToApp>
       <p>WavePlume is provided by {site.legalName}, a Texas limited liability company. {site.legalName} operates this site and can be reached at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+      <p>This policy covers WavePlume for Mac and Windows, and WavePlume: Meeting Notes, the iPhone app. The section “WavePlume for iPhone” applies to the iPhone app. The other sections describe the Mac and Windows apps, except “Collection and sharing,” “Your responsibility when recording,” and “Questions and changes,” which apply to all of them.</p>
       <h2>Local content</h2><p>WavePlume records selected screens or windows, system audio, and microphone audio, then creates transcripts on your device. It does not require an account and does not provide cloud storage for your meeting content.</p>
       <h2>No analytics or advertising</h2><p>The app does not include product analytics, behavioral advertising, or automatic upload of recordings, transcripts, or crash reports.</p>
       <h2>Model downloads</h2><p>When you choose a Whisper model, WavePlume may connect to Hugging Face to download model files. The Windows app uses Whisper.net’s model downloader. The Mac app uses WhisperKit, which downloads Argmax’s WhisperKit model files and, from a second Hugging Face repository, OpenAI’s matching Whisper tokenizer files. The Mac app also downloads WavePlume’s internal summary model, a model made by Google DeepMind, from Hugging Face, once, and only after you agree. These requests download model data and do not upload your meeting audio, video, or transcript.</p>
@@ -24,7 +25,58 @@ export default function WavePlumePrivacy() {
       <p>WavePlume keeps recordings, transcripts, and summaries in the Recording Library folder on your own computer, apart from the temporary copies described above and any copy you save or send yourself, and keeps nothing about them on any server operated by {site.legalName}. On Mac, the library is the folder you choose; in the App Store version it defaults to a folder inside the app’s sandboxed container. The settings you enter, such as email addresses and a summary server address, stay on your Mac. To delete a meeting on Mac, use Move to Trash in the library or move its folder to the Trash in Finder; the recording, transcript, and summary go with it. On Windows, session folders in your recording library are ordinary folders you can open and delete in Explorer.</p>
       <p>On Mac, Settings can delete downloaded transcription models and remove the summary model, and Remove Key under Summaries in Settings removes an API key from your keychain (you can also remove it in Keychain Access).</p>
       <p>You can change microphone and screen recording access for WavePlume at any time in your operating system’s privacy settings, which on Mac is Privacy &amp; Security in System Settings. A transcript you sent to an online summary service, or pasted into a chat assistant, is held by that service under its own terms, so ask that service if you want it deleted; {site.legalName} holds no copy.</p>
+      <h2>WavePlume for iPhone</h2>
+      <p>WavePlume: Meeting Notes, the iPhone app, works the same way as the Mac app: there is no account, no sign-in to use it, and no server of ours. {site.legalName} does not receive your recordings, transcripts, summaries, notes, or calendar. The app includes no advertising or analytics SDK and does not track you.</p>
+      <h3>What the iPhone app stores on your iPhone</h3>
+      <p>At your direction, the app creates and keeps:</p>
+      <ul>
+        <li>audio recorded with the iPhone’s microphone, and audio or video files you import;</li>
+        <li>notes you type during a recording, and moments you flag;</li>
+        <li>transcripts and summaries, and earlier versions of a summary you rewrote;</li>
+        <li>for a note recorded from your calendar, the meeting’s title, start and end time, its video-call service and join link, and the first names of the people invited;</li>
+        <li>which action items you added to Reminders;</li>
+        <li>a diagnostics file for each note, with timings, interruptions, battery level at the start and end, and which speech engine and summary writer were used;</li>
+        <li>your settings, including words you asked transcripts to spell right;</li>
+        <li>API keys you enter for an online summary service, and a Microsoft sign-in if you use one, in the app’s keychain on this iPhone.</li>
+      </ul>
+      <p>Notes are kept in WavePlume’s folder on the iPhone, which you can also see in the Files app. Deleted notes stay in Recently Deleted for 30 days and are then removed. Your iPhone’s own backups (to iCloud or a computer, as you have set them up) include these notes. The model files the app downloads are left out of backups.</p>
+      <p>If “Show notes in Search” is on (Settings &gt; Search &amp; Privacy), note titles, summaries, action items, and transcript text are added to Spotlight on this iPhone, so you can find them in Search. Turning it off removes them. This index stays on the iPhone.</p>
+      <h3>Transcription on the iPhone</h3>
+      <p>Transcripts are always made on the iPhone. On iOS 26 and later the app uses Apple’s on-device speech recognition; iOS may download the language files it needs from Apple the first time. On earlier iOS versions, or if you choose it, the app uses Whisper, through WhisperKit, and downloads the Whisper model you use from Hugging Face the first time (from an Argmax repository, with its tokenizer files from a second Hugging Face repository). If you turn on Identify speakers, the app downloads small speaker models from Hugging Face the same way. Your audio and transcripts are not sent with any of these requests; the services may see ordinary connection details such as your IP address.</p>
+      <h3>Summaries on the iPhone</h3>
+      <p>You choose who writes summaries, in Settings &gt; Summary writer:</p>
+      <ul>
+        <li><strong>WavePlume Compact</strong>, a model made by Google DeepMind, run on the iPhone (iPhone 15 Pro or later). It downloads from Hugging Face, about 3.35 GB, over Wi-Fi only, and only when you tap Download. After that, summaries are written on the iPhone and nothing is sent.</li>
+        <li><strong>Apple Intelligence</strong>, on the iPhone (iOS 26 and a supported iPhone). Nothing is sent.</li>
+        <li><strong>Groq, an online service you choose</strong>, with an API key from your own Groq account. When you choose it, the app says how Groq may use what it receives and asks before anything is sent; Cancel sends nothing. Once you agree, the app sends each note’s transcript to Groq to write its summary, including notes summarized automatically after recording and notes that were waiting for a summary. Choosing another writer stops automatic summaries going to Groq, but your agreement stays, so you can still pick Groq for a single summary with Write Again; Stop Sending Transcripts Here withdraws it, and also stops a summary in progress. What Groq has already received can’t be recalled by the app. Groq’s terms require you to be 18 or older. With the transcript, which can contain the names of people in the meeting, the app sends the meeting’s title (which may come from your calendar) and length, the words you listed under Words to spell right, any instruction you type when rewriting a summary, and, to name the note, the start of its summary. Audio is never sent. The request goes directly from your iPhone to Groq with your API key, which identifies your account to Groq, and with your IP address and standard request details.</li>
+      </ul>
+      <p>{site.legalName} does not receive these transcripts or summaries and cannot see your API keys. The service you choose handles what it receives under its own terms and privacy policy. Groq states that it does not train on what you send and may keep requests for up to 30 days to investigate abuse and keep its service running, and that it keeps records of your account’s usage.</p>
+      <h3>Calendars</h3>
+      <p>The Up next card can show your next meeting, so you can record it in one tap and name the note after it. It is optional.</p>
+      <ul>
+        <li><strong>iPhone Calendar:</strong> if you allow Calendar access, the app reads events from the calendars on your iPhone, from two hours ago to twelve hours ahead, on the iPhone only. Nothing is sent anywhere. You can turn off individual calendars in Settings &gt; Calendars.</li>
+        <li><strong>Sign in with Microsoft:</strong> for a Microsoft 365 work or school account, or an Outlook.com account. You sign in on Microsoft’s own page, or through Microsoft Authenticator if it is installed, using Microsoft’s sign-in library. Microsoft receives your sign-in, keeps its own records of it, and receives the library’s version, the iOS version, and the iPhone model with each sign-in request. The app then asks Microsoft Graph for read-only access to your calendar and your account’s email address (permissions Calendars.Read and User.Read), and reads your meetings from two hours ago to twelve hours ahead directly from Microsoft to your iPhone. Your email address is used only to leave you out of the list of people invited. The sign-in is kept in the app’s keychain on this iPhone; Sign Out in Settings &gt; Calendars removes it. Microsoft handles your sign-in under its own privacy statement and your organization’s agreement with Microsoft.</li>
+      </ul>
+      <h3>Reminders, sharing, and export</h3>
+      <ul>
+        <li><strong>Reminders:</strong> if you add a note’s action items to Reminders and allow access, the app creates reminders in a list called WavePlume. They are kept by Apple’s Reminders app like any other reminder, including in iCloud if you use it.</li>
+        <li><strong>Sharing:</strong> Email, Share, and Save to Files send what you choose (summary sections, your notes, the transcript, the recording) only where you send it, using iOS’s mail, share sheet, or Files. The app does not send email itself.</li>
+        <li><strong>Automatic export:</strong> if you choose a folder in Settings &gt; Export, each new note’s summary, transcript, or audio is saved there as you selected, once its summary has been written. If that folder is in iCloud Drive or another provider’s storage, that provider stores the copies.</li>
+        <li><strong>Diagnostics:</strong> Export diagnostics creates a file you can share; it goes only where you send it.</li>
+        <li><strong>Copies iOS makes:</strong> text you copy goes to the iOS pasteboard, which Universal Clipboard can pass to your other Apple devices, and the app’s notes and recordings are included in your iCloud or computer backup like any app’s documents. These are iOS features under your control; {site.legalName} receives nothing.</li>
+      </ul>
+      <h3>iPhone permissions</h3>
+      <p>The app asks for each permission when you first use the feature that needs it:</p>
+      <ul>
+        <li><strong>Microphone:</strong> to record. Required for recording.</li>
+        <li><strong>Calendars:</strong> optional, for Up next.</li>
+        <li><strong>Reminders:</strong> optional, to add action items.</li>
+        <li><strong>Notifications:</strong> optional, to tell you when a summary is ready or a recording has paused. They are created on the iPhone; the app uses no push notification service.</li>
+      </ul>
+      <p>While recording, the app keeps running in the background so recording continues with the screen locked. A phone call or Siri pauses the recording; the app detects that a call started but does not record it. Siri and Shortcuts can start, flag, and stop a recording, and read your latest summary or this week’s action items when you ask. “Hide note titles” in Settings shows “Recording” instead of a note’s name on the Lock Screen and in notifications.</p>
+      <p>You can change these permissions in the iPhone’s Settings app.</p>
       <h2>Collection and sharing</h2><p>{site.legalName} does not collect, sell, or share your recordings, transcripts, or app usage through WavePlume. Files you place in a third-party synced folder are subject to that provider’s terms. A transcript you choose to paste into a browser or another app, or ask the Mac app to send to a summary service, is governed by that destination’s terms. Because a transcript you send for an online summary leaves your device and may be kept by that service, the Mac App Store listing declares it as user content collected for app functionality, not linked to you and not used for tracking.</p>
+      <p>The same applies to the iPhone app: an online summary, or a Microsoft sign-in, goes from your iPhone to the service you chose, under your own account with that service, and {site.legalName} does not receive it. Because that request carries your own API key or Microsoft sign-in, the iPhone app’s App Store listing declares the content sent as linked to you, collected for app functionality, and not used for tracking, along with the account details Microsoft’s sign-in library handles.</p>
       <h2>Your responsibility when recording</h2><p>You are responsible for complying with applicable recording-consent laws, workplace rules, and meeting policies.</p>
       <h2>Questions and changes</h2><p>Questions for {site.legalName} can be sent to <a href={`mailto:${site.email}`}>{site.email}</a>. Material policy changes will be posted on this page with a new effective date.</p>
     </article>
